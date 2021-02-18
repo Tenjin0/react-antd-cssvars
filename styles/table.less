@@ -1,0 +1,62 @@
+@import './variables.less';
+
+@pagination-prefix: ~"@{ant-prefix}-pagination";
+@table-prefix: ~"@{ant-prefix}-table";
+
+.@{pagination-prefix}-item-active {
+  border-color: @antd-primary-color;
+
+  & a {
+    color: @antd-primary-color;
+  }
+}
+
+.@{pagination-prefix}-item {
+	&:focus,
+  &:hover {
+    border-color: @antd-primary-color;
+
+    & a {
+      color: @antd-primary-color;
+    }
+  }
+}
+
+.@{pagination-prefix}-prev:focus,
+.@{pagination-prefix}-next:focus,
+.@{pagination-prefix}-prev:hover,
+.@{pagination-prefix}-next:hover {
+  & .@{pagination-prefix}-item-link {
+    border-color: @antd-primary-color;
+    color: @antd-primary-color;
+  }
+
+}
+
+.@{table-prefix}-column-sorter-up.active, .@{table-prefix}-column-sorter-down.active {
+	color: @antd-primary-color;
+}
+
+.@{table-prefix}-thead {
+	color: @antd-text-color;
+
+	& > tr > th {
+		background: @antd-table-head-background;
+	}
+	& th.@{table-prefix}-column-sort {
+		background: @antd-table-head-background-selected;
+	}
+	& th.@{table-prefix}-column-has-sorters:hover {
+		background: @antd-table-head-background-hover;
+	}
+}
+
+.@{table-prefix}-tbody {
+	& > tr.@{table-prefix}-row:hover > td {
+		background:@antd-background-hover;
+	}
+
+	& > tr > td.@{table-prefix}-column-sort {
+    background: @antd-text-color-inv;
+	}
+}

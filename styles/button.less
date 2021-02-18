@@ -1,0 +1,86 @@
+@import './variables.less';
+
+@button-prefix: ~"@{ant-prefix}-btn";
+
+.@{button-prefix} {
+
+  &[disabled] {
+    color: @antd-disable-color;
+  }
+
+  &:not([disabled]) {
+    color: @antd-primary-color;
+		border-color: @antd-primary-color;
+    &:hover {
+      color: @antd-primary-color-hover;
+      border-color: @antd-primary-color-hover;
+    }
+  }
+
+  &.btn-uppercase {
+    text-transform: uppercase;
+    letter-spacing: 0.06rem;
+  }
+
+  &.@{button-prefix}-primary:not([disabled]) {
+    color: @antd-text-color-inv;
+    background-color: @antd-primary-color;
+    border-color: @antd-primary-color;
+
+    &:hover {
+      background-color: @antd-primary-color-hover;
+      border-color: @antd-primary-color-hover;
+    }
+  }
+
+  &.@{button-prefix}-dangerous:not([disabled]) {
+    color: @antd-text-color-inv;
+    background-color: @antd-danger-color;
+    border-color: @antd-danger-color;
+
+    &:hover {
+      background-color: @antd-danger-color-hover;
+      border-color: @antd-danger-color-hover;
+    }
+  }
+
+  &.btn-secondary:not([disabled]) {
+    color: @antd-text-color-inv;
+    border-color: @antd-secondary-color;
+    background-color: @antd-secondary-color;
+
+    &:hover {
+      background-color: @antd-secondary-color-hover;
+      border-color: @antd-secondary-color-hover;
+    }
+  }
+
+  &.@{button-prefix}-link {
+		border-color: transparent;
+		&:not([disabled]) {
+			color: @antd-primary-color;
+
+			&:hover {
+				color: @antd-primary-color-hover;
+				border-color: transparent;
+			}
+		}
+	}
+
+  &.@{button-prefix}-text {
+		border-color: transparent;
+		&:not([disabled]) {
+			color: @antd-primary-color;
+			&:hover {
+				color: @antd-primary-color-hover;
+				border-color: transparent;
+			}
+		}
+	}
+
+
+  &.@{button-prefix}.@{button-prefix}-xs {
+    height: 34px;
+    font-size: 11px;
+  }
+}
