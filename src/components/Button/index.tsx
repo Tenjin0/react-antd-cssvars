@@ -4,7 +4,7 @@ import { ButtonType } from "antd/lib/button/button";
 
 import classNames from 'classnames';
 
-export declare const ExtendButtonTypes: ["danger", "secondary"];
+export declare const ExtendButtonTypes: ["secondary"];
 export type IExtendButtonType = typeof ExtendButtonTypes[number];
 
 export declare type TLegacyButton = ButtonType | IExtendButtonType
@@ -17,19 +17,14 @@ const ButtonComponent: React.FC<IButtonProps> = props => {
 
 	const convertLegacyProps: () =>  ButtonProps = () => {
 		let type = props.type || undefined
-		const danger = props.type === "danger";
 
-		if (props.type === "danger") {
-				type =  undefined;
-		}
 		if (props.type === "secondary") {
 			type =  undefined;
 		}
 
 		return {
 			type: type as ButtonType,
-			danger,
-			className: classNames(props.className, {"btn-secondary": props.type === "secondary", "btn-uppercase": props.uppercase })
+			className: classNames(props.className, {"ant-btn-secondary": props.type === "secondary", "btn-uppercase": props.uppercase })
 		}
 	}
 

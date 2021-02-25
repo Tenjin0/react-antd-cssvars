@@ -12,6 +12,6 @@
     "esModuleInterop": true
 	},
 	"include": ["./src/", "src/context/theme/.ts"],
-	"exclude": ["**/build/**", "**/coverage/**", "**/dist/**", "**/node_modules/**", "**/*.js", "src/**/*.stories.tsx",
+	"exclude": ["**/build/**", "**/coverage/**", "**/dist/**", "**/node_modules/**", "**/*.js", "src/**/stories.tsx",
     "src/**/*.test.tsx"]
 }

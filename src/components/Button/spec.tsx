@@ -15,15 +15,14 @@ describe("Test Component", () => {
 
 	});
 
-	const renderComponent = () => render(<ButtonComponent id="button-component" {...props} />);
+	const renderComponent = () => render(<ButtonComponent data-testid="button-component" {...props} />);
 
 	it("should have primary className with set as default", () => {
 
 		const { getByTestId } = renderComponent();
 
 		const testComponent = getByTestId("button-component");
-
-		// expect(testComponent).toHaveClass("test-component-default");
+		expect(testComponent).toHaveClass("ant-btn-default");
 	});
 
 	it("should have secondary className with theme set as primary", () => {
@@ -32,6 +31,15 @@ describe("Test Component", () => {
 
 		const testComponent = getByTestId("button-component");
 
-		// expect(testComponent).toHaveClass("test-component-secondary");
+		expect(testComponent).toHaveClass("ant-btn-primary");
+	});
+
+	it("should have secondary className with theme set as secondary", () => {
+		props.type = "secondary";
+		const { getByTestId } = renderComponent();
+
+		const testComponent = getByTestId("button-component");
+
+		expect(testComponent).toHaveClass("ant-btn-secondary");
 	});
 })

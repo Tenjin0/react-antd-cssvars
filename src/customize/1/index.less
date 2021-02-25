@@ -1,0 +1,58 @@
+@import '../../styles/variables.less';
+@import '../../styles/table.less';
+@import '../../styles/tabs.less';
+@import '../../styles/collapse.less';
+@import '../../styles/default.less';
+
+@default-antd-table-head-text-color: @default-antd-primary-color;
+@default-antd-table-head-background: #e8f4ff;
+@default-antd-table-head-background-hover: #d1e9ff;
+@default-antd-table-head-background-selected: #46a6ff;
+@default-antd-table-head-background-selected-hover: @default-antd-primary-color;
+
+
+.@{table-prefix}-thead {
+	& > tr > th {
+		font-weight: 600;
+
+	}
+	th.@{table-prefix}-column-sort {
+		color: @antd-text-color-inv;
+	}
+}
+
+.@{pagination-prefix}-item-active {
+	background-color: @antd-primary-color;
+  & a {
+    color: @antd-text-color-inv;
+		&:hover {
+			color: @antd-text-color-inv;
+		}
+  }
+}
+.@{tabs-prefix}-tab {
+
+	margin: 0 8px 0 0;
+	padding: 8px 16px;
+	&.@{tabs-prefix}-tab-active {
+		background-color:  @antd-table-head-background;
+	}
+}
+
+.@{tabs-prefix}-nav .@{tabs-prefix}-tab:not(.@{tabs-prefix}-tab-active) {
+	color: #666666;
+	&:hover {
+		background-color: #EDEDED;
+	}
+}
+
+.@{collapse-prefix} > .@{collapse-prefix}-item > .@{collapse-prefix}-header {
+	color: @antd-primary-color;
+	font-size: 15px;
+
+	& .ant-collapse-arrow {
+		top: 40%;
+		padding: 0;
+	}
+
+}

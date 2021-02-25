@@ -35,18 +35,23 @@
 
 .@{table-prefix}-column-sorter-up.active, .@{table-prefix}-column-sorter-down.active {
 	color: @antd-primary-color;
+	filter: contrast(50%) brightness(150%);
 }
 
 .@{table-prefix}-thead {
 	color: @antd-text-color;
 
 	& > tr > th {
+		color: @antd-table-head-text-color;
 		background: @antd-table-head-background;
 	}
 	& th.@{table-prefix}-column-sort {
 		background: @antd-table-head-background-selected;
+		&:hover {
+			background: @antd-table-head-background-selected-hover;
+		}
 	}
-	& th.@{table-prefix}-column-has-sorters:hover {
+	& th.@{table-prefix}-column-has-sorters:hover:not(.@{table-prefix}-column-sort) {
 		background: @antd-table-head-background-hover;
 	}
 }

@@ -1,0 +1,20 @@
+@import './variables.less';
+
+@radio-prefix: ~"@{ant-prefix}-radio";
+
+.@{radio-prefix}-wrapper:hover .@{radio-prefix}, .@{radio-prefix}:hover .@{radio-prefix}-inner, .@{radio-prefix}-input:focus + .@{radio-prefix}-inner {
+	border-color: @antd-primary-color-hover;
+}
+.@{radio-prefix}-checked  {
+	&::after {
+		border: 1px solid @antd-primary-color;
+	}
+	& .@{radio-prefix}-inner {
+		background-color: @antd-primary-color;
+		border-color: @antd-primary-color;
+
+		&::after {
+			background-color: @antd-primary-color;
+		}
+	}
+}

@@ -1,0 +1,11 @@
+@import './variables.less';
+
+@select-prefix: ~"@{ant-prefix}-select";
+
+.@{select-prefix}:not(.@{select-prefix}-disabled):hover .@{select-prefix}-selector {
+	border-color: @antd-primary-color;
+}
+
+.@{select-prefix}-focused:not(.@{select-prefix}-disabled).@{select-prefix}:not(.@{select-prefix}-customize-input) .@{select-prefix}-selector {
+	border-color: @antd-primary-color;
+}

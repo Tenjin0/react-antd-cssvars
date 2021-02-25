@@ -4,6 +4,7 @@ import { withKnobs, select, boolean, color } from '@storybook/addon-knobs';
 
 import {Button, Theme, TThemeColorTypes } from '../../index';
 import { TLegacyButton } from '.';
+import { SizeType } from 'antd/lib/config-provider/SizeContext';
 export default {
   title: "Button"
 };
@@ -11,11 +12,21 @@ export default {
 const themes = {
   Primary: 'primary',
   secondary: 'secondary',
-  danger: 'danger',
   default: 'default',
 	link: 'link'
 };
 
+
+// const themes = {
+//   Primary: 'primary',
+//   secondary: 'secondary',
+//   danger: 'danger',
+//   default: 'default',
+// 	link: 'link'
+// };
+
+
+const sizes = ['small','middle', 'large' ]
 
 const computed = (key: TThemeColorTypes, value: string) => {
 
@@ -30,15 +41,17 @@ storiesOf('Button', module)
  .addDecorator(withKnobs)
  .add('with parameters', () => {
 		const buttonType = select('theme', themes, "primary", 'GROUP-ID1') as TLegacyButton
-		const uppercase = boolean('uppercase', false, 'GROUP-ID1');
+		const uppercase = boolean('uppercase', false, 'GROUP-ID1')
+		const size = select('size', sizes, "middle", 'GROUP-ID1') as SizeType
 		const primaryColor = color('primary color', theme.get("primary-color"),  'GROUP-ID1')
 		theme.set("primary-color", primaryColor)
 		const secondaryColor = color('secondary color', theme.get("secondary-color"),  'GROUP-ID1')
 		theme.set("secondary-color", secondaryColor)
 		const dangerColor = color('danger color', theme.get("danger-color"),  'GROUP-ID1')
 		theme.set("danger-color", dangerColor)
+
 	 	return (
-			<Button type={buttonType} uppercase={uppercase}>{buttonType}</Button>
+			<Button type={buttonType} uppercase={uppercase} size={size}>{buttonType}</Button>
 		 )
  })
 

@@ -1,0 +1,25 @@
+@import './variables.less';
+
+@slider-prefix: ~"@{ant-prefix}-slider";
+
+.@{slider-prefix} {
+
+	&:hover {
+
+		& .@{slider-prefix}-track {
+			background-color: @antd-primary-color-hover;
+		}
+		& .@{slider-prefix}-handle:not(.ant-tooltip-open),
+		& .@{slider-prefix}-handle {
+			border-color: @antd-primary-color-hover;
+		}
+	}
+
+	& > .@{slider-prefix}-track {
+		background-color: @antd-primary-color;
+	}
+	& > .@{slider-prefix}-handle {
+		border-color: @antd-primary-color;
+	}
+}
+

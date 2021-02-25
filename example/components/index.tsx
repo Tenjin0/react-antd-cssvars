@@ -1,15 +1,35 @@
 import React, { useContext } from 'react';
 
-import { Table, TablePaginationConfig, Checkbox, Radio } from 'antd';
-import { SketchPicker } from 'react-color'
+import { Table, TablePaginationConfig, Checkbox, Radio, Input, Select, Tabs, Switch, Slider, Collapse } from 'antd';
+
+import ColorPickerChooser from './ColorPicker'
+
 import { Button } from '../../src/'
 import { ThemeContext } from '../../src/'
+
+import { AudioOutlined } from '@ant-design/icons';
+
+const { Search } = Input;
+const { Option } = Select;
+const { TabPane } = Tabs;
+const { Panel } = Collapse;
+
 export interface IMyComponent {
 
 }
 
 const MyComponent: React.FunctionComponent<IMyComponent> = props => {
 	const theme = useContext(ThemeContext)
+
+	const suffix = (
+		<AudioOutlined
+			style={{
+				fontSize: 16,
+				color: 'var(--primary-color)',
+			}}
+		/>
+	);
+
 	const columns = [
 		{
 			title: 'Name',
@@ -20,7 +40,6 @@ const MyComponent: React.FunctionComponent<IMyComponent> = props => {
 			dataIndex: 'chinese',
 			sorter: {
 				compare: (a, b) => a.chinese - b.chinese,
-				multiple: 3,
 			},
 		},
 		{
@@ -28,7 +47,6 @@ const MyComponent: React.FunctionComponent<IMyComponent> = props => {
 			dataIndex: 'math',
 			sorter: {
 				compare: (a, b) => a.math - b.math,
-				multiple: 2,
 			},
 		},
 		{
@@ -36,7 +54,6 @@ const MyComponent: React.FunctionComponent<IMyComponent> = props => {
 			dataIndex: 'english',
 			sorter: {
 				compare: (a, b) => a.english - b.english,
-				multiple: 1,
 			},
 		},
 	];
@@ -72,26 +89,42 @@ const MyComponent: React.FunctionComponent<IMyComponent> = props => {
 		},
 	];
 
+
+const text = `
+	A dog is a type of domesticated animal.
+	Known for its loyalty and faithfulness,
+	it can be found as a welcome guest in many households across the world.
+	`;
 	const pagination: TablePaginationConfig = {
 		total: data.length,
 		pageSize: 2
 	}
+
+	const onPrimaryChange = (color: string) => {
+		theme.set('primary-color', color, true)
+	}
+
 	return (
-		<div>
-			<Button type="primary">Primary Button</Button>
-			<Button type="secondary">Secondary Button</Button>
-			<Button type="danger">Danger Button</Button>
+		<React.Fragment>
+			<div style={{display: "flex", justifyContent:'space-evenly'}}>
+				<ColorPickerChooser default={theme.get('primary-color')} onChange={onPrimaryChange}/>
+				<Button type="secondary">Secondary Button</Button>
+				<Button type="primary" danger={true}>Danger Button</Button>
+			</div>
 			<br />
 			<br />
-			<Button>Default Button</Button>
-			<Button type="dashed">Dashed Button</Button>
-			<Button type="text">Text Button</Button>
-			<Button type="link">Link Button</Button>
+			<div style={{display: "flex", justifyContent:'space-evenly'}}>
+				<Button>Default Button</Button>
+				<Button type="dashed">Dashed Button</Button>
+				<Button type="text">Text Button</Button>
+				<Button type="link">Link Button</Button>
+			</div>
 			<br />
 			<br />
 			<div style={{ display: "flex"}}>
 				<div><Checkbox>Checkbox</Checkbox></div>
-				<div><Radio.Group>
+				<div><Switch defaultChecked/></div>
+				<div><Radio.Group defaultValue={4}>
 					<Radio value={1}>A</Radio>
 					<Radio value={2}>B</Radio>
 					<Radio value={3}>C</Radio>
@@ -102,8 +135,63 @@ const MyComponent: React.FunctionComponent<IMyComponent> = props => {
 
 			<br />
 			<br />
+
+			<div>
+			<Input placeholder="Basic usage" />
+				<Search
+					placeholder="input search text"
+					enterButton="Search"
+					size="large"
+					suffix={suffix}
+				/>
+			</div>
+			<div>
+			<br />
+			<br />
+			<Select defaultValue="lucy" style={{ width: 120 }}>
+				<Option value="jack">Jack</Option>
+				<Option value="Yiminghe">yiminghe</Option>
+    	</Select>
+		</div>
+		<br />
+		<br />
+		<div>
+		<Tabs defaultActiveKey="1">
+			<TabPane tab="Tab 1" key="1">
+				Content of Tab Pane 1
+			</TabPane>
+			<TabPane tab="Tab 2" key="2">
+				Content of Tab Pane 2
+			</TabPane>
+			<TabPane tab="Tab 3" key="3">
+				Content of Tab Pane 3
+			</TabPane>
+		</Tabs>
+		</div>
+		<br />
+		<br />
+		<div>
+		<Collapse defaultActiveKey={['1']}>
+    <Panel header="This is panel header 1" key="1">
+      <p>{text}</p>
+    </Panel>
+    <Panel header="This is panel header 2" key="2">
+      <p>{text}</p>
+    </Panel>
+    <Panel header="This is panel header 3" key="3">
+      <p>{text}</p>
+    </Panel>
+  </Collapse>,
+		</div>
+		<div>
+			<Slider defaultValue={30}/>
+		</div>
+		<br />
+		<br />
+		<div>
 			<Table columns={columns} dataSource={data} pagination={pagination} />
 		</div>
+		</React.Fragment>
 	)
 }
 

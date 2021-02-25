@@ -1,0 +1,16 @@
+@import './variables.less';
+
+@checkbox-prefix: ~"@{ant-prefix}-checkbox";
+
+.@{checkbox-prefix}::after {
+	border: 1px solid @antd-primary-color;
+}
+
+.@{checkbox-prefix}-checked .@{checkbox-prefix}-inner {
+	background-color: @antd-primary-color;
+	border-color: @antd-primary-color;
+}
+
+.@{checkbox-prefix}-wrapper:hover .@{checkbox-prefix}-inner, .@{checkbox-prefix}:hover .@{checkbox-prefix}-inner, .@{checkbox-prefix}-input:focus + .@{checkbox-prefix}-inner {
+	border-color: @antd-primary-color;
+}
