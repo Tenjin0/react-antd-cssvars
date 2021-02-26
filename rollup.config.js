@@ -30,6 +30,7 @@ module.exports = {
 					less: { javascriptEnabled: true }
 			},
 			extract: true
-		})
+		}),
+		del({ targets: 'build/*' })
   ]
 };

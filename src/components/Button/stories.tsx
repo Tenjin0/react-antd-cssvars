@@ -30,9 +30,9 @@ const sizes = ['small','middle', 'large' ]
 
 const computed = (key: TThemeColorTypes, value: string) => {
 
-	console.log(key, value, Theme.ColorLuminance(value, 0.2))
+	console.log(key, value, Theme.tint(value, 20))
 	if (theme.has(key + '-hover')) {
-		theme.set(key + '-hover' as TThemeColorTypes, Theme.ColorLuminance(value, 0.2))
+		theme.set(key + '-hover' as TThemeColorTypes, Theme.tint(value, 20))
 	}
 }
 const theme = new Theme<TThemeColorTypes>(null, computed)
