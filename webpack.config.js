@@ -46,21 +46,6 @@ module.exports = {
 				],
 			},
 			{
-        test: /\.((scss)|(sass))$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'sass-loader',
-          },
-        ],
-      },
-			{
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: [/node_modules/, /\*(spec|test|stories)\.tsx?/, /(spec|test|stories)\.tsx/],

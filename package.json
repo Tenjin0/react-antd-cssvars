@@ -28,6 +28,9 @@
 	},
 	"author": "",
 	"license": "ISC",
+	"files": [
+		"build/*"
+	],
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "~17.1.0",
 		"@rollup/plugin-node-resolve": "^11.1.1",
