@@ -1,4 +1,4 @@
-import Values from "values.js"
+import Values from "../../node_modules/values.js"
 
 const ThemeColorKeys = [
 	"primary-color",

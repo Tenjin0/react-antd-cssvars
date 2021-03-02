@@ -1,13 +1,15 @@
 const path = require("path");
-const HtmlWebPackPlugin = require( 'html-webpack-plugin' );
 
-const dist = path.resolve(__dirname, "dist");
+const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+
+const packageProject = require('./package.json')
+const dist = path.resolve(__dirname, "docs/example");
 
 module.exports = {
-	mode: "development",
+	mode: "production",
 	entry: ['./example/index.tsx',],
 	output: {
-		publicPath: '/',
 		path: dist,
 	},
 	resolve: {
@@ -52,10 +54,31 @@ module.exports = {
     	}
     ],
   },
-	plugins: [
-		new HtmlWebPackPlugin({
+
+  plugins: [
+		new CleanWebpackPlugin(),
+		new HtmlWebpackPlugin({
+			inject: true,
 			template: path.join(__dirname, 'example/index.html'),
 			filename: 'index.html',
-	}),
- ]
+			minify: {
+				minifyJS: true,
+				minifyCSS: true,
+				removeComments: true,
+				useShortDoctype: true,
+				collapseWhitespace: true,
+				collapseInlineTagWhitespace: true,
+			},
+			append: {
+				head: `<script src="//cdn.polyfill.io/v3/polyfill.min.js"></script>`,
+			},
+			meta: {
+				title: packageProject.name,
+				description: packageProject.description,
+				keywords: Array.isArray(packageProject.keywords)
+					? packageProject.keywords.join(',')
+					: undefined,
+			},
+		}),
+	],
 }
