@@ -3,8 +3,6 @@ import React, { useState } from "react"
 import { SketchPicker, ColorResult } from "react-color"
 import { CloseOutlined } from "@ant-design/icons"
 
-import "./style.less"
-
 import TintsAndShades from "./TintsAndShades"
 
 export interface IColorPicker {

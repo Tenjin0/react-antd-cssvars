@@ -133,7 +133,7 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 			</div>
 			<br />
 			<br />
-			<div style={{ display: "flex" }}>
+			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
 				<div>
 					<Checkbox>Checkbox</Checkbox>
 				</div>

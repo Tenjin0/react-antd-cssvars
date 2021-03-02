@@ -1,18 +1,17 @@
-@import '../../../src/styles/variables.less';
+@import './variables.less';
 
 .color-picker-chooser {
 	position: relative;
 	display: flex;
 
 	.color-picker-container {
+		display: flex;
 		position: absolute;
 		z-index: 10;
 		top: 0px;
     left: 0px;
 		& > button.color-picker-btn-close {
-			position: inherit;
-			top: 0%;
-			right: -30px;
+			position: relative;
 			color: @antd-text-color;
 		}
 	}

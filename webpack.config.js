@@ -2,12 +2,12 @@ const path = require("path");
 
 const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const packageProject = require('./package.json')
 const dist = path.resolve(__dirname, "docs/example");
 
 module.exports = {
-	mode: "production",
 	entry: ['./example/index.tsx',],
 	output: {
 		path: dist,
@@ -28,11 +28,8 @@ module.exports = {
 				test: /\.(less)$/,
 				use: [
 					{
-						loader: 'style-loader',
+						loader: MiniCssExtractPlugin.loader,
 					},
-					// {
-					// 	loader: MiniCssExtractPlugin.loader,
-					// },
 					{
 						loader: 'css-loader',
 					},
@@ -57,6 +54,9 @@ module.exports = {
 
   plugins: [
 		new CleanWebpackPlugin(),
+		new MiniCssExtractPlugin({
+			filename: "./css/[name].css"
+		}),
 		new HtmlWebpackPlugin({
 			inject: true,
 			template: path.join(__dirname, 'example/index.html'),
@@ -81,4 +81,22 @@ module.exports = {
 			},
 		}),
 	],
+	optimization: {
+		splitChunks: {
+			name: true,
+			cacheGroups: {
+				commons: {
+					chunks: 'initial',
+					minChunks: 2,
+				},
+				vendors: {
+					test: /[\\/]node_modules[\\/]/,
+					chunks: 'all',
+					filename: 'vendor.[contenthash].js',
+					priority: -10,
+				},
+			},
+		},
+		runtimeChunk: true,
+	},
 }
