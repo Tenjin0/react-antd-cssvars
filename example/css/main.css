@@ -24886,12 +24886,12 @@ div.ant-typography-edit-content.ant-typography-rtl {
   background: var(--danger-color-hover);
   border-color: var(--danger-color-hover);
 }
-.ant-btn.btn-secondary:not([disabled]) {
+.ant-btn.ant-btn-secondary:not([disabled]) {
   color: var(--text-color-inv);
   border-color: var(--secondary-color);
   background: var(--secondary-color);
 }
-.ant-btn.btn-secondary:not([disabled]):hover {
+.ant-btn.ant-btn-secondary:not([disabled]):hover {
   background: var(--secondary-color-hover);
   border-color: var(--secondary-color-hover);
 }
@@ -25106,7 +25106,9 @@ div.ant-typography-edit-content.ant-typography-rtl {
   top: 40%;
   padding: 0;
 }
-body {
+#layout-content {
   padding: 10vh 5vh;
 }
 
+
+/*# sourceMappingURL=main.css.map*/
