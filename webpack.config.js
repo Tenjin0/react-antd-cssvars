@@ -15,7 +15,8 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.ts', '.tsx', '.css', '.less'],
 	},
-	devtool: 'eval-source-map',
+  devtool: 'cheap-module-source-map',
+	bail: true,
 	devServer: {
 		inline: true,
 		contentBase: dist,
