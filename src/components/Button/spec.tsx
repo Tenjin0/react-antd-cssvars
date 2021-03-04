@@ -39,4 +39,13 @@ describe("Test Component", () => {
 
 		expect(testComponent).toHaveClass("ant-btn-secondary")
 	})
+
+	it("should have secondary className with theme set as secondary", () => {
+		props.type = "primary"
+		const { getByTestId } = renderComponent()
+
+		const testComponent = getByTestId("button-component")
+
+		expect(testComponent).toHaveClass("ant-btn-secondary")
+	})
 })

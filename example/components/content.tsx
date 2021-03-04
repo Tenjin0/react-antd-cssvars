@@ -1,24 +1,11 @@
 import React, { useContext } from "react"
 
-import {
-	Table,
-	TablePaginationConfig,
-	Checkbox,
-	Radio,
-	Input,
-	Select,
-	Tabs,
-	Switch,
-	Slider,
-	Collapse,
-} from "antd"
+import { Table, Checkbox, Radio, Input, Select, Tabs, Switch, Slider, Collapse } from "antd"
 
 import ColorPickerChooser from "../../src/components/ColorPicker"
 
 import { Button } from "../../src"
 import { ThemeContext } from "../../src"
-
-import { AudioOutlined } from "@ant-design/icons"
 
 const { Search } = Input
 const { Option } = Select
@@ -28,14 +15,6 @@ const { Panel } = Collapse
 // eslint-disable-next-line @typescript-eslint/ban-types
 const MyComponent: React.FunctionComponent<{}> = () => {
 	const theme = useContext(ThemeContext)
-	const suffix = (
-		<AudioOutlined
-			style={{
-				fontSize: 16,
-				color: "var(--primary-color)",
-			}}
-		/>
-	)
 
 	const columns = [
 		{
@@ -45,23 +24,17 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 		{
 			title: "Chinese Score",
 			dataIndex: "chinese",
-			sorter: {
-				compare: (a, b) => a.chinese - b.chinese,
-			},
+			sorter: (a, b) => a.chinese - b.chinese,
 		},
 		{
 			title: "Math Score",
 			dataIndex: "math",
-			sorter: {
-				compare: (a, b) => a.math - b.math,
-			},
+			sorter: (a, b) => a.math - b.math,
 		},
 		{
 			title: "English Score",
 			dataIndex: "english",
-			sorter: {
-				compare: (a, b) => a.english - b.english,
-			},
+			sorter: (a, b) => a.english - b.english,
 		},
 	]
 
@@ -101,7 +74,7 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 	Known for its loyalty and faithfulness,
 	it can be found as a welcome guest in many households across the world.
 	`
-	const pagination: TablePaginationConfig = {
+	const pagination = {
 		total: data.length,
 		pageSize: 2,
 	}
@@ -124,7 +97,6 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 					type="primary"
 					defaultColor={theme.get("primary-color")}
 					onChangeColor={onPrimaryChange}
-					tintsAndShades={true}
 				>
 					Primary Color
 				</ColorPickerChooser>
@@ -136,8 +108,7 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 					Secondary Color
 				</ColorPickerChooser>
 				<ColorPickerChooser
-					type="primary"
-					danger={true}
+					type="danger"
 					defaultColor={theme.get("danger-color")}
 					onChangeColor={onDangerChange}
 				>
@@ -149,7 +120,7 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
 				<Button>Default Button</Button>
 				<Button type="dashed">Dashed Button</Button>
-				<Button type="text">Text Button</Button>
+				<Button>Text Button</Button>
 				<Button type="link">Link Button</Button>
 			</div>
 			<br />
@@ -176,12 +147,7 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 
 			<div>
 				<Input placeholder="Basic usage" />
-				<Search
-					placeholder="input search text"
-					enterButton="Search"
-					size="large"
-					suffix={suffix}
-				/>
+				<Search placeholder="input search text" enterButton="Search" size="large" />
 			</div>
 			<div>
 				<br />

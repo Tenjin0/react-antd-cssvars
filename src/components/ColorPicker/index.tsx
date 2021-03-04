@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { SketchPicker, ColorResult } from "react-color"
-import { CloseOutlined } from "@ant-design/icons"
 
 import Button, { IButtonProps } from "../Button"
 
@@ -61,10 +60,9 @@ const ColorPickerChooser: React.FunctionComponent<IColorPicker> = (props) => {
 						className="color-picker-btn-close"
 						shape="circle"
 						size="small"
-						type="text"
-						onClick={onClose}
+						// onClick={onClose}
 					>
-						<CloseOutlined />
+						x
 					</Button>
 				</div>
 			)}

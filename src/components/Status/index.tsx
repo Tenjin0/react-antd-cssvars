@@ -3,7 +3,7 @@ import { Badge } from "antd"
 
 import classNames from "classnames"
 
-import { PresetStatusColorType } from "antd/lib/_util/colors"
+import { PresetColorType } from "antd/lib/_util/colors"
 
 export declare const ColorStatusType: ["primary", "secondary", "success", "warning", "error", "off"]
 export type TColorStatus = typeof ColorStatusType[number]
@@ -15,11 +15,11 @@ export interface IStatusProps {
 }
 
 const StatusComponent: React.FC<IStatusProps> = (props) => {
-	const convertStatus: () => PresetStatusColorType = () => {
+	const convertStatus: () => PresetColorType = () => {
 		if (props.color === "primary" || props.color === "secondary" || props.color === "off") {
-			return "default"
+			return "default" as PresetColorType
 		}
-		return props.color as PresetStatusColorType
+		return props.color as PresetColorType
 	}
 
 	const convertClassNames: () => string[] = () => {
@@ -37,11 +37,7 @@ const StatusComponent: React.FC<IStatusProps> = (props) => {
 	const status = convertStatus()
 	const className = classNames(convertClassNames)
 
-	return (
-		<Badge className={className} status={status}>
-			{props.text}
-		</Badge>
-	)
+	return <Badge className={className}>{props.text}</Badge>
 }
 
 export default StatusComponent
