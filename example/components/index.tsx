@@ -21,17 +21,14 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 		setLayoutState({ collapse: true })
 	}
 	return (
-		<Layout
-			style={{ height: "100vh", display: "flex", flexDirection: "row", position: "relative" }}
-		>
-			<Layout onMouseLeave={onMouseLeave} onMouseOver={onMouseOver}>
-				<Menu collapse={layoutState.collapse} />
+		<div id="layout">
+			<Layout id="layout-menu" onMouseLeave={onMouseLeave} onMouseOver={onMouseOver}>
+				<Menu collapse={false} />
 			</Layout>
-
 			<Layout id="layout-content">
 				<Content />
 			</Layout>
-		</Layout>
+		</div>
 	)
 }
 

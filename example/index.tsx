@@ -10,6 +10,7 @@ const computed = (key: TThemeColorTypes, value: string) => {
 	if (key === "primary-color") {
 		theme.set("table-head-text-color", value)
 		theme.set("table-head-background", Theme.tint(value, 90))
+		theme.set("background-selected", Theme.tint(value, 90))
 		theme.set("table-head-background-hover", Theme.tint(value, 75))
 		theme.set("table-head-background-selected", Theme.tint(value, 15))
 		theme.set("table-head-background-selected-hover", value)

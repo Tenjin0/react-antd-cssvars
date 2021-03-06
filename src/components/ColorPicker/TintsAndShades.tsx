@@ -14,14 +14,10 @@ const Palette: React.FunctionComponent<IColorPicker> = (props) => {
 		navigator.clipboard.writeText(e.currentTarget.dataset.hex).then(() => {
 			message.config({
 				duration: 0.8,
+				top: 0,
 			})
-			message.success({
+			message.info({
 				content: "Copy to clipboard: " + hex,
-				style: {
-					position: "absolute",
-					right: "20px",
-					left: "initial",
-				},
 			})
 		})
 	}
@@ -37,7 +33,7 @@ const Palette: React.FunctionComponent<IColorPicker> = (props) => {
 	for (let i = 0; i < base; i++) {
 		const element = all[i]
 		tints.push(
-			<Tooltip key={`tint-${i}`} title={`#${element.hex}`}>
+			<Tooltip key={`tint-${i}`} title={`T[${element.weight}] #${element.hex}`}>
 				<div
 					data-weight={element.weight}
 					data-hex={`#${element.hex}`}
@@ -51,7 +47,7 @@ const Palette: React.FunctionComponent<IColorPicker> = (props) => {
 	for (let i = base + 1; i < all.length; i++) {
 		const element = all[i]
 		shades.push(
-			<Tooltip key={`shade-${i}`} title={`#${element.hex}`}>
+			<Tooltip key={`shade-${i}`} title={`S[${element.weight}] #${element.hex}`}>
 				<div
 					data-weight={element.weight}
 					data-hex={`#${element.hex}`}

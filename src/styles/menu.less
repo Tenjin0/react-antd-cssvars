@@ -1,0 +1,30 @@
+@import './variables.less';
+
+@menu-prefix: ~"@{ant-prefix}-menu";
+
+.@{menu-prefix}-wrapper:hover .@{menu-prefix}, .@{menu-prefix}:hover .@{menu-prefix}-inner, .@{menu-prefix}-input:focus + .@{menu-prefix}-inner {
+	border-color: @antd-primary-color-hover;
+}
+.@{menu-prefix}-item:active, .@{menu-prefix}-submenu-title:active,
+.@{menu-prefix}:not(.@{menu-prefix}-horizontal) .@{menu-prefix}-item-selected {
+	background-color: @antd-background-selected;
+}
+
+.@{menu-prefix}-submenu-selected,
+.@{menu-prefix}-vertical .@{menu-prefix}-submenu-selected, .@{menu-prefix}-vertical-left .@{menu-prefix}-submenu-selected, .@{menu-prefix}-vertical-right .@{menu-prefix}-submenu-selected,
+.@{menu-prefix}-submenu:hover > .@{menu-prefix}-submenu-title > .@{menu-prefix}-submenu-expand-icon, .@{menu-prefix}-submenu:hover > .@{menu-prefix}-submenu-title > .@{menu-prefix}-submenu-arrow {
+	color: @antd-primary-color;
+}
+
+.@{menu-prefix}-item:hover, .@{menu-prefix}-item-selected, .@{menu-prefix}-item-active, .@{menu-prefix}:not(.@{menu-prefix}-inline) .@{menu-prefix}-submenu-open, .@{menu-prefix}-submenu-active, .@{menu-prefix}-submenu-title:hover {
+	color: @antd-primary-color-hover;
+}
+
+.@{menu-prefix}-vertical .@{menu-prefix}-item::after, .@{menu-prefix}-vertical-left .@{menu-prefix}-item::after, .@{menu-prefix}-vertical-right .@{menu-prefix}-item::after, .@{menu-prefix}-inline .@{menu-prefix}-item::after {
+	border-right: 3px solid @antd-primary-color;
+}
+
+
+.@{menu-prefix}-sub.@{menu-prefix}-inline {
+	background: #fafafa;
+}

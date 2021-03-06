@@ -1,10 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 
-import { Menu, Button } from "antd"
+import { Menu } from "antd"
 import {
 	AppstoreOutlined,
-	MenuUnfoldOutlined,
-	MenuFoldOutlined,
 	PieChartOutlined,
 	DesktopOutlined,
 	ContainerOutlined,
@@ -12,11 +10,11 @@ import {
 } from "@ant-design/icons"
 
 const { SubMenu } = Menu
-// eslint-disable-next-line @typescript-eslint/ban-types
 
 export interface IMenuComponent {
 	collapse: boolean
 }
+
 const MenuComponent: React.FunctionComponent<IMenuComponent> = (props) => {
 	return (
 		<Menu
@@ -24,6 +22,7 @@ const MenuComponent: React.FunctionComponent<IMenuComponent> = (props) => {
 			defaultOpenKeys={[]}
 			mode="inline"
 			inlineCollapsed={props.collapse}
+			collapsedWidth={50}
 			style={{ height: "100%" }}
 		>
 			<Menu.Item key="1" icon={<PieChartOutlined />}>

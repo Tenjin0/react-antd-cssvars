@@ -12,13 +12,13 @@ import {
 	Slider,
 	Collapse,
 } from "antd"
+import { AudioOutlined } from "@ant-design/icons"
 
 import ColorPickerChooser from "../../src/components/ColorPicker"
 
 import { Button } from "../../src"
 import { ThemeContext } from "../../src"
-
-import { AudioOutlined } from "@ant-design/icons"
+import PageHeader from "./pageHeader"
 
 const { Search } = Input
 const { Option } = Select
@@ -146,6 +146,9 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 			</div>
 			<br />
 			<br />
+			<PageHeader />
+			<br />
+			<br />
 			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
 				<Button>Default Button</Button>
 				<Button type="dashed">Dashed Button</Button>
@@ -175,7 +178,7 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 			<br />
 
 			<div>
-				<Input placeholder="Basic usage" />
+				<Input placeholder="Basic usage" style={{ marginBottom: "15px" }} />
 				<Search
 					placeholder="input search text"
 					enterButton="Search"

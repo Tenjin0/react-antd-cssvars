@@ -11,6 +11,8 @@ Add a theme provider to change dynamically the colors
 * CheckBox
 * Collapse
 * Input
+* Menu
+* PageHeader
 * Radio
 * Select
 * Slider
@@ -20,7 +22,8 @@ Add a theme provider to change dynamically the colors
 
 ## Not Done Yet
 
-* Menu
 * Others xD
+* Message
+* Tag: add primary secondary and danger color
 
 [Demo page](https://tenjin0.github.io/react-antd-cssvars/example/)
