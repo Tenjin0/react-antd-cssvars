@@ -364,33 +364,33 @@ mark {
   display: inline-block;
   animation: loadingCircle 1s infinite linear;
 }
-.fade-enter,
-.fade-appear {
+.ant-fade-enter,
+.ant-fade-appear {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.fade-leave {
+.ant-fade-leave {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.fade-enter.fade-enter-active,
-.fade-appear.fade-appear-active {
+.ant-fade-enter.ant-fade-enter-active,
+.ant-fade-appear.ant-fade-appear-active {
   animation-name: antFadeIn;
   animation-play-state: running;
 }
-.fade-leave.fade-leave-active {
+.ant-fade-leave.ant-fade-leave-active {
   animation-name: antFadeOut;
   animation-play-state: running;
   pointer-events: none;
 }
-.fade-enter,
-.fade-appear {
+.ant-fade-enter,
+.ant-fade-appear {
   opacity: 0;
   animation-timing-function: linear;
 }
-.fade-leave {
+.ant-fade-leave {
   animation-timing-function: linear;
 }
 @keyframes antFadeIn {
@@ -409,120 +409,120 @@ mark {
     opacity: 0;
   }
 }
-.move-up-enter,
-.move-up-appear {
+.ant-move-up-enter,
+.ant-move-up-appear {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.move-up-leave {
+.ant-move-up-leave {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.move-up-enter.move-up-enter-active,
-.move-up-appear.move-up-appear-active {
+.ant-move-up-enter.ant-move-up-enter-active,
+.ant-move-up-appear.ant-move-up-appear-active {
   animation-name: antMoveUpIn;
   animation-play-state: running;
 }
-.move-up-leave.move-up-leave-active {
+.ant-move-up-leave.ant-move-up-leave-active {
   animation-name: antMoveUpOut;
   animation-play-state: running;
   pointer-events: none;
 }
-.move-up-enter,
-.move-up-appear {
+.ant-move-up-enter,
+.ant-move-up-appear {
   opacity: 0;
   animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
 }
-.move-up-leave {
+.ant-move-up-leave {
   animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
 }
-.move-down-enter,
-.move-down-appear {
+.ant-move-down-enter,
+.ant-move-down-appear {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.move-down-leave {
+.ant-move-down-leave {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.move-down-enter.move-down-enter-active,
-.move-down-appear.move-down-appear-active {
+.ant-move-down-enter.ant-move-down-enter-active,
+.ant-move-down-appear.ant-move-down-appear-active {
   animation-name: antMoveDownIn;
   animation-play-state: running;
 }
-.move-down-leave.move-down-leave-active {
+.ant-move-down-leave.ant-move-down-leave-active {
   animation-name: antMoveDownOut;
   animation-play-state: running;
   pointer-events: none;
 }
-.move-down-enter,
-.move-down-appear {
+.ant-move-down-enter,
+.ant-move-down-appear {
   opacity: 0;
   animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
 }
-.move-down-leave {
+.ant-move-down-leave {
   animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
 }
-.move-left-enter,
-.move-left-appear {
+.ant-move-left-enter,
+.ant-move-left-appear {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.move-left-leave {
+.ant-move-left-leave {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.move-left-enter.move-left-enter-active,
-.move-left-appear.move-left-appear-active {
+.ant-move-left-enter.ant-move-left-enter-active,
+.ant-move-left-appear.ant-move-left-appear-active {
   animation-name: antMoveLeftIn;
   animation-play-state: running;
 }
-.move-left-leave.move-left-leave-active {
+.ant-move-left-leave.ant-move-left-leave-active {
   animation-name: antMoveLeftOut;
   animation-play-state: running;
   pointer-events: none;
 }
-.move-left-enter,
-.move-left-appear {
+.ant-move-left-enter,
+.ant-move-left-appear {
   opacity: 0;
   animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
 }
-.move-left-leave {
+.ant-move-left-leave {
   animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
 }
-.move-right-enter,
-.move-right-appear {
+.ant-move-right-enter,
+.ant-move-right-appear {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.move-right-leave {
+.ant-move-right-leave {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.move-right-enter.move-right-enter-active,
-.move-right-appear.move-right-appear-active {
+.ant-move-right-enter.ant-move-right-enter-active,
+.ant-move-right-appear.ant-move-right-appear-active {
   animation-name: antMoveRightIn;
   animation-play-state: running;
 }
-.move-right-leave.move-right-leave-active {
+.ant-move-right-leave.ant-move-right-leave-active {
   animation-name: antMoveRightOut;
   animation-play-state: running;
   pointer-events: none;
 }
-.move-right-enter,
-.move-right-appear {
+.ant-move-right-enter,
+.ant-move-right-appear {
   opacity: 0;
   animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
 }
-.move-right-leave {
+.ant-move-right-leave {
   animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
 }
 @keyframes antMoveDownIn {
@@ -662,120 +662,120 @@ html {
     opacity: 0;
   }
 }
-.slide-up-enter,
-.slide-up-appear {
+.ant-slide-up-enter,
+.ant-slide-up-appear {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.slide-up-leave {
+.ant-slide-up-leave {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.slide-up-enter.slide-up-enter-active,
-.slide-up-appear.slide-up-appear-active {
+.ant-slide-up-enter.ant-slide-up-enter-active,
+.ant-slide-up-appear.ant-slide-up-appear-active {
   animation-name: antSlideUpIn;
   animation-play-state: running;
 }
-.slide-up-leave.slide-up-leave-active {
+.ant-slide-up-leave.ant-slide-up-leave-active {
   animation-name: antSlideUpOut;
   animation-play-state: running;
   pointer-events: none;
 }
-.slide-up-enter,
-.slide-up-appear {
+.ant-slide-up-enter,
+.ant-slide-up-appear {
   opacity: 0;
   animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
 }
-.slide-up-leave {
+.ant-slide-up-leave {
   animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
 }
-.slide-down-enter,
-.slide-down-appear {
+.ant-slide-down-enter,
+.ant-slide-down-appear {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.slide-down-leave {
+.ant-slide-down-leave {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.slide-down-enter.slide-down-enter-active,
-.slide-down-appear.slide-down-appear-active {
+.ant-slide-down-enter.ant-slide-down-enter-active,
+.ant-slide-down-appear.ant-slide-down-appear-active {
   animation-name: antSlideDownIn;
   animation-play-state: running;
 }
-.slide-down-leave.slide-down-leave-active {
+.ant-slide-down-leave.ant-slide-down-leave-active {
   animation-name: antSlideDownOut;
   animation-play-state: running;
   pointer-events: none;
 }
-.slide-down-enter,
-.slide-down-appear {
+.ant-slide-down-enter,
+.ant-slide-down-appear {
   opacity: 0;
   animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
 }
-.slide-down-leave {
+.ant-slide-down-leave {
   animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
 }
-.slide-left-enter,
-.slide-left-appear {
+.ant-slide-left-enter,
+.ant-slide-left-appear {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.slide-left-leave {
+.ant-slide-left-leave {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.slide-left-enter.slide-left-enter-active,
-.slide-left-appear.slide-left-appear-active {
+.ant-slide-left-enter.ant-slide-left-enter-active,
+.ant-slide-left-appear.ant-slide-left-appear-active {
   animation-name: antSlideLeftIn;
   animation-play-state: running;
 }
-.slide-left-leave.slide-left-leave-active {
+.ant-slide-left-leave.ant-slide-left-leave-active {
   animation-name: antSlideLeftOut;
   animation-play-state: running;
   pointer-events: none;
 }
-.slide-left-enter,
-.slide-left-appear {
+.ant-slide-left-enter,
+.ant-slide-left-appear {
   opacity: 0;
   animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
 }
-.slide-left-leave {
+.ant-slide-left-leave {
   animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
 }
-.slide-right-enter,
-.slide-right-appear {
+.ant-slide-right-enter,
+.ant-slide-right-appear {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.slide-right-leave {
+.ant-slide-right-leave {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.slide-right-enter.slide-right-enter-active,
-.slide-right-appear.slide-right-appear-active {
+.ant-slide-right-enter.ant-slide-right-enter-active,
+.ant-slide-right-appear.ant-slide-right-appear-active {
   animation-name: antSlideRightIn;
   animation-play-state: running;
 }
-.slide-right-leave.slide-right-leave-active {
+.ant-slide-right-leave.ant-slide-right-leave-active {
   animation-name: antSlideRightOut;
   animation-play-state: running;
   pointer-events: none;
 }
-.slide-right-enter,
-.slide-right-appear {
+.ant-slide-right-enter,
+.ant-slide-right-appear {
   opacity: 0;
   animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
 }
-.slide-right-leave {
+.ant-slide-right-leave {
   animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
 }
 @keyframes antSlideUpIn {
@@ -874,242 +874,242 @@ html {
     opacity: 0;
   }
 }
-.zoom-enter,
-.zoom-appear {
+.ant-zoom-enter,
+.ant-zoom-appear {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.zoom-leave {
+.ant-zoom-leave {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.zoom-enter.zoom-enter-active,
-.zoom-appear.zoom-appear-active {
+.ant-zoom-enter.ant-zoom-enter-active,
+.ant-zoom-appear.ant-zoom-appear-active {
   animation-name: antZoomIn;
   animation-play-state: running;
 }
-.zoom-leave.zoom-leave-active {
+.ant-zoom-leave.ant-zoom-leave-active {
   animation-name: antZoomOut;
   animation-play-state: running;
   pointer-events: none;
 }
-.zoom-enter,
-.zoom-appear {
+.ant-zoom-enter,
+.ant-zoom-appear {
   transform: scale(0);
   opacity: 0;
   animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
 }
-.zoom-enter-prepare,
-.zoom-appear-prepare {
+.ant-zoom-enter-prepare,
+.ant-zoom-appear-prepare {
   transform: none;
 }
-.zoom-leave {
+.ant-zoom-leave {
   animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
 }
-.zoom-big-enter,
-.zoom-big-appear {
+.ant-zoom-big-enter,
+.ant-zoom-big-appear {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.zoom-big-leave {
+.ant-zoom-big-leave {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.zoom-big-enter.zoom-big-enter-active,
-.zoom-big-appear.zoom-big-appear-active {
+.ant-zoom-big-enter.ant-zoom-big-enter-active,
+.ant-zoom-big-appear.ant-zoom-big-appear-active {
   animation-name: antZoomBigIn;
   animation-play-state: running;
 }
-.zoom-big-leave.zoom-big-leave-active {
+.ant-zoom-big-leave.ant-zoom-big-leave-active {
   animation-name: antZoomBigOut;
   animation-play-state: running;
   pointer-events: none;
 }
-.zoom-big-enter,
-.zoom-big-appear {
+.ant-zoom-big-enter,
+.ant-zoom-big-appear {
   transform: scale(0);
   opacity: 0;
   animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
 }
-.zoom-big-enter-prepare,
-.zoom-big-appear-prepare {
+.ant-zoom-big-enter-prepare,
+.ant-zoom-big-appear-prepare {
   transform: none;
 }
-.zoom-big-leave {
+.ant-zoom-big-leave {
   animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
 }
-.zoom-big-fast-enter,
-.zoom-big-fast-appear {
+.ant-zoom-big-fast-enter,
+.ant-zoom-big-fast-appear {
   animation-duration: 0.1s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.zoom-big-fast-leave {
+.ant-zoom-big-fast-leave {
   animation-duration: 0.1s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.zoom-big-fast-enter.zoom-big-fast-enter-active,
-.zoom-big-fast-appear.zoom-big-fast-appear-active {
+.ant-zoom-big-fast-enter.ant-zoom-big-fast-enter-active,
+.ant-zoom-big-fast-appear.ant-zoom-big-fast-appear-active {
   animation-name: antZoomBigIn;
   animation-play-state: running;
 }
-.zoom-big-fast-leave.zoom-big-fast-leave-active {
+.ant-zoom-big-fast-leave.ant-zoom-big-fast-leave-active {
   animation-name: antZoomBigOut;
   animation-play-state: running;
   pointer-events: none;
 }
-.zoom-big-fast-enter,
-.zoom-big-fast-appear {
+.ant-zoom-big-fast-enter,
+.ant-zoom-big-fast-appear {
   transform: scale(0);
   opacity: 0;
   animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
 }
-.zoom-big-fast-enter-prepare,
-.zoom-big-fast-appear-prepare {
+.ant-zoom-big-fast-enter-prepare,
+.ant-zoom-big-fast-appear-prepare {
   transform: none;
 }
-.zoom-big-fast-leave {
+.ant-zoom-big-fast-leave {
   animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
 }
-.zoom-up-enter,
-.zoom-up-appear {
+.ant-zoom-up-enter,
+.ant-zoom-up-appear {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.zoom-up-leave {
+.ant-zoom-up-leave {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.zoom-up-enter.zoom-up-enter-active,
-.zoom-up-appear.zoom-up-appear-active {
+.ant-zoom-up-enter.ant-zoom-up-enter-active,
+.ant-zoom-up-appear.ant-zoom-up-appear-active {
   animation-name: antZoomUpIn;
   animation-play-state: running;
 }
-.zoom-up-leave.zoom-up-leave-active {
+.ant-zoom-up-leave.ant-zoom-up-leave-active {
   animation-name: antZoomUpOut;
   animation-play-state: running;
   pointer-events: none;
 }
-.zoom-up-enter,
-.zoom-up-appear {
+.ant-zoom-up-enter,
+.ant-zoom-up-appear {
   transform: scale(0);
   opacity: 0;
   animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
 }
-.zoom-up-enter-prepare,
-.zoom-up-appear-prepare {
+.ant-zoom-up-enter-prepare,
+.ant-zoom-up-appear-prepare {
   transform: none;
 }
-.zoom-up-leave {
+.ant-zoom-up-leave {
   animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
 }
-.zoom-down-enter,
-.zoom-down-appear {
+.ant-zoom-down-enter,
+.ant-zoom-down-appear {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.zoom-down-leave {
+.ant-zoom-down-leave {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.zoom-down-enter.zoom-down-enter-active,
-.zoom-down-appear.zoom-down-appear-active {
+.ant-zoom-down-enter.ant-zoom-down-enter-active,
+.ant-zoom-down-appear.ant-zoom-down-appear-active {
   animation-name: antZoomDownIn;
   animation-play-state: running;
 }
-.zoom-down-leave.zoom-down-leave-active {
+.ant-zoom-down-leave.ant-zoom-down-leave-active {
   animation-name: antZoomDownOut;
   animation-play-state: running;
   pointer-events: none;
 }
-.zoom-down-enter,
-.zoom-down-appear {
+.ant-zoom-down-enter,
+.ant-zoom-down-appear {
   transform: scale(0);
   opacity: 0;
   animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
 }
-.zoom-down-enter-prepare,
-.zoom-down-appear-prepare {
+.ant-zoom-down-enter-prepare,
+.ant-zoom-down-appear-prepare {
   transform: none;
 }
-.zoom-down-leave {
+.ant-zoom-down-leave {
   animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
 }
-.zoom-left-enter,
-.zoom-left-appear {
+.ant-zoom-left-enter,
+.ant-zoom-left-appear {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.zoom-left-leave {
+.ant-zoom-left-leave {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.zoom-left-enter.zoom-left-enter-active,
-.zoom-left-appear.zoom-left-appear-active {
+.ant-zoom-left-enter.ant-zoom-left-enter-active,
+.ant-zoom-left-appear.ant-zoom-left-appear-active {
   animation-name: antZoomLeftIn;
   animation-play-state: running;
 }
-.zoom-left-leave.zoom-left-leave-active {
+.ant-zoom-left-leave.ant-zoom-left-leave-active {
   animation-name: antZoomLeftOut;
   animation-play-state: running;
   pointer-events: none;
 }
-.zoom-left-enter,
-.zoom-left-appear {
+.ant-zoom-left-enter,
+.ant-zoom-left-appear {
   transform: scale(0);
   opacity: 0;
   animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
 }
-.zoom-left-enter-prepare,
-.zoom-left-appear-prepare {
+.ant-zoom-left-enter-prepare,
+.ant-zoom-left-appear-prepare {
   transform: none;
 }
-.zoom-left-leave {
+.ant-zoom-left-leave {
   animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
 }
-.zoom-right-enter,
-.zoom-right-appear {
+.ant-zoom-right-enter,
+.ant-zoom-right-appear {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.zoom-right-leave {
+.ant-zoom-right-leave {
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.zoom-right-enter.zoom-right-enter-active,
-.zoom-right-appear.zoom-right-appear-active {
+.ant-zoom-right-enter.ant-zoom-right-enter-active,
+.ant-zoom-right-appear.ant-zoom-right-appear-active {
   animation-name: antZoomRightIn;
   animation-play-state: running;
 }
-.zoom-right-leave.zoom-right-leave-active {
+.ant-zoom-right-leave.ant-zoom-right-leave-active {
   animation-name: antZoomRightOut;
   animation-play-state: running;
   pointer-events: none;
 }
-.zoom-right-enter,
-.zoom-right-appear {
+.ant-zoom-right-enter,
+.ant-zoom-right-appear {
   transform: scale(0);
   opacity: 0;
   animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
 }
-.zoom-right-enter-prepare,
-.zoom-right-appear-prepare {
+.ant-zoom-right-enter-prepare,
+.ant-zoom-right-appear-prepare {
   transform: none;
 }
-.zoom-right-leave {
+.ant-zoom-right-leave {
   animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
 }
 @keyframes antZoomIn {
@@ -4721,6 +4721,7 @@ a.ant-btn-sm {
 }
 .ant-carousel .slick-dots-top {
   top: 12px;
+  bottom: auto;
 }
 .ant-carousel .slick-dots li {
   position: relative;
@@ -7287,12 +7288,16 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
   background-color: #fff;
   cursor: not-allowed;
 }
+.ant-dropdown-menu-item-disabled > .anticon + span > a,
+.ant-dropdown-menu-submenu-title-disabled > .anticon + span > a,
 .ant-dropdown-menu-item-disabled > a,
 .ant-dropdown-menu-submenu-title-disabled > a {
   position: relative;
   color: rgba(0, 0, 0, 0.25);
   pointer-events: none;
 }
+.ant-dropdown-menu-item-disabled > .anticon + span > a::after,
+.ant-dropdown-menu-submenu-title-disabled > .anticon + span > a::after,
 .ant-dropdown-menu-item-disabled > a::after,
 .ant-dropdown-menu-submenu-title-disabled > a::after {
   position: absolute;
@@ -8233,33 +8238,33 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
 .ant-form-item .ant-input-textarea-show-count::after {
   margin-bottom: -22px;
 }
-.show-help-enter,
-.show-help-appear {
+.ant-show-help-enter,
+.ant-show-help-appear {
   animation-duration: 0.3s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.show-help-leave {
+.ant-show-help-leave {
   animation-duration: 0.3s;
   animation-fill-mode: both;
   animation-play-state: paused;
 }
-.show-help-enter.show-help-enter-active,
-.show-help-appear.show-help-appear-active {
+.ant-show-help-enter.ant-show-help-enter-active,
+.ant-show-help-appear.ant-show-help-appear-active {
   animation-name: antShowHelpIn;
   animation-play-state: running;
 }
-.show-help-leave.show-help-leave-active {
+.ant-show-help-leave.ant-show-help-leave-active {
   animation-name: antShowHelpOut;
   animation-play-state: running;
   pointer-events: none;
 }
-.show-help-enter,
-.show-help-appear {
+.ant-show-help-enter,
+.ant-show-help-appear {
   opacity: 0;
   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-.show-help-leave {
+.ant-show-help-leave {
   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 @keyframes antShowHelpIn {
@@ -14768,6 +14773,9 @@ textarea.ant-input-number {
 .ant-input-number-borderless {
   box-shadow: none;
 }
+.ant-input-number-out-of-range input {
+  color: #ff4d4f;
+}
 .ant-input-number-rtl {
   direction: rtl;
 }
@@ -16798,10 +16806,10 @@ textarea.ant-mentions {
 }
 .ant-notification-fade-enter,
 .ant-notification-fade-appear {
-  opacity: 0;
   animation-duration: 0.24s;
   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
   animation-fill-mode: both;
+  opacity: 0;
   animation-play-state: paused;
 }
 .ant-notification-fade-leave {
@@ -18676,8 +18684,8 @@ span.ant-radio + * {
   line-height: 30px;
 }
 .ant-select-multiple.ant-select-lg .ant-select-selection-search {
-  height: 33px;
-  line-height: 33px;
+  height: 32px;
+  line-height: 32px;
 }
 .ant-select-multiple.ant-select-lg .ant-select-selection-search-input,
 .ant-select-multiple.ant-select-lg .ant-select-selection-search-mirror {
@@ -18692,8 +18700,8 @@ span.ant-radio + * {
   line-height: 14px;
 }
 .ant-select-multiple.ant-select-sm .ant-select-selection-search {
-  height: 17px;
-  line-height: 17px;
+  height: 16px;
+  line-height: 16px;
 }
 .ant-select-multiple.ant-select-sm .ant-select-selection-search-input,
 .ant-select-multiple.ant-select-sm .ant-select-selection-search-mirror {
@@ -18703,8 +18711,8 @@ span.ant-radio + * {
 .ant-select-multiple.ant-select-sm .ant-select-selection-placeholder {
   left: 7px;
 }
-.ant-select-multiple.ant-select-sm .ant-select-selection-search:first-child .ant-select-selection-search-input {
-  margin-left: 3px;
+.ant-select-multiple.ant-select-sm .ant-select-selection-search {
+  margin-inline-start: 3px;
 }
 .ant-select-multiple.ant-select-lg .ant-select-selection-item {
   height: 32px;
@@ -19031,10 +19039,6 @@ span.ant-radio + * {
   right: 0;
   left: auto;
 }
-.ant-select-rtl.ant-select-multiple .ant-select-selection-search:first-child > .ant-select-selection-search-input {
-  margin-right: 5px !important;
-  margin-left: 0 !important;
-}
 .ant-select-rtl.ant-select-multiple .ant-select-selection-placeholder {
   right: 11px;
   left: auto;
@@ -19057,11 +19061,8 @@ span.ant-radio + * {
   padding-right: 0;
   padding-left: 18px;
 }
-.ant-select-rtl.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
-  padding: 0 11px;
-}
 .ant-select-rtl.ant-select-single.ant-select-sm:not(.ant-select-customize-input).ant-select-show-arrow .ant-select-selection-search {
-  right: 0;
+  right: 6px;
 }
 .ant-select-rtl.ant-select-single.ant-select-sm:not(.ant-select-customize-input).ant-select-show-arrow .ant-select-selection-item,
 .ant-select-rtl.ant-select-single.ant-select-sm:not(.ant-select-customize-input).ant-select-show-arrow .ant-select-selection-placeholder {
@@ -19833,7 +19834,7 @@ span.ant-radio + * {
 }
 .ant-steps-item-icon .ant-steps-icon {
   position: relative;
-  top: -1px;
+  top: -0.5px;
   color: #1890ff;
   line-height: 1;
 }
@@ -21187,7 +21188,11 @@ tr.ant-table-expanded-row > td,
 tr.ant-table-expanded-row:hover > td {
   background: #fbfbfb;
 }
+tr.ant-table-expanded-row .ant-descriptions-view {
+  display: flex;
+}
 tr.ant-table-expanded-row .ant-descriptions-view table {
+  flex: auto;
   width: auto;
 }
 .ant-table .ant-table-expanded-row-fixed {
@@ -24852,6 +24857,9 @@ div.ant-typography-edit-content.ant-typography-rtl {
   --table-head-background-selected: #46a6ff;
   --table-head-background-selected-hover: #1890ff;
   --antd-wave-shadow-color: var('--primary-color');
+  --menu-background: #fff;
+  --submenu-background: #fafafa;
+  --menu-text-color: rgba(0, 0, 0, 0.85);
 }
 .ant-btn[disabled] {
   color: var(--disable-color);
@@ -24886,14 +24894,23 @@ div.ant-typography-edit-content.ant-typography-rtl {
   background: var(--danger-color-hover);
   border-color: var(--danger-color-hover);
 }
-.ant-btn.ant-btn-secondary:not([disabled]) {
+.ant-btn.ant-btn.btn-secondary:not([disabled]) {
   color: var(--text-color-inv);
   border-color: var(--secondary-color);
   background: var(--secondary-color);
 }
-.ant-btn.ant-btn-secondary:not([disabled]):hover {
+.ant-btn.ant-btn.btn-secondary:not([disabled]):hover {
   background: var(--secondary-color-hover);
   border-color: var(--secondary-color-hover);
+}
+.ant-btn.ant-btn.btn-menu:not([disabled]) {
+  color: var(--menu-text-color);
+  border-color: var(--menu-background);
+  background: var(--menu-background);
+}
+.ant-btn.ant-btn.btn-menu:not([disabled]):hover {
+  background: var(--submenu-background);
+  border-color: var(--submenu-background);
 }
 .ant-btn.ant-btn-link {
   border-color: transparent;
@@ -25021,6 +25038,19 @@ div.ant-typography-edit-content.ant-typography-rtl {
 .ant-tabs-ink-bar {
   background: var(--primary-color);
 }
+.ant-tag.tag-primary {
+  color: var(--primary-color);
+  background-color: var(--background-selected);
+  border-color: var(--primary-color);
+}
+.ant-tag.tag-secondary {
+  color: var(--text-color-inv);
+  background-color: var(--secondary-color);
+}
+.ant-tag.tag-primary-bg {
+  color: var(--text-color-inv);
+  background-color: var(--primary-color);
+}
 .ant-slider:hover .ant-slider-track {
   background-color: var(--primary-color-hover);
 }
@@ -25070,6 +25100,74 @@ div.ant-typography-edit-content.ant-typography-rtl {
   position: fixed;
   right: Opx;
 }
+.ant-menu-wrapper:hover .ant-menu,
+.ant-menu:hover .ant-menu-inner,
+.ant-menu-input:focus + .ant-menu-inner {
+  border-color: var(--primary-color-hover);
+}
+.ant-menu-item:active,
+.ant-menu-submenu-title:active,
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: var(--background-selected);
+}
+.ant-menu-submenu-selected,
+.ant-menu-vertical .ant-menu-submenu-selected,
+.ant-menu-vertical-left .ant-menu-submenu-selected,
+.ant-menu-vertical-right .ant-menu-submenu-selected,
+.ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-expand-icon,
+.ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow {
+  color: var(--primary-color);
+}
+.ant-menu-item:hover,
+.ant-menu-item-selected,
+.ant-menu-item-active,
+.ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+.ant-menu-submenu-active,
+.ant-menu-submenu-title:hover {
+  color: var(--primary-color-hover);
+}
+.ant-menu-vertical .ant-menu-item::after,
+.ant-menu-vertical-left .ant-menu-item::after,
+.ant-menu-vertical-right .ant-menu-item::after,
+.ant-menu-inline .ant-menu-item::after {
+  border-right: 3px solid var(--primary-color);
+}
+.ant-menu-root.ant-menu-vertical,
+.ant-menu-root.ant-menu-vertical-left,
+.ant-menu-root.ant-menu-vertical-right,
+.ant-menu-root.ant-menu-inline {
+  background: var(--menu-background);
+}
+.ant-menu-sub.ant-menu-inline {
+  background: var(--submenu-background);
+}
+.ant-breadcrumb a:hover {
+  color: var(--primary-color-hover);
+}
+a {
+  color: var(--primary-color);
+}
+a:hover {
+  color: var(--primary-color-hover);
+}
+.primary-color {
+  color: var(--primary-color);
+}
+.primary-bg {
+  background-color: var(--primary-color);
+}
+.secondary-color {
+  color: var(--secondary-color);
+}
+.secondary-bg {
+  background-color: var(--secondary-color);
+}
+html {
+  --antd-wave-shadow-color: var(--primary-color);
+}
+::selection {
+  background: var(--primary-color);
+}
 .ant-table-thead > tr > th {
   font-weight: 600;
 }
@@ -25090,7 +25188,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   padding: 8px 16px;
 }
 .ant-tabs-tab.ant-tabs-tab-active {
-  background-color: var(--table-head-background);
+  background-color: var(--background-selected);
 }
 .ant-tabs-nav .ant-tabs-tab:not(.ant-tabs-tab-active) {
   color: #666666;
@@ -25106,9 +25204,53 @@ div.ant-typography-edit-content.ant-typography-rtl {
   top: 40%;
   padding: 0;
 }
+#layout {
+  display: flex;
+  flex-direction: row;
+}
 #layout-content {
   padding: 10vh 5vh;
 }
+.ant-message-notice {
+  float: right;
+}
+.site-page-header .image {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 60px;
+}
+.site-page-header .ant-page-header-rtl .image {
+  margin: 0 60px 0 0;
+}
+.site-page-header .example-icon-container {
+  display: flex;
+}
+.site-page-header .example-icon {
+  margin-right: 16px;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+}
+.site-page-header .example-icon .anticon {
+  margin-right: 4px;
+}
+.site-page-header .example-icon .anticon > svg {
+  width: 20px;
+  height: 20px;
+}
+.site-page-header .ant-page-header-rtl .example-icon {
+  float: right;
+  margin-right: 0;
+  margin-left: 16px;
+}
+.site-page-header .ant-page-header-rtl .example-icon .anticon {
+  margin-right: 0;
+  margin-left: 8px;
+}
+@media (max-width: 768px) {
+  .site-page-header .image {
+    flex: 100%;
+    margin: 24px 0 0;
+  }
+}
 
-
-/*# sourceMappingURL=main.css.map*/
