@@ -1,8 +1,9 @@
 import React from "react"
 
-import { PageHeader, Menu, Dropdown, Button, Tag, Typography, Row } from "antd"
-import { EllipsisOutlined } from "@ant-design/icons"
+import { PageHeader, Menu, Dropdown, Button, Typography, Row } from "antd"
+import { InfoCircleOutlined, EllipsisOutlined, SendOutlined, FileOutlined } from "@ant-design/icons"
 
+import { Tag } from "../../src/"
 const { Paragraph } = Typography
 
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -60,11 +61,11 @@ const PageHeaderComponent: React.FunctionComponent<{}> = () => {
 		},
 	]
 
-	const IconLink = ({ src, text }) => (
-		<a className="example-link">
-			<img className="example-link-icon" src={src} alt={text} />
+	const IconLink = ({ icon, text }) => (
+		<div className="example-icon">
+			{icon}
 			{text}
-		</a>
+		</div>
 	)
 
 	const content = (
@@ -78,19 +79,10 @@ const PageHeaderComponent: React.FunctionComponent<{}> = () => {
 				makes it easier for designers to have a clear psychological expectation of color
 				when adjusting colors, as well as facilitate communication in teams.
 			</Paragraph>
-			<div style={{}}>
-				<IconLink
-					src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
-					text="Quick Start"
-				/>
-				<IconLink
-					src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg"
-					text=" Product Info"
-				/>
-				<IconLink
-					src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"
-					text="Product Doc"
-				/>
+			<div className="example-icon-container">
+				<IconLink icon={<SendOutlined />} text="Quick Start" />
+				<IconLink icon={<InfoCircleOutlined />} text="Product Info" />
+				<IconLink icon={<FileOutlined />} text="Product Doc" />
 			</div>
 		</>
 	)
@@ -107,9 +99,18 @@ const PageHeaderComponent: React.FunctionComponent<{}> = () => {
 			className="site-page-header"
 			subTitle="This is a subtitle"
 			ghost={false}
-			tags={<Tag>Running</Tag>}
+			tags={[
+				<Tag key="tag-1" color="primary">
+					Primary
+				</Tag>,
+				<Tag key="tag-1" color="primary-bg">
+					Primary bg
+				</Tag>,
+				<Tag key="tag-2" color="secondary">
+					Secondary
+				</Tag>,
+			]}
 			extra={[
-				<Button key="3">Operation</Button>,
 				<Button key="2">Operation</Button>,
 				<Button key="1" type="primary">
 					Primary

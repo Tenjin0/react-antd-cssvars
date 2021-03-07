@@ -18,6 +18,9 @@ const computed = (key: TThemeColorTypes, value: string) => {
 	if (theme.has(`${key}-hover`)) {
 		theme.set(`${key}-hover` as TThemeColorTypes, Theme.tint(value, 17.5))
 	}
+	if (key === "menu-background") {
+		theme.set("submenu-background", Theme.shade(value, 15))
+	}
 }
 const theme = new Theme<TThemeColorTypes>(null, computed)
 

@@ -17,6 +17,9 @@ const ThemeColorKeys = [
 	"table-head-background-hover",
 	"table-head-background-selected",
 	"table-head-background-selected-hover",
+	"menu-background",
+	"submenu-background",
+	"menu-text-color",
 ]
 
 // --background-contrast: @default-antd-background-contrast;
@@ -37,6 +40,9 @@ export declare const DThemeColorTypes: [
 	"table-head-background-hover",
 	"table-head-background-selected",
 	"table-head-background-selected-hover",
+	"menu-background",
+	"submenu-background",
+	"menu-text-color",
 ]
 
 export declare type TThemeColorTypes = typeof DThemeColorTypes[number]

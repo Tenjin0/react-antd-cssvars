@@ -76,6 +76,7 @@
 		"rollup-plugin-postcss": "~4.0.0",
 		"rollup-plugin-typescript2": "~0.29.0",
 		"style-loader": "~2.0.0",
+		"svg-inline-loader": "^0.8.2",
 		"ts-jest": "~26.5.0",
 		"ts-loader": "~8.0.15",
 		"typedoc": "~0.20.28",

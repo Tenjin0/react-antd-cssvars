@@ -27,6 +27,7 @@ module.exports = (env, options) => {
 		},
 		module: {
 			rules: [
+
 				{
 					test: /\.(less)$/,
 					exclude: [/node_modules/],
@@ -49,6 +50,10 @@ module.exports = (env, options) => {
 
 					],
 				},
+				{
+					test: /\.svg$/,
+					loader: 'svg-inline-loader'
+			},
 				{
 					test: /\.tsx?$/,
 					use: 'ts-loader',

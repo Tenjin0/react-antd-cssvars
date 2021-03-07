@@ -113,8 +113,8 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 	const onSecondaryChange = (color: string) => {
 		theme.set("secondary-color", color, true)
 	}
-	const onDangerChange = (color: string) => {
-		theme.set("danger-color", color, true)
+	const onMenuChange = (color: string) => {
+		theme.set("menu-background", color, true)
 	}
 
 	return (
@@ -136,12 +136,12 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 					Secondary Color
 				</ColorPickerChooser>
 				<ColorPickerChooser
-					type="primary"
+					type="menu"
 					danger={true}
-					defaultColor={theme.get("danger-color")}
-					onChangeColor={onDangerChange}
+					defaultColor={theme.get("menu-background")}
+					onChangeColor={onMenuChange}
 				>
-					Danger Color
+					Menu Color
 				</ColorPickerChooser>
 			</div>
 			<br />
@@ -159,7 +159,7 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 			<br />
 			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
 				<div>
-					<Checkbox>Checkbox</Checkbox>
+					<Checkbox checked>Checkbox</Checkbox>
 				</div>
 				<div>
 					<Switch defaultChecked />

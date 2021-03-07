@@ -44,7 +44,7 @@
     }
   }
 
-  &.@{button-prefix}-secondary:not([disabled]) {
+  &.@{button-prefix}.btn-secondary:not([disabled]) {
     color: @antd-text-color-inv;
     border-color: @antd-secondary-color;
     background: @antd-secondary-color;
@@ -52,6 +52,17 @@
     &:hover {
       background: @antd-secondary-color-hover;
       border-color: @antd-secondary-color-hover;
+    }
+  }
+
+	&.@{button-prefix}.btn-menu:not([disabled]) {
+    color: @antd-menu-text-color;
+    border-color: @antd-menu-background;
+    background: @antd-menu-background;
+
+    &:hover {
+      background: @antd-submenu-background;
+      border-color: @antd-submenu-background;
     }
   }
 

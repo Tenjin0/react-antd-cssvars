@@ -7,7 +7,7 @@ Add a theme provider to change dynamically the colors
 
 ## Done
 
-* Button
+* Button:  add secodary type
 * CheckBox
 * Collapse
 * Input
@@ -19,11 +19,18 @@ Add a theme provider to change dynamically the colors
 * Switch
 * Table
 * Tabs
+* Tag: add primary secondary and danger color
 
 ## Not Done Yet
 
-* Others xD
 * Message
-* Tag: add primary secondary and danger color
+* Stepper
+* Timeline
+* Progress
+* Result
+* Spin
+* BackTop
+* Menu dark
+* Others xD
 
 [Demo page](https://tenjin0.github.io/react-antd-cssvars/example/)
