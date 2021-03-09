@@ -8,6 +8,9 @@
 
 #layout-content {
 	padding: 10vh 5vh;
+	height: 100vh;
+	max-height: 100vh;
+	overflow-y: auto;
 }
 
 .ant-message-notice {
@@ -25,15 +28,18 @@
 }
 
 
-.site-page-header .example-icon-container{
+.site-page-header .example-icon-container {
 	display: flex;
+	justify-content: flex-end;
 }
 
 .site-page-header .example-icon {
-  margin-right: 16px;
 	color: @antd-primary-color;
 	display: flex;
 	align-items: center;
+	&:not(:last-child) {
+		margin-right: 16px;
+	}
 }
 
 .site-page-header .example-icon .anticon {
@@ -43,21 +49,4 @@
 		width: 20px;
 		height: 20px;
 	}
-}
-
-.site-page-header .ant-page-header-rtl .example-icon {
-  float: right;
-  margin-right: 0;
-  margin-left: 16px;
-}
-.site-page-header .ant-page-header-rtl .example-icon .anticon {
-  margin-right: 0;
-  margin-left: 8px;
-}
-
-@media (max-width: 768px) {
-  .site-page-header .image {
-    flex: 100%;
-    margin: 24px 0 0;
-  }
 }

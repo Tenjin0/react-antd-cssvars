@@ -1,5 +1,5 @@
 import React from "react"
-import { Theme, TThemeColorTypes, TThemeComputed } from "./theme"
+import { Theme, TThemeColorTypes, TThemeComputed, hex } from "./theme"
 
 const ThemeContext = React.createContext<Theme<TThemeColorTypes>>(null)
 
@@ -8,4 +8,4 @@ export const ThemeConsumer = ThemeContext.Consumer
 
 export default ThemeContext
 export { Theme }
-export type { TThemeColorTypes, TThemeComputed }
+export type { TThemeColorTypes, TThemeComputed, hex }

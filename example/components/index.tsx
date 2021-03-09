@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 import { Layout } from "antd"
 
@@ -11,19 +11,31 @@ export interface IMyComponentState {
 // eslint-disable-next-line @typescript-eslint/ban-types
 const MyComponent: React.FunctionComponent<{}> = () => {
 	const [layoutState, setLayoutState] = useState<IMyComponentState>({
-		collapse: false,
+		collapse: true,
 	})
+
+	useEffect(() => {
+		if (localStorage.getItem("open")) {
+			setLayoutState({ collapse: false })
+		}
+	}, [])
+
 	const onMouseOver = () => {
-		setLayoutState({ collapse: false })
+		if (!localStorage.getItem("open")) {
+			setLayoutState({ collapse: false })
+		}
 	}
 
 	const onMouseLeave = () => {
-		setLayoutState({ collapse: true })
+		if (!localStorage.getItem("open")) {
+			setLayoutState({ collapse: true })
+		}
 	}
+
 	return (
 		<div id="layout">
 			<Layout id="layout-menu" onMouseLeave={onMouseLeave} onMouseOver={onMouseOver}>
-				<Menu collapse={false} />
+				<Menu collapse={layoutState.collapse} />
 			</Layout>
 			<Layout id="layout-content">
 				<Content />

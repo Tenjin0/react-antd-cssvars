@@ -146,7 +146,9 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 			</div>
 			<br />
 			<br />
-			<PageHeader />
+			<PageHeader>
+				<Table columns={columns} dataSource={data} pagination={pagination} />
+			</PageHeader>
 			<br />
 			<br />
 			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
@@ -227,11 +229,6 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 			</div>
 			<div>
 				<Slider defaultValue={30} />
-			</div>
-			<br />
-			<br />
-			<div>
-				<Table columns={columns} dataSource={data} pagination={pagination} />
 			</div>
 		</React.Fragment>
 	)

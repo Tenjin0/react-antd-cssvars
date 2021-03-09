@@ -43,10 +43,6 @@ const MenuComponent: React.FunctionComponent<IMenuComponent> = (props) => {
 			<SubMenu key="sub2" icon={<AppstoreOutlined />} title="Navigation Two">
 				<Menu.Item key="9">Option 9</Menu.Item>
 				<Menu.Item key="10">Option 10</Menu.Item>
-				<SubMenu key="sub3" title="Submenu">
-					<Menu.Item key="11">Option 11</Menu.Item>
-					<Menu.Item key="12">Option 12</Menu.Item>
-				</SubMenu>
 			</SubMenu>
 		</Menu>
 	)

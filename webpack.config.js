@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 const packageProject = require('./package.json')
 const dist = path.resolve(__dirname, "docs/example");
@@ -18,7 +19,7 @@ module.exports = (env, options) => {
 		resolve: {
 			extensions: ['.js', '.ts', '.tsx', '.css', '.less'],
 		},
-		devtool: options.mode === "development" ? 'eval-source-map' : "cheap-module-source-map",
+		devtool: options.mode === "development" ? 'eval-source-map' : undefined,
 		devServer: {
 			inline: true,
 			contentBase: dist,
@@ -50,10 +51,6 @@ module.exports = (env, options) => {
 
 					],
 				},
-				{
-					test: /\.svg$/,
-					loader: 'svg-inline-loader'
-			},
 				{
 					test: /\.tsx?$/,
 					use: 'ts-loader',
@@ -104,7 +101,7 @@ module.exports = (env, options) => {
 
 
 		config.optimization = {
-			minimize: options.mode === "development",
+			minimize: options.mode === "production",
 			minimizer: [
 				// This is only used in production mode
 				new TerserPlugin({
@@ -130,9 +127,9 @@ module.exports = (env, options) => {
 						},
 					},
 				}),
+				new CssMinimizerPlugin(),
 			],
 			splitChunks: {
-				name: true,
 				cacheGroups: {
 					commons: {
 						chunks: 'initial',

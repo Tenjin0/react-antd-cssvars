@@ -2,6 +2,10 @@
 
 @menu-prefix: ~"@{ant-prefix}-menu";
 
+.@{menu-prefix} {
+	color: @antd-menu-text-color;
+}
+
 .@{menu-prefix}-wrapper:hover .@{menu-prefix}, .@{menu-prefix}:hover .@{menu-prefix}-inner, .@{menu-prefix}-input:focus + .@{menu-prefix}-inner {
 	border-color: @antd-primary-color-hover;
 }
@@ -11,8 +15,12 @@
 }
 
 .@{menu-prefix}-submenu-selected,
-.@{menu-prefix}-vertical .@{menu-prefix}-submenu-selected, .@{menu-prefix}-vertical-left .@{menu-prefix}-submenu-selected, .@{menu-prefix}-vertical-right .@{menu-prefix}-submenu-selected,
-.@{menu-prefix}-submenu:hover > .@{menu-prefix}-submenu-title > .@{menu-prefix}-submenu-expand-icon, .@{menu-prefix}-submenu:hover > .@{menu-prefix}-submenu-title > .@{menu-prefix}-submenu-arrow {
+.@{menu-prefix}-vertical .@{menu-prefix}-submenu-selected,
+.@{menu-prefix}-vertical-left .@{menu-prefix}-submenu-selected,
+.@{menu-prefix}-vertical-right .@{menu-prefix}-submenu-selected,
+.@{menu-prefix}-submenu:hover > .@{menu-prefix}-submenu-title > .@{menu-prefix}-submenu-expand-icon,
+.@{menu-prefix}-submenu:hover > .@{menu-prefix}-submenu-title > .@{menu-prefix}-submenu-arrow,
+.@{menu-prefix}-submenu-selected.@{menu-prefix}-submenu > .@{menu-prefix}-submenu-title > .@{menu-prefix}-submenu-arrow {
 	color: @antd-primary-color;
 }
 
@@ -30,4 +38,8 @@
 
 .@{menu-prefix}-sub.@{menu-prefix}-inline {
 	background: @antd-submenu-background;
+}
+
+.@{menu-prefix}-submenu-expand-icon, .@{menu-prefix}-submenu-arrow {
+	color: @antd-menu-text-color;
 }
