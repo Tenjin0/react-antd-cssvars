@@ -1,4 +1,4 @@
-import Values from "../../node_modules/values.js"
+import Values from "values.js"
 import tinycolor from "tinycolor2"
 
 const ThemeColorKeys = [

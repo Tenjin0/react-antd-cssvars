@@ -11,7 +11,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
 	},
-	"include": ["./src/", "src/context/theme/.ts", "example"],
-	"exclude": ["**/build/**", "**/coverage/**", "**/dist/**", "**/node_modules/**", "**/*.js", "src/**/stories.tsx",
-    "src/**/*.test.tsx"]
+	"include": ["lib", "lib/context/theme/.ts"],
+	"exclude": ["**/build/**", "**/coverage/**", "**/dist/**", "**/node_modules/**", "**/*.js", "lib/**/stories.tsx",
+    "lib/**/*.test.tsx"]
 }

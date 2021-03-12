@@ -28,7 +28,6 @@ module.exports = (env, options) => {
 		},
 		module: {
 			rules: [
-
 				{
 					test: /\.(less)$/,
 					exclude: [/node_modules/],

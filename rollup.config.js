@@ -8,7 +8,7 @@ const del = require('rollup-plugin-delete');
 const packageJson = require("./package.json");
 
 module.exports = {
-  input: "src/index.ts",
+  input: "lib/index.ts",
   output: [
     {
       file: packageJson.main,

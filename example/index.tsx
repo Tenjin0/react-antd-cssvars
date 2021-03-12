@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { ThemeProvider, Theme, TThemeColorTypes } from "../src/context/themeProvider"
+import { ThemeProvider, Theme, TThemeColorTypes } from "../lib/context/themeProvider"
 
 import App from "./components/index"
 

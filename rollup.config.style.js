@@ -3,7 +3,7 @@ const postcss = require("rollup-plugin-postcss")
 const packageJson = require("./package.json");
 
 module.exports = {
-  input: "src/style.less",
+  input: "lib/style.less",
 	output: [
     {
       file:packageJson.dir + "/style.css",

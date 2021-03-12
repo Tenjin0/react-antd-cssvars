@@ -14,10 +14,10 @@ import {
 } from "antd"
 import { AudioOutlined } from "@ant-design/icons"
 
-import ColorPickerChooser from "../../src/components/ColorPicker"
+import ColorPickerChooser from "../../lib/components/ColorPicker"
 
-import { Button } from "../../src"
-import { ThemeContext } from "../../src"
+import { Button } from "../../lib"
+import { ThemeContext } from "../../lib"
 import PageHeader from "./pageHeader"
 
 const { Search } = Input

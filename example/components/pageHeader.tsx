@@ -3,7 +3,7 @@ import React from "react"
 import { PageHeader, Menu, Dropdown, Button } from "antd"
 import { InfoCircleOutlined, EllipsisOutlined, SendOutlined, FileOutlined } from "@ant-design/icons"
 
-import { Tag } from "../../src/"
+import { Tag } from "../../lib/"
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 const PageHeaderComponent: React.FunctionComponent<{}> = (props) => {
