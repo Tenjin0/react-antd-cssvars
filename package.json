@@ -26,7 +26,7 @@
 		"lint": "eslint ./lib",
 		"test": "jest -c jest.config.js",
 		"test:watch": "jest  -c jest.config.js --watch",
-		"postversion": "git push && gittu push --tags",
+		"postversion": "git push && git push --tags",
 		"prepublishOnly": "npm run ci",
 		"preversion": "npm run ci",
 		"docs": "typedoc --out docs lib",
