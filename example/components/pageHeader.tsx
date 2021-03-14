@@ -69,9 +69,9 @@ const PageHeaderComponent: React.FunctionComponent<{}> = (props) => {
 
 	return (
 		<PageHeader
-			title="Title"
+			title="Choose a color"
 			className="site-page-header"
-			subTitle="This is a subtitle"
+			subTitle="click on the button below ( this example use some customization )"
 			ghost={false}
 			tags={[
 				<Tag key="tag-1" color="primary">
@@ -84,16 +84,12 @@ const PageHeaderComponent: React.FunctionComponent<{}> = (props) => {
 					Secondary
 				</Tag>,
 			]}
-			extra={[
-				<Button key="2">Operation</Button>,
-				<Button key="1" type="primary">
-					Primary
-				</Button>,
-				<DropdownMenu key="more" />,
-			]}
+			extra={[<DropdownMenu key="more" />]}
 			avatar={{ src: "https://avatars1.githubusercontent.com/u/8186664?s=460&v=4" }}
 			breadcrumb={{ routes }}
 		>
+			<br />
+			<br />
 			{props.children}
 			<div className="example-icon-container">
 				<IconLink icon={<SendOutlined />} text="Quick Start" />

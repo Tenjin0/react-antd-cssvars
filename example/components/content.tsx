@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState, useCallback } from "react"
 
 import {
 	Table,
@@ -7,27 +7,37 @@ import {
 	Radio,
 	Input,
 	Select,
+	Timeline,
 	Tabs,
+	Progress,
 	Switch,
 	Slider,
+	Steps,
 	Collapse,
 } from "antd"
+
 import { AudioOutlined } from "@ant-design/icons"
 
-import ColorPickerChooser from "../../lib/components/ColorPicker"
+import { Button, TimelineItem, ColorPicker, ThemeContext } from "../../lib/index"
 
-import { Button } from "../../lib"
-import { ThemeContext } from "../../lib"
 import PageHeader from "./pageHeader"
 
 const { Search } = Input
 const { Option } = Select
 const { TabPane } = Tabs
 const { Panel } = Collapse
+const { Step } = Steps
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 const MyComponent: React.FunctionComponent<{}> = () => {
 	const theme = useContext(ThemeContext)
+
+	const [uppercase, setUppercase] = useState<boolean>(true)
+
+	const onCheckBoxChange = useCallback((e: any) => {
+		setUppercase(e.target.checked as boolean)
+	}, [])
+
 	const suffix = (
 		<AudioOutlined
 			style={{
@@ -119,52 +129,59 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 
 	return (
 		<React.Fragment>
-			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
-				<ColorPickerChooser
-					type="primary"
-					defaultColor={theme.get("primary-color")}
-					onChangeColor={onPrimaryChange}
-					tintsAndShades={true}
-				>
-					Primary Color
-				</ColorPickerChooser>
-				<ColorPickerChooser
-					type="secondary"
-					defaultColor={theme.get("secondary-color")}
-					onChangeColor={onSecondaryChange}
-				>
-					Secondary Color
-				</ColorPickerChooser>
-				<ColorPickerChooser
-					type="menu"
-					danger={true}
-					defaultColor={theme.get("menu-background")}
-					onChangeColor={onMenuChange}
-				>
-					Menu Color
-				</ColorPickerChooser>
-			</div>
-			<br />
-			<br />
 			<PageHeader>
-				<Table columns={columns} dataSource={data} pagination={pagination} />
+				<div style={{ display: "flex", justifyContent: "space-evenly" }}>
+					<ColorPicker
+						type="primary"
+						defaultColor={theme.get("primary-color")}
+						onChangeColor={onPrimaryChange}
+						tintsAndShades={true}
+					>
+						Primary Color
+					</ColorPicker>
+					<ColorPicker
+						type="secondary"
+						defaultColor={theme.get("secondary-color")}
+						onChangeColor={onSecondaryChange}
+					>
+						Secondary Color
+					</ColorPicker>
+					<ColorPicker
+						type="menu"
+						danger={true}
+						defaultColor={theme.get("menu-background")}
+						onChangeColor={onMenuChange}
+					>
+						Menu Color
+					</ColorPicker>
+				</div>
+				<br />
+				<br />
 			</PageHeader>
 			<br />
 			<br />
 			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
-				<Button>Default Button</Button>
-				<Button type="dashed">Dashed Button</Button>
-				<Button type="text">Text Button</Button>
-				<Button type="link">Link Button</Button>
+				<Button uppercase={uppercase}>Default Button</Button>
+				<Button uppercase={uppercase} type="dashed">
+					Dashed Button
+				</Button>
+				<Button uppercase={uppercase} type="text">
+					Text Button
+				</Button>
+				<Button uppercase={uppercase} type="link">
+					Link Button
+				</Button>
 			</div>
 			<br />
 			<br />
 			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
 				<div>
-					<Checkbox checked>Checkbox</Checkbox>
+					<Checkbox checked={uppercase} onChange={onCheckBoxChange}>
+						Button uppercase
+					</Checkbox>
 				</div>
 				<div>
-					<Switch defaultChecked />
+					<Switch checked={uppercase} />
 				</div>
 				<div>
 					<Radio.Group defaultValue={4}>
@@ -175,10 +192,46 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 					</Radio.Group>
 				</div>
 			</div>
-
+			<br />
+			<br />
+			<Table columns={columns} dataSource={data} pagination={pagination} />
 			<br />
 			<br />
 
+			<div
+				style={{
+					display: "flex",
+					alignItems: "center",
+				}}
+			>
+				<Timeline
+					pending="Recording..."
+					style={{
+						background: "#fff",
+						padding: "15px",
+						marginRight: "15px",
+					}}
+				>
+					<TimelineItem>example default</TimelineItem>
+					<TimelineItem color="secondary">example secondary</TimelineItem>
+					<TimelineItem color="success">example success</TimelineItem>
+					<TimelineItem color="warning">example warning</TimelineItem>
+				</Timeline>
+				<Steps
+					style={{
+						padding: "15px",
+					}}
+					size="small"
+					current={1}
+				>
+					<Step title="Finished" />
+					<Step title="In Progress" />
+					<Step title="Waiting" />
+				</Steps>
+			</div>
+
+			<br />
+			<br />
 			<div>
 				<Input placeholder="Basic usage" style={{ marginBottom: "15px" }} />
 				<Search
@@ -227,8 +280,25 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 				</Collapse>
 				,
 			</div>
+			<br />
+			<br />
 			<div>
 				<Slider defaultValue={30} />
+			</div>
+			<br />
+			<br />
+			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
+				<div>
+					<Progress percent={30} size="small" />
+					<Progress percent={50} size="small" status="active" />
+					<Progress percent={70} size="small" status="exception" />
+					<Progress percent={100} size="small" />
+				</div>
+				<div>
+					<Progress type="circle" percent={70} status="exception" />
+					<Progress type="circle" percent={100} />
+					<Progress type="circle" percent={75} />
+				</div>
 			</div>
 		</React.Fragment>
 	)

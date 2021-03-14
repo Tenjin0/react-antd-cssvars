@@ -1,5 +1,5 @@
 import React from "react"
-import { Theme, TThemeColorTypes, TThemeComputed, hex } from "./theme"
+import { Theme, TThemeColorTypes, TThemeComputed, hex } from "./class"
 
 const ThemeContext = React.createContext<Theme<TThemeColorTypes>>(null)
 

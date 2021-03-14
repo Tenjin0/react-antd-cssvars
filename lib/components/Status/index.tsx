@@ -10,7 +10,6 @@ export type TColorStatus = typeof ColorStatusType[number]
 
 export interface IStatusProps {
 	color: TColorStatus
-	text: string
 	size?: "default" | "middle" | "large"
 }
 
@@ -39,7 +38,7 @@ const StatusComponent: React.FC<IStatusProps> = (props) => {
 
 	return (
 		<Badge className={className} status={status}>
-			{props.text}
+			{props.children}
 		</Badge>
 	)
 }

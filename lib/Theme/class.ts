@@ -8,6 +8,8 @@ const ThemeColorKeys = [
 	"primary-color-hover",
 	"secondary-color-hover",
 	"danger-color-hover",
+	"success-color",
+	"warning-color",
 	"disable-color",
 	"text-color",
 	"text-color-inv",
@@ -31,6 +33,8 @@ export declare const DThemeColorTypes: [
 	"primary-color-hover",
 	"secondary-color-hover",
 	"danger-color-hover",
+	"success-color",
+	"warning-color",
 	"disable-color",
 	"text-color",
 	"text-color-inv",
@@ -59,18 +63,25 @@ export interface IValue {
 }
 export declare type TThemeColorTypes = typeof DThemeColorTypes[number]
 
-export type TThemeComputed<T extends string> = (key: T, value: string, luminance: number) => void
+export type TThemeComputed<T extends string> = (
+	key: T,
+	value: string,
+	luminance: number,
+	alpha: number,
+) => void
 
 export class Theme<T extends string> {
 	static ThemeColorKeys = ThemeColorKeys
 	theme: TTheme<T>
 	default: TTheme<T>
 	computed?: TThemeComputed<T>
-	constructor(theme?: TTheme<T>, computed?: TThemeComputed<T>) {
+	private themeColorKeys: T[]
+	constructor(theme?: TTheme<T>, computed?: TThemeComputed<T>, themeColorKeys?: T[]) {
 		this.theme = {}
 		this.default = {}
-		for (let i = 0; i < Theme.ThemeColorKeys.length; i++) {
-			const themecolorKey = Theme.ThemeColorKeys[i] as T
+		this.themeColorKeys = themeColorKeys ? themeColorKeys : ([...Theme.ThemeColorKeys] as T[])
+		for (let i = 0; i < this.themeColorKeys.length; i++) {
+			const themecolorKey = this.themeColorKeys[i] as T
 			const cssvar = this.keyToProperty(themecolorKey)
 			if (theme && theme[themecolorKey]) {
 				const color = theme[themecolorKey]
@@ -92,14 +103,17 @@ export class Theme<T extends string> {
 		return "--" + key
 	}
 
-	set(key: T, value: hex, computed = false): void {
+	set(key: T, value: hex, computed = false, alpha?: number): void {
 		this.theme[key] = value
 
 		const tiny = tinycolor(value)
+		if (alpha !== undefined) {
+			tiny.setAlpha(alpha)
+		}
 		const cssvar = this.keyToProperty(key)
-		document.body.style.setProperty(cssvar, value)
+		document.body.style.setProperty(cssvar, alpha !== undefined ? tiny.toRgbString() : value)
 		if (computed && this.computed) {
-			this.computed(key, value, tiny.getLuminance())
+			this.computed(key, value, tiny.getLuminance(), tiny.getAlpha())
 		}
 	}
 

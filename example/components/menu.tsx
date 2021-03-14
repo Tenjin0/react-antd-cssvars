@@ -20,6 +20,7 @@ const MenuComponent: React.FunctionComponent<IMenuComponent> = (props) => {
 		<Menu
 			defaultSelectedKeys={["1"]}
 			defaultOpenKeys={[]}
+			theme="dark"
 			mode="inline"
 			inlineCollapsed={props.collapse}
 			collapsedWidth={50}

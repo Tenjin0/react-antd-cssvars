@@ -1,0 +1,43 @@
+@import './variables.less';
+
+@progress-prefix: ~"@{ant-prefix}-progress";
+
+.@{progress-prefix} {
+	color: @antd-text-color;
+}
+
+.@{progress-prefix}.@{progress-prefix}-status-exception {
+	& .@{progress-prefix}-text {
+		color: @antd-danger-color;
+	}
+	& .@{progress-prefix}-bg {
+		background-color: @antd-danger-color;
+	}
+}
+
+.@{progress-prefix}.@{progress-prefix}-status-success {
+	& .@{progress-prefix}-text {
+		color: @antd-success-color;
+	}
+	& .@{progress-prefix}-bg {
+		background-color: @antd-success-color;
+	}
+}
+
+.@{progress-prefix} {
+	& .@{progress-prefix}-bg {
+		background-color: @antd-primary-color;
+	}
+}
+
+.@{progress-prefix}-inner:not(.@{progress-prefix}-circle-gradient) .@{progress-prefix}-circle-path {
+	stroke: @antd-primary-color;
+}
+
+.@{progress-prefix}-status-success .@{progress-prefix}-inner:not(.@{progress-prefix}-circle-gradient) .@{progress-prefix}-circle-path {
+	stroke: @antd-success-color;
+}
+
+.@{progress-prefix}-status-exception .@{progress-prefix}-inner:not(.@{progress-prefix}-circle-gradient) .@{progress-prefix}-circle-path {
+	stroke: @antd-danger-color;
+}

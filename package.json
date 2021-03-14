@@ -1,5 +1,9 @@
 {
 	"homepage": "https://tenjin0.github.io/react-antd-cssvars/",
+	"repository": {
+		"type" : "git",
+		"url" : "https://github.com/Tenjin0/react-antd-cssvars"
+	},
 	"name": "react-antd-cssvars",
 	"version": "0.1.1",
 	"description": "A minimal cssvars antd modules",
@@ -88,7 +92,7 @@
 	},
 	"peerDependencies": {
 		"@types/react": ">=16.0.0",
-		"antd": "~4.13.1",
+		"antd": "^4.13.0",
 		"react": ">=16.0.0",
 		"react-dom": ">=16.0.0"
 	},

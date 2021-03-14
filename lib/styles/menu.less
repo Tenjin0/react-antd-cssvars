@@ -6,9 +6,7 @@
 	color: @antd-menu-text-color;
 }
 
-.@{menu-prefix}-wrapper:hover .@{menu-prefix}, .@{menu-prefix}:hover .@{menu-prefix}-inner, .@{menu-prefix}-input:focus + .@{menu-prefix}-inner {
-	border-color: @antd-primary-color-hover;
-}
+
 .@{menu-prefix}-item:active, .@{menu-prefix}-submenu-title:active,
 .@{menu-prefix}:not(.@{menu-prefix}-horizontal) .@{menu-prefix}-item-selected {
 	background-color: @antd-background-selected;
@@ -24,6 +22,9 @@
 	color: @antd-primary-color;
 }
 
+.@{menu-prefix}-wrapper:hover .@{menu-prefix}, .@{menu-prefix}:hover .@{menu-prefix}-inner, .@{menu-prefix}-input:focus + .@{menu-prefix}-inner {
+	border-color: @antd-primary-color-hover;
+}
 .@{menu-prefix}-item:hover, .@{menu-prefix}-item-selected, .@{menu-prefix}-item-active, .@{menu-prefix}:not(.@{menu-prefix}-inline) .@{menu-prefix}-submenu-open, .@{menu-prefix}-submenu-active, .@{menu-prefix}-submenu-title:hover {
 	color: @antd-primary-color-hover;
 }
@@ -42,4 +43,14 @@
 
 .@{menu-prefix}-submenu-expand-icon, .@{menu-prefix}-submenu-arrow {
 	color: @antd-menu-text-color;
+}
+
+.@{menu-prefix}-dark {
+	& .@{menu-prefix}-inline.ant-menu-sub {
+		background: @antd-submenu-background;
+	}
+
+	&.@{menu-prefix}:not(.@{menu-prefix}-horizontal) .@{menu-prefix}-item-selected {
+		background: @antd-primary-color;
+	}
 }

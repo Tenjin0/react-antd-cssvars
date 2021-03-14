@@ -1,0 +1,22 @@
+@import '../../styles/table.less';
+
+.@{table-prefix}-thead {
+	& > tr > th {
+		font-weight: 600;
+
+	}
+	th.@{table-prefix}-column-sort {
+		color: @antd-text-color-inv;
+	}
+}
+
+.@{pagination-prefix}-item-active {
+	background-color: @antd-primary-color;
+  & a {
+    color: @antd-text-color-inv;
+		&:hover {
+			color: @antd-text-color-inv;
+		}
+  }
+}
+

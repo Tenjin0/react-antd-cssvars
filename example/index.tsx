@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { ThemeProvider, Theme, TThemeColorTypes } from "../lib/context/themeProvider"
+import { ThemeProvider, Theme, TThemeColorTypes } from "../lib/Theme"
 
 import App from "./components/index"
 
@@ -20,7 +20,11 @@ const computed = (key: TThemeColorTypes, value: string, luminance: number) => {
 		theme.set(`${key}-hover` as TThemeColorTypes, Theme.tint(value, 17.5))
 	}
 	if (key === "menu-background") {
-		theme.set("submenu-background", Theme.shade(value, 50))
+		if (luminance < 0.015) {
+			theme.set("submenu-background", Theme.tint(value, 20))
+		} else {
+			theme.set("submenu-background", Theme.shade(value, 20))
+		}
 		if (Theme.isdark(value)) {
 			theme.set("menu-text-color", theme.get("text-color-inv"))
 		} else {
@@ -29,7 +33,7 @@ const computed = (key: TThemeColorTypes, value: string, luminance: number) => {
 	}
 }
 const theme = new Theme<TThemeColorTypes>(null, computed)
-
+theme.set("menu-background", "#000000", true)
 window["theme"] = theme
 
 ReactDOM.render(

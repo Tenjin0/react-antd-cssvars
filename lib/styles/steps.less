@@ -1,0 +1,18 @@
+@import './variables.less';
+
+@steps-prefix: ~"@{ant-prefix}-steps";
+
+.@{steps-prefix}-item-process > .@{steps-prefix}-item-container > .@{steps-prefix}-item-icon {
+	background: @antd-primary-color;
+	border-color: @antd-primary-color;
+}
+
+.@{steps-prefix}-item-finish > .@{steps-prefix}-item-container > .@{steps-prefix}-item-content > .@{steps-prefix}-item-title::after {
+	background-color: @antd-primary-color;
+}
+.@{steps-prefix}-item-finish .@{steps-prefix}-item-icon {
+	& > .@{steps-prefix}-icon {
+		color: @antd-primary-color;
+	}
+	border-color: @antd-primary-color;
+}
