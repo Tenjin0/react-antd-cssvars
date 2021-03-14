@@ -9,9 +9,13 @@
   & a {
     color: @antd-primary-color;
   }
+
+	&:focus a {
+		color: @antd-text-color-inv;
+  }
 }
 
-.@{pagination-prefix}-item {
+.@{pagination-prefix}-item:not(.@{pagination-prefix}-item-active) {
 	&:focus,
   &:hover {
     border-color: @antd-primary-color;
