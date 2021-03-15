@@ -7,3 +7,5 @@ const ThemeContext = React.createContext<Theme<CustomTThemeColorTypes>>(null)
 
 export const ThemeProvider = ThemeContext.Provider
 export const ThemeConsumer = ThemeContext.Consumer
+
+export default ThemeContext

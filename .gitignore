@@ -1,6 +1,7 @@
 node_modules
 antd-cssvars
 build
+dist
 docs
 *.tgz
 *.scss

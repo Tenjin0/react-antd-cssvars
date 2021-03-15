@@ -1,5 +1,8 @@
 import React from "react"
 import ReactDOM from "react-dom"
+
+import { ConfigProvider } from "antd"
+
 import { Theme, TThemeColorTypes, TTheme, ThemeColorKeys } from "../lib/Theme"
 import { CustomTThemeColorTypes, ThemeProvider } from "./context"
 import App from "./components/index"
@@ -48,8 +51,10 @@ const theme = new Theme<CustomTThemeColorTypes>(initTheme, computed, customDThem
 window["theme"] = theme
 
 ReactDOM.render(
-	<ThemeProvider value={theme}>
-		<App />
-	</ThemeProvider>,
+	<ConfigProvider prefixCls="antd-cssvars">
+		<ThemeProvider value={theme}>
+			<App />
+		</ThemeProvider>
+	</ConfigProvider>,
 	document.getElementById("root"),
 )

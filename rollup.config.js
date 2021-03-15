@@ -31,6 +31,6 @@ module.exports = {
 			},
 			extract: true
 		}),
-		del({ targets: 'build/*' })
+		del({ targets: 'dist/*' })
   ]
 };
