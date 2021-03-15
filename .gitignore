@@ -3,3 +3,4 @@ antd-cssvars
 build
 docs
 *.tgz
+*.scss
