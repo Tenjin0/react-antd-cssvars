@@ -5,10 +5,11 @@ import { CloseOutlined } from "@ant-design/icons"
 import Button, { IButtonProps } from "../Button"
 
 import TintsAndShades from "./TintsAndShades"
+import { hex } from "../../Theme"
 
 export interface IColorPicker extends IButtonProps {
 	defaultColor: string
-	tintsAndShades?: boolean
+	onPick?: (value: hex) => void
 	onChangeColor?: (color: string) => void
 }
 
@@ -43,7 +44,7 @@ const ColorPickerChooser: React.FunctionComponent<IColorPicker> = (props) => {
 		setColorPickerState({ ...colorPickerState, open: !colorPickerState.open })
 	}
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const { defaultColor, onChangeColor, tintsAndShades, ...othersProps } = props
+	const { defaultColor, onChangeColor, onPick, ...othersProps } = props
 	return (
 		<div data-testid="colorpicker-component" className="color-picker-chooser">
 			<div onClick={onClickButton}>
@@ -68,7 +69,7 @@ const ColorPickerChooser: React.FunctionComponent<IColorPicker> = (props) => {
 					</Button>
 				</div>
 			)}
-			{tintsAndShades && <TintsAndShades color={colorPickerState.color} />}
+			{onPick && <TintsAndShades color={colorPickerState.color} onPick={onPick} />}
 		</div>
 	)
 }
