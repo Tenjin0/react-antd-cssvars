@@ -53,9 +53,9 @@ Documentation in progress.
 ### Create
 	
 ```typescript
-	import { Theme, TThemeColorTypes } from "react-antd-cssvars"
+import { Theme, TThemeColorTypes } from "react-antd-cssvars"
 
-	const theme = new Theme<TThemeColorTypes>()
+const theme = new Theme<TThemeColorTypes>()
 ```
 
 ### Init theme
@@ -63,15 +63,15 @@ Documentation in progress.
 You can initialize the theme with the first parameter of the contructor.
 
 ```typescript
-	import { Theme, TThemeColorTypes, TTheme } from "react-antd-cssvars"
+import { Theme, TThemeColorTypes, TTheme } from "react-antd-cssvars"
 
-	const initTheme: TTheme<TThemeColorTypes> = {
-		"menu-background": "#000000",
-		"submenu-background": "#333333",
-		"menu-text-color": "#fff",
-	}
+const initTheme: TTheme<TThemeColorTypes> = {
+	"menu-background": "#000000",
+	"submenu-background": "#333333",
+	"menu-text-color": "#fff",
+}
 
-	const theme = new Theme<TThemeColorTypes>(initTheme)
+const theme = new Theme<TThemeColorTypes>(initTheme)
 ```
 
 ### Compute color
@@ -79,52 +79,52 @@ You can initialize the theme with the first parameter of the contructor.
 You can compute color from others color change by using the second parameter.
 
 ```typescript
-	import { Theme, TThemeColorTypes, TTheme } from "react-antd-cssvars"
+import { Theme, TThemeColorTypes, TTheme } from "react-antd-cssvars"
 
-	const computed = (key: TThemeColorTypes, value: string, luminance: number) => {
-		if (key === "primary-color") {
-			theme.set("table-head-text-color", value)
-			const background = Theme.tint(value, 90)
-			theme.set("table-head-background", background)
-			theme.set("background-selected", background)
-			theme.set("table-head-background-hover", Theme.tint(value, 75))
-			theme.set("table-head-background-selected", Theme.tint(value, 15))
-			theme.set("table-head-background-selected-hover", value)
+const computed = (key: TThemeColorTypes, value: string, luminance: number) => {
+	if (key === "primary-color") {
+		theme.set("table-head-text-color", value)
+		const background = Theme.tint(value, 90)
+		theme.set("table-head-background", background)
+		theme.set("background-selected", background)
+		theme.set("table-head-background-hover", Theme.tint(value, 75))
+		theme.set("table-head-background-selected", Theme.tint(value, 15))
+		theme.set("table-head-background-selected-hover", value)
+	}
+	if (theme.has(`${key}-hover` as TThemeColorTypes)) {
+		theme.set(`${key}-hover` as TThemeColorTypes, Theme.tint(value, 17.5))
+	}
+	if (key === "menu-background") {
+		if (luminance < 0.015) {
+			theme.set("submenu-background", Theme.tint(value, 20))
+		} else {
+			theme.set("submenu-background", Theme.shade(value, 20))
 		}
-		if (theme.has(`${key}-hover` as TThemeColorTypes)) {
-			theme.set(`${key}-hover` as TThemeColorTypes, Theme.tint(value, 17.5))
-		}
-		if (key === "menu-background") {
-			if (luminance < 0.015) {
-				theme.set("submenu-background", Theme.tint(value, 20))
-			} else {
-				theme.set("submenu-background", Theme.shade(value, 20))
-			}
-			if (Theme.isdark(value)) {
-				theme.set("menu-text-color", theme.get("text-color-inv"))
-			} else {
-				theme.set("menu-text-color", theme.get("text-color"))
-			}
+		if (Theme.isdark(value)) {
+			theme.set("menu-text-color", theme.get("text-color-inv"))
+		} else {
+			theme.set("menu-text-color", theme.get("text-color"))
 		}
 	}
+}
 
-	const theme = new Theme<TThemeColorTypes>(null, computed)
+const theme = new Theme<TThemeColorTypes>(null, computed)
 ```
 ### Customize cssvars
 
-If you want to add more cssvars .
+If you want to manage more cssvars. (Do not forget to define and initialize it in your less/css file)
 
 
 ```typescript
-	import { Theme, TThemeColorTypes, TTheme, DThemeColorTypes } from "react-antd-cssvars"
-	type CustomTThemeColorTypes = CustomTThemeColorTypes | "debug"
-	const customDThemeColorTypes: CustomTThemeColorTypes[] = [...ThemeColorKeys]
-	customDThemeColorTypes.push("debug")
-		const initTheme: TTheme<CustomTThemeColorTypes> = {
-			"debug": "#333333",
-		}
+import { Theme, TThemeColorTypes, TTheme, DThemeColorTypes } from "react-antd-cssvars"
+type CustomTThemeColorTypes = CustomTThemeColorTypes | "debug"
+const customDThemeColorTypes: CustomTThemeColorTypes[] = [...ThemeColorKeys]
+customDThemeColorTypes.push("debug")
+	const initTheme: TTheme<CustomTThemeColorTypes> = {
+		"debug": "#333333",
+	}
 
-	const theme = new Theme<CustomTThemeColorTypes>(initTheme, null, customDThemeColorTypes)
+const theme = new Theme<CustomTThemeColorTypes>(initTheme, null, customDThemeColorTypes)
 ```
 
 ### Functions
