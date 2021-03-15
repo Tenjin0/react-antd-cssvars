@@ -18,7 +18,8 @@ import {
 
 import { AudioOutlined } from "@ant-design/icons"
 
-import { Button, TimelineItem, ColorPicker, ThemeContext } from "../../lib/index"
+import { Button, TimelineItem, ColorPicker } from "../../lib/index"
+import ThemeContext from "../context"
 
 import PageHeader from "./pageHeader"
 

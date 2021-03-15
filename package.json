@@ -12,16 +12,16 @@
 		"antd",
 		"cssvars"
 	],
-	"dir": "build",
-	"main": "build/index.cjs.js",
-	"module": "build/index.esm.js",
+	"dir": "dist",
+	"main": "dist/index.cjs.js",
+	"module": "dist/index.esm.js",
 	"source": "lib/index.js",
-	"types": "build/index.d.ts",
+	"types": "dist/index.d.ts",
 	"scripts": {
 		"build:js": "rollup -c",
 		"build:style": "rollup -c rollup.config.style.js",
 		"build:cp": "cp -r lib/styles lib/style.less build",
-		"build": "rimraf build && npm run build:js && npm run build:style && npm run build:cp",
+		"build": "rimraf dist && npm run build:js && npm run build:style && npm run build:cp",
 		"build-watch": "rollup -c -w",
 		"example:watch": "npx webpack serve --mode development",
 		"example:build": "NODE_ENV=production npx webpack --mode production",
@@ -40,7 +40,7 @@
 	"author": "",
 	"license": "ISC",
 	"files": [
-		"build/*"
+		"dist/*"
 	],
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "~17.1.0",
