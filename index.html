@@ -62,12 +62,13 @@
 					<h1>react-antd-cssvars</h1>
 				</a>
 				<p><a href="https://travis-ci.org/Tenjin0/react-antd-cssvars"><img src="https://travis-ci.org/Tenjin0/react-antd-cssvars.svg?branch=master" alt="Build Status"></a></p>
-				<p>Modify antd less files to replace colors by cssvar<br>Add a theme provider to change dynamically the colors </p>
+				<p>Modify antd less files to replace colors by cssvar.
+				Add a theme provider to change dynamically the colors.</p>
 				<a href="#done" id="done" style="color: inherit; text-decoration: none;">
 					<h2>Done</h2>
 				</a>
 				<ul>
-					<li>Button:  add secondary type</li>
+					<li>Button:  add secondary, success, warning type</li>
 					<li>CheckBox</li>
 					<li>Collapse</li>
 					<li>Input</li>
@@ -82,8 +83,8 @@
 					<li>Switch</li>
 					<li>Table</li>
 					<li>Tabs</li>
-					<li>Tag: add primary secondary and danger color</li>
-					<li>Timeline</li>
+					<li>Tag: add primary, secondary and danger color</li>
+					<li>Timeline: add primary, secondary, success and danger color (Item need to import the one from the package)</li>
 				</ul>
 				<a href="#not-done-yet" id="not-done-yet" style="color: inherit; text-decoration: none;">
 					<h2>Not Done Yet</h2>
@@ -100,14 +101,111 @@
 				<a href="#demo-page" id="demo-page" style="color: inherit; text-decoration: none;">
 					<h2><a href="https://tenjin0.github.io/react-antd-cssvars/example/">Demo page</a></h2>
 				</a>
-				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
-					<h2>Usage</h2>
+				<a href="#styles" id="styles" style="color: inherit; text-decoration: none;">
+					<h2>Styles</h2>
 				</a>
-				<p>soon</p>
-				<a href="#theme" id="theme" style="color: inherit; text-decoration: none;">
-					<h2>Theme</h2>
+				<a href="#less" id="less" style="color: inherit; text-decoration: none;">
+					<h3>Less</h3>
 				</a>
-				<p>Soon</p>
+				<pre><code class="language-less"><span style="color: #AF00DB">@import</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;react-antd-cssvars/dist/style.less&quot;</span><span style="color: #000000">;</span>
+
+</code></pre>
+				<a href="#default-default-list-value" id="default-default-list-value" style="color: inherit; text-decoration: none;">
+					<h3>Default <a href="https://github.com/Tenjin0/react-antd-cssvars/blob/develop/lib/styles/default.less">Default list value</a></h3>
+				</a>
+				<p>You can redifine the default color value</p>
+				<pre><code class="language-less"><span style="color: #AF00DB">@import</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;react-antd-cssvars/dist/style.less&quot;</span><span style="color: #000000">;</span>
+
+<span style="color: #FF0000">@default-antd-primary-color</span><span style="color: #000000">: </span><span style="color: #0451A5">#fff</span><span style="color: #000000">;</span>
+<span style="color: #FF0000">@default-antd-primary-color-hover</span><span style="color: #000000">: </span><span style="color: #0451A5">#333333</span><span style="color: #000000">;</span>
+
+</code></pre>
+				<p>Documentation in progress.</p>
+				<a href="#css" id="css" style="color: inherit; text-decoration: none;">
+					<h3>Css</h3>
+				</a>
+				<p>Use react-antd-cssvars/style.css file</p>
+				<pre><code class="language-css"><span style="color: #AF00DB">@import</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;react-antd-cssvars/dist/style.css&quot;</span><span style="color: #000000">;</span>
+
+</code></pre>
+				<p>Documentation in progress.</p>
+				<a href="#theme-see-example-source" id="theme-see-example-source" style="color: inherit; text-decoration: none;">
+					<h2>Theme <a href="https://github.com/Tenjin0/react-antd-cssvars/blob/develop/example/index.tsx">See example source</a></h2>
+				</a>
+				<a href="#create" id="create" style="color: inherit; text-decoration: none;">
+					<h3>Create</h3>
+				</a>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Theme</span><span style="color: #000000">, </span><span style="color: #001080">TThemeColorTypes</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;react-antd-cssvars&quot;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">theme</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Theme</span><span style="color: #000000">&lt;</span><span style="color: #267F99">TThemeColorTypes</span><span style="color: #000000">&gt;()</span>
+</code></pre>
+				<a href="#init-theme" id="init-theme" style="color: inherit; text-decoration: none;">
+					<h3>Init theme</h3>
+				</a>
+				<p>You can initialize the theme with the first parameter of the contructor.</p>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Theme</span><span style="color: #000000">, </span><span style="color: #001080">TThemeColorTypes</span><span style="color: #000000">, </span><span style="color: #001080">TTheme</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;react-antd-cssvars&quot;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">initTheme</span><span style="color: #000000">: </span><span style="color: #267F99">TTheme</span><span style="color: #000000">&lt;</span><span style="color: #267F99">TThemeColorTypes</span><span style="color: #000000">&gt; = {</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&quot;menu-background&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;#000000&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&quot;submenu-background&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;#333333&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&quot;menu-text-color&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;#fff&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">theme</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Theme</span><span style="color: #000000">&lt;</span><span style="color: #267F99">TThemeColorTypes</span><span style="color: #000000">&gt;(</span><span style="color: #001080">initTheme</span><span style="color: #000000">)</span>
+</code></pre>
+				<a href="#compute-color" id="compute-color" style="color: inherit; text-decoration: none;">
+					<h3>Compute color</h3>
+				</a>
+				<p>You can compute color from others color change by using the second parameter.</p>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Theme</span><span style="color: #000000">, </span><span style="color: #001080">TThemeColorTypes</span><span style="color: #000000">, </span><span style="color: #001080">TTheme</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;react-antd-cssvars&quot;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">computed</span><span style="color: #000000"> = (</span><span style="color: #001080">key</span><span style="color: #000000">: </span><span style="color: #267F99">TThemeColorTypes</span><span style="color: #000000">, </span><span style="color: #001080">value</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">, </span><span style="color: #001080">luminance</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">key</span><span style="color: #000000"> === </span><span style="color: #A31515">&quot;primary-color&quot;</span><span style="color: #000000">) {</span>
+<span style="color: #000000">        </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;table-head-text-color&quot;</span><span style="color: #000000">, </span><span style="color: #001080">value</span><span style="color: #000000">)</span>
+<span style="color: #000000">        </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">background</span><span style="color: #000000"> = </span><span style="color: #001080">Theme</span><span style="color: #000000">.</span><span style="color: #795E26">tint</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">, </span><span style="color: #098658">90</span><span style="color: #000000">)</span>
+<span style="color: #000000">        </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;table-head-background&quot;</span><span style="color: #000000">, </span><span style="color: #001080">background</span><span style="color: #000000">)</span>
+<span style="color: #000000">        </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;background-selected&quot;</span><span style="color: #000000">, </span><span style="color: #001080">background</span><span style="color: #000000">)</span>
+<span style="color: #000000">        </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;table-head-background-hover&quot;</span><span style="color: #000000">, </span><span style="color: #001080">Theme</span><span style="color: #000000">.</span><span style="color: #795E26">tint</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">, </span><span style="color: #098658">75</span><span style="color: #000000">))</span>
+<span style="color: #000000">        </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;table-head-background-selected&quot;</span><span style="color: #000000">, </span><span style="color: #001080">Theme</span><span style="color: #000000">.</span><span style="color: #795E26">tint</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">, </span><span style="color: #098658">15</span><span style="color: #000000">))</span>
+<span style="color: #000000">        </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;table-head-background-selected-hover&quot;</span><span style="color: #000000">, </span><span style="color: #001080">value</span><span style="color: #000000">)</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">has</span><span style="color: #000000">(</span><span style="color: #A31515">`</span><span style="color: #0000FF">${</span><span style="color: #001080">key</span><span style="color: #0000FF">}</span><span style="color: #A31515">-hover`</span><span style="color: #000000"> </span><span style="color: #AF00DB">as</span><span style="color: #000000"> </span><span style="color: #267F99">TThemeColorTypes</span><span style="color: #000000">)) {</span>
+<span style="color: #000000">        </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">`</span><span style="color: #0000FF">${</span><span style="color: #001080">key</span><span style="color: #0000FF">}</span><span style="color: #A31515">-hover`</span><span style="color: #000000"> </span><span style="color: #AF00DB">as</span><span style="color: #000000"> </span><span style="color: #267F99">TThemeColorTypes</span><span style="color: #000000">, </span><span style="color: #001080">Theme</span><span style="color: #000000">.</span><span style="color: #795E26">tint</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">, </span><span style="color: #098658">17.5</span><span style="color: #000000">))</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">key</span><span style="color: #000000"> === </span><span style="color: #A31515">&quot;menu-background&quot;</span><span style="color: #000000">) {</span>
+<span style="color: #000000">        </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">luminance</span><span style="color: #000000"> &lt; </span><span style="color: #098658">0.015</span><span style="color: #000000">) {</span>
+<span style="color: #000000">            </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;submenu-background&quot;</span><span style="color: #000000">, </span><span style="color: #001080">Theme</span><span style="color: #000000">.</span><span style="color: #795E26">tint</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">, </span><span style="color: #098658">20</span><span style="color: #000000">))</span>
+<span style="color: #000000">        } </span><span style="color: #AF00DB">else</span><span style="color: #000000"> {</span>
+<span style="color: #000000">            </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;submenu-background&quot;</span><span style="color: #000000">, </span><span style="color: #001080">Theme</span><span style="color: #000000">.</span><span style="color: #795E26">shade</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">, </span><span style="color: #098658">20</span><span style="color: #000000">))</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">        </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">Theme</span><span style="color: #000000">.</span><span style="color: #795E26">isdark</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">)) {</span>
+<span style="color: #000000">            </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;menu-text-color&quot;</span><span style="color: #000000">, </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;text-color-inv&quot;</span><span style="color: #000000">))</span>
+<span style="color: #000000">        } </span><span style="color: #AF00DB">else</span><span style="color: #000000"> {</span>
+<span style="color: #000000">            </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;menu-text-color&quot;</span><span style="color: #000000">, </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;text-color&quot;</span><span style="color: #000000">))</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">theme</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Theme</span><span style="color: #000000">&lt;</span><span style="color: #267F99">TThemeColorTypes</span><span style="color: #000000">&gt;(</span><span style="color: #0000FF">null</span><span style="color: #000000">, </span><span style="color: #001080">computed</span><span style="color: #000000">)</span>
+</code></pre>
+				<a href="#customize-cssvars" id="customize-cssvars" style="color: inherit; text-decoration: none;">
+					<h3>Customize cssvars</h3>
+				</a>
+				<p>If you want to manage more cssvars. (Do not forget to define and initialize it in your less/css file)</p>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Theme</span><span style="color: #000000">, </span><span style="color: #001080">TThemeColorTypes</span><span style="color: #000000">, </span><span style="color: #001080">TTheme</span><span style="color: #000000">, </span><span style="color: #001080">DThemeColorTypes</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;react-antd-cssvars&quot;</span>
+<span style="color: #0000FF">type</span><span style="color: #000000"> </span><span style="color: #267F99">CustomTThemeColorTypes</span><span style="color: #000000"> = </span><span style="color: #267F99">CustomTThemeColorTypes</span><span style="color: #000000"> | </span><span style="color: #A31515">&quot;debug&quot;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">customDThemeColorTypes</span><span style="color: #000000">: </span><span style="color: #267F99">CustomTThemeColorTypes</span><span style="color: #000000">[] = [...</span><span style="color: #001080">ThemeColorKeys</span><span style="color: #000000">]</span>
+<span style="color: #001080">customDThemeColorTypes</span><span style="color: #000000">.</span><span style="color: #795E26">push</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;debug&quot;</span><span style="color: #000000">)</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">initTheme</span><span style="color: #000000">: </span><span style="color: #267F99">TTheme</span><span style="color: #000000">&lt;</span><span style="color: #267F99">CustomTThemeColorTypes</span><span style="color: #000000">&gt; = {</span>
+<span style="color: #000000">        </span><span style="color: #A31515">&quot;debug&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;#333333&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    }</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">theme</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Theme</span><span style="color: #000000">&lt;</span><span style="color: #267F99">CustomTThemeColorTypes</span><span style="color: #000000">&gt;(</span><span style="color: #001080">initTheme</span><span style="color: #000000">, </span><span style="color: #0000FF">null</span><span style="color: #000000">, </span><span style="color: #001080">customDThemeColorTypes</span><span style="color: #000000">)</span>
+</code></pre>
+				<a href="#functions" id="functions" style="color: inherit; text-decoration: none;">
+					<h3>Functions</h3>
+				</a>
+				<p><a href="https://tenjin0.github.io/react-antd-cssvars/classes/theme_class.theme.html">See documentation</a></p>
 				<a href="#requirements" id="requirements" style="color: inherit; text-decoration: none;">
 					<h2>Requirements</h2>
 				</a>
@@ -127,9 +225,6 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/theme.html">Theme</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/theme_class.html">Theme/class</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/components_button.html">components/<wbr>Button</a>
