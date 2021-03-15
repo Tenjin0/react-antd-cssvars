@@ -20,7 +20,7 @@
 	"scripts": {
 		"build:js": "rollup -c",
 		"build:style": "rollup -c rollup.config.style.js",
-		"build:cp": "cp -r lib/styles lib/style.less dist",
+		"build:cp": "cp -r lib/styles lib/style.less lib/customize dist",
 		"build": "rimraf dist && npm run build:js && npm run build:cp",
 		"build-watch": "rollup -c -w",
 		"example:watch": "npx webpack serve --mode development",
@@ -32,7 +32,6 @@
 		"test:watch": "jest  -c jest.config.js --watch",
 		"postversion": "git push && git push --tags",
 		"prepublishOnly": "npm run ci",
-		"preversion": "npm run ci",
 		"docs": "typedoc --out docs lib",
 		"gh-pages": "npm run docs && npm run example:build && gh-pages -d docs",
 		"ci": "npm run lint && npm run build && npm run"
