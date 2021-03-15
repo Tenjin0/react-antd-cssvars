@@ -123,6 +123,14 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 	const onSecondaryChange = (color: string) => {
 		theme.set("secondary-color", color, true)
 	}
+
+	const onSuccessChange = (color: string) => {
+		theme.set("success-color", color, false)
+	}
+	const onWarningChange = (color: string) => {
+		theme.set("warning-color", color, false)
+	}
+
 	const onMenuChange = (color: string) => {
 		theme.set("menu-background", color, true)
 	}
@@ -130,7 +138,13 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 	return (
 		<React.Fragment>
 			<PageHeader>
-				<div style={{ display: "flex", justifyContent: "space-evenly" }}>
+				<div
+					style={{
+						display: "flex",
+						justifyContent: "space-evenly",
+						marginBottom: "15px",
+					}}
+				>
 					<ColorPicker
 						type="primary"
 						defaultColor={theme.get("primary-color")}
@@ -148,11 +162,34 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 					</ColorPicker>
 					<ColorPicker
 						type="menu"
-						danger={true}
 						defaultColor={theme.get("menu-background")}
 						onChangeColor={onMenuChange}
 					>
 						Menu Color
+					</ColorPicker>
+				</div>
+				<div style={{ display: "flex", justifyContent: "space-evenly" }}>
+					<ColorPicker
+						type="success"
+						defaultColor={theme.get("success-color")}
+						onChangeColor={onSuccessChange}
+					>
+						Success Color
+					</ColorPicker>
+					<ColorPicker
+						type="warning"
+						defaultColor={theme.get("warning-color")}
+						onChangeColor={onWarningChange}
+					>
+						Warning Color
+					</ColorPicker>
+					<ColorPicker
+						type="primary"
+						danger={true}
+						defaultColor={theme.get("danger-color")}
+						onChangeColor={onMenuChange}
+					>
+						Danger Color
 					</ColorPicker>
 				</div>
 				<br />

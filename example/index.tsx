@@ -1,12 +1,15 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { ThemeProvider, Theme, TThemeColorTypes } from "../lib/Theme"
-
+import { Theme, TThemeColorTypes, TTheme, ThemeColorKeys } from "../lib/Theme"
+import { CustomTThemeColorTypes, ThemeProvider } from "./context"
 import App from "./components/index"
 
 import "./style.less"
 
-const computed = (key: TThemeColorTypes, value: string, luminance: number) => {
+const customDThemeColorTypes: CustomTThemeColorTypes[] = [...ThemeColorKeys]
+customDThemeColorTypes.push("debug")
+
+const computed = (key: CustomTThemeColorTypes, value: string, luminance: number) => {
 	if (key === "primary-color") {
 		theme.set("table-head-text-color", value)
 		const background = Theme.tint(value, 90)
@@ -32,8 +35,16 @@ const computed = (key: TThemeColorTypes, value: string, luminance: number) => {
 		}
 	}
 }
-const theme = new Theme<TThemeColorTypes>(null, computed)
-theme.set("menu-background", "#000000", true)
+
+const initTheme: TTheme<CustomTThemeColorTypes> = {
+	"menu-background": "#000000",
+	"submenu-background": "#333333",
+	"menu-text-color": "#fff",
+	debug: "#333333",
+}
+
+const theme = new Theme<CustomTThemeColorTypes>(initTheme, computed, customDThemeColorTypes)
+
 window["theme"] = theme
 
 ReactDOM.render(

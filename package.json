@@ -6,7 +6,7 @@
 	},
 	"name": "react-antd-cssvars",
 	"version": "0.2.0",
-	"description": "A minimal cssvars antd modules",
+	"description": "A minimal cssvars antd module",
 	"keywords": [
 		"react",
 		"antd",
