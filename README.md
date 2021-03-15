@@ -43,16 +43,15 @@ Add a theme provider to change dynamically the colors.
 ### Less
 
 ```less
-@import "react-antd-cssvars/dist/style.less";
+@import "~react-antd-cssvars/dist/style.less";
 
 ```
 
-### Default [Default list value](https://github.com/Tenjin0/react-antd-cssvars/blob/develop/lib/styles/default.less)
-
+### Default [list value](https://github.com/Tenjin0/react-antd-cssvars/blob/develop/lib/styles/default.less)
 
 You can redifine the default color value
 ```less
-@import "react-antd-cssvars/dist/style.less";
+@import "~react-antd-cssvars/dist/style.less";
 
 @default-antd-primary-color: #fff;
 @default-antd-primary-color-hover: #333333;
@@ -155,6 +154,27 @@ const theme = new Theme<CustomTThemeColorTypes>(initTheme, null, customDThemeCol
 
 [See documentation](https://tenjin0.github.io/react-antd-cssvars/classes/theme_class.theme.html)
 
+## Custom Component
+
+### Button: 
+
+1.  add secondary, success, warning type
+2.  add uppercase props
+
+### Tag: 
+
+1.  add primary, secondary and danger color
+
+### Timeline:
+
+1. add primary, secondary, success and danger color (Item need to import the one from the package)
+
+### ColorPicker: 
+
+add new component ColorPicker
+### Status: 
+
+add new component Status Derived from Badge
 
 ## Requirements
 
