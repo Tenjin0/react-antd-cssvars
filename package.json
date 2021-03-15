@@ -20,8 +20,8 @@
 	"scripts": {
 		"build:js": "rollup -c",
 		"build:style": "rollup -c rollup.config.style.js",
-		"build:cp": "cp -r lib/styles lib/style.less build",
-		"build": "rimraf dist && npm run build:js && npm run build:style && npm run build:cp",
+		"build:cp": "cp -r lib/styles lib/style.less dist",
+		"build": "rimraf dist && npm run build:js && npm run build:cp",
 		"build-watch": "rollup -c -w",
 		"example:watch": "npx webpack serve --mode development",
 		"example:build": "NODE_ENV=production npx webpack --mode production",

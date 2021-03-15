@@ -43,6 +43,7 @@ Add a theme provider to change dynamically the colors.
 ### Less
 
 ```less
+@import "~antd/dist/antd.less";
 @import "~react-antd-cssvars/dist/style.less";
 
 ```
@@ -51,24 +52,13 @@ Add a theme provider to change dynamically the colors.
 
 You can redifine the default color value
 ```less
+@import "~antd/dist/antd.less";
 @import "~react-antd-cssvars/dist/style.less";
 
 @default-antd-primary-color: #fff;
 @default-antd-primary-color-hover: #333333;
 
 ```
-
-Documentation in progress.
-### Css
-
-Use react-antd-cssvars/style.css file
-
-```css
-@import "react-antd-cssvars/dist/style.css";
-
-```
-
-Documentation in progress.
 
 
 ## Theme [See example source](https://github.com/Tenjin0/react-antd-cssvars/blob/develop/example/index.tsx)
