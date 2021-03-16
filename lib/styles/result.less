@@ -1,0 +1,19 @@
+@import './variables.less';
+
+@result-prefix: ~"@{ant-prefix}-result";
+
+.@{result-prefix}-success .@{result-prefix}-icon > .anticon {
+	color: @antd-success-color;
+}
+
+.@{result-prefix}-info .@{result-prefix}-icon > .anticon {
+	color: @antd-primary-color;
+}
+
+.@{result-prefix}-warning .@{result-prefix}-icon > .anticon {
+	color: @antd-warning-color;
+}
+
+.@{result-prefix}-error .@{result-prefix}-icon > .anticon {
+	color: @antd-danger-color;
+}

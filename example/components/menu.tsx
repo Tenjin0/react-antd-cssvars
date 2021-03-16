@@ -8,11 +8,13 @@ import {
 	ContainerOutlined,
 	MailOutlined,
 } from "@ant-design/icons"
+import { IMyComponentState, TMenuTheme } from "."
 
 const { SubMenu } = Menu
 
 export interface IMenuComponent {
 	collapse: boolean
+	menuTheme: TMenuTheme
 }
 
 const MenuComponent: React.FunctionComponent<IMenuComponent> = (props) => {
@@ -20,7 +22,7 @@ const MenuComponent: React.FunctionComponent<IMenuComponent> = (props) => {
 		<Menu
 			defaultSelectedKeys={["1"]}
 			defaultOpenKeys={[]}
-			theme="dark"
+			theme={props.menuTheme}
 			mode="inline"
 			inlineCollapsed={props.collapse}
 			collapsedWidth={50}

@@ -1,6 +1,8 @@
 import React, { useContext, useState, useCallback } from "react"
 
 import {
+	Spin,
+	Alert,
 	Table,
 	TablePaginationConfig,
 	Checkbox,
@@ -15,6 +17,8 @@ import {
 	Steps,
 	Collapse,
 	message,
+	Result,
+	RadioChangeEvent,
 } from "antd"
 
 import { AudioOutlined } from "@ant-design/icons"
@@ -24,6 +28,8 @@ import ThemeContext from "../context"
 
 import PageHeader from "./pageHeader"
 import { hex } from "../../lib/Theme"
+import { IMyComponentState, TMenuTheme } from "."
+import { Key } from "antd/lib/table/interface"
 
 const { Search } = Input
 const { Option } = Select
@@ -31,14 +37,38 @@ const { TabPane } = Tabs
 const { Panel } = Collapse
 const { Step } = Steps
 
+export interface MyComponentProps {
+	dispatch: (values: Partial<IMyComponentState>) => void
+	menuTheme: TMenuTheme
+	collapse: boolean
+}
+
+export interface MyComponentState {
+	uppercase: boolean
+	selectedRowKeys: Key[]
+}
+
+export interface IData {
+	key: string
+	name: string
+	chinese: number
+	math: number
+	english: number
+}
 // eslint-disable-next-line @typescript-eslint/ban-types
-const MyComponent: React.FunctionComponent<{}> = () => {
+const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 	const theme = useContext(ThemeContext)
 
-	const [uppercase, setUppercase] = useState<boolean>(true)
+	const [myComponentState, setMyComponentState] = useState<MyComponentState>({
+		uppercase: true,
+		selectedRowKeys: [],
+	})
 
 	const onCheckBoxChange = useCallback((e: any) => {
-		setUppercase(e.target.checked as boolean)
+		setMyComponentState({
+			...myComponentState,
+			uppercase: e.target.checked as boolean,
+		})
 	}, [])
 
 	const suffix = (
@@ -78,7 +108,7 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 		},
 	]
 
-	const data = [
+	const data: IData[] = [
 		{
 			key: "1",
 			name: "John Brown",
@@ -119,35 +149,55 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 		pageSize: 2,
 	}
 
-	const onPrimaryChange = (color: string) => {
+	const onPrimaryChange = useCallback((color: string) => {
 		theme.set("primary-color", color, true)
-	}
+	}, [])
 
-	const onSecondaryChange = (color: string) => {
+	const onSecondaryChange = useCallback((color: string) => {
 		theme.set("secondary-color", color, true)
-	}
+	}, [])
 
-	const onSuccessChange = (color: string) => {
+	const onSuccessChange = useCallback((color: string) => {
 		theme.set("success-color", color, false)
-	}
-	const onWarningChange = (color: string) => {
+	}, [])
+	const onWarningChange = useCallback((color: string) => {
 		theme.set("warning-color", color, false)
-	}
+	}, [])
 
-	const onMenuChange = (color: string) => {
+	const onMenuChange = useCallback((color: string) => {
 		theme.set("menu-background", color, true)
-	}
-	const onPick = (value: hex) => {
+	}, [])
+	const onPick = useCallback((value: hex) => {
 		navigator.clipboard.writeText(value).then(() => {
 			message.info({
 				style: { left: "100px" },
 				content: "Copy to clipboard: " + value,
 			})
 		})
-	}
+	}, [])
+
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
+	const onRadioChange = useCallback((e: RadioChangeEvent) => {
+		props.dispatch({
+			menuTheme: e.target.value,
+		})
+	}, [])
+
+	const onSwitchChange = useCallback((checked: boolean, event: MouseEvent) => {
+		props.dispatch({
+			collapse: !checked,
+		})
+	}, [])
+
+	const onSelectChange = useCallback((selectedRowKeys: Key[], selectedRows: IData[]) => {
+		setMyComponentState({ ...myComponentState, selectedRowKeys })
+	}, [])
 
 	return (
 		<React.Fragment>
+			<div style={{ display: "flex", justifyContent: "center", marginBottom: "1em" }}>
+				<Spin />
+			</div>
 			<PageHeader>
 				<div
 					style={{
@@ -209,14 +259,14 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 			<br />
 			<br />
 			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
-				<Button uppercase={uppercase}>Default Button</Button>
-				<Button uppercase={uppercase} type="dashed">
+				<Button uppercase={myComponentState.uppercase}>Default Button</Button>
+				<Button uppercase={myComponentState.uppercase} type="dashed">
 					Dashed Button
 				</Button>
-				<Button uppercase={uppercase} type="text">
+				<Button uppercase={myComponentState.uppercase} type="text">
 					Text Button
 				</Button>
-				<Button uppercase={uppercase} type="link">
+				<Button uppercase={myComponentState.uppercase} type="link">
 					Link Button
 				</Button>
 			</div>
@@ -224,25 +274,36 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 			<br />
 			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
 				<div>
-					<Checkbox checked={uppercase} onChange={onCheckBoxChange}>
+					<Checkbox checked={myComponentState.uppercase} onChange={onCheckBoxChange}>
 						Button uppercase
 					</Checkbox>
 				</div>
 				<div>
-					<Switch checked={uppercase} />
+					<Switch checked={!props.collapse} onChange={onSwitchChange} />
+					&nbsp; Menu Open
 				</div>
 				<div>
-					<Radio.Group defaultValue={4}>
-						<Radio value={1}>A</Radio>
-						<Radio value={2}>B</Radio>
-						<Radio value={3}>C</Radio>
-						<Radio value={4}>D</Radio>
+					<Radio.Group
+						defaultValue={props.menuTheme}
+						onChange={onRadioChange}
+						value={props.menuTheme}
+					>
+						<Radio value="dark">Dark</Radio>
+						<Radio value="light">Light</Radio>
 					</Radio.Group>
 				</div>
 			</div>
 			<br />
 			<br />
-			<Table columns={columns} dataSource={data} pagination={pagination} />
+			<Table<IData>
+				rowSelection={{
+					selectedRowKeys: myComponentState.selectedRowKeys,
+					onChange: onSelectChange,
+				}}
+				columns={columns}
+				dataSource={data}
+				pagination={pagination}
+			/>
 			<br />
 			<br />
 
@@ -347,6 +408,18 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 					<Progress type="circle" percent={100} />
 					<Progress type="circle" percent={75} />
 				</div>
+				<div>
+					<Alert message="Success Text" type="success" />
+					<Alert message="Info Text" type="info" />
+					<Alert message="Warning Text" type="warning" />
+					<Alert message="Error Text" type="error" />
+				</div>
+			</div>
+			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
+				<Result status="success" title="Success" />
+				<Result status="info" title="Info" />
+				<Result status="error" title="Error" />
+				<Result status="warning" title="Warning" />
 			</div>
 		</React.Fragment>
 	)

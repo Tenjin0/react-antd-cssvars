@@ -16,8 +16,10 @@ Add a theme provider to change dynamically the colors.
 * PageHeader
 * Progress
 * Radio
+* Result
 * Select
 * Slider
+* Spin
 * Steps
 * Switch
 * Table
@@ -27,16 +29,13 @@ Add a theme provider to change dynamically the colors.
 
 ## Not Done Yet
 
-* Alert
-* Result
-* Spin
+* Alert ( issue with the background)
 * Statistic
 * BackTop
 * Popconfirm
 * Others xD
 
 ## [Demo page](https://tenjin0.github.io/react-antd-cssvars/example/)
-
 
 ## Styles
 
