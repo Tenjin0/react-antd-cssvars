@@ -135,6 +135,13 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 	const onMenuChange = (color: string) => {
 		theme.set("menu-background", color, true)
 	}
+	const onPick = (value: hex) => {
+		navigator.clipboard.writeText(value).then(() => {
+			message.info({
+				content: "Copy to clipboard: " + value,
+			})
+		})
+	}
 
 	return (
 		<React.Fragment>
