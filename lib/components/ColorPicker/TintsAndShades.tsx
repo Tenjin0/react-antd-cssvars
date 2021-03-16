@@ -2,24 +2,17 @@ import React from "react"
 import { message, Tooltip } from "antd"
 
 import Values from "values.js"
+import { hex } from "../../Theme"
 
 export interface IColorPicker {
 	color: string
-	onClick?: (color: string) => void
+	onPick: (color: hex) => void
 }
 
 const Palette: React.FunctionComponent<IColorPicker> = (props) => {
 	const onClick = (e: React.MouseEvent<HTMLElement>) => {
-		const hex = e.currentTarget.dataset.hex
-		navigator.clipboard.writeText(e.currentTarget.dataset.hex).then(() => {
-			message.config({
-				duration: 0.8,
-				top: 0,
-			})
-			message.info({
-				content: "Copy to clipboard: " + hex,
-			})
-		})
+		const hex = e.currentTarget.dataset.hex as hex
+		props.onPick(hex)
 	}
 
 	const color = new Values(props.color)

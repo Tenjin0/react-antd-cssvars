@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-import { ConfigProvider } from "antd"
+import { ConfigProvider, message } from "antd"
 
 import { Theme, TThemeColorTypes, TTheme, ThemeColorKeys } from "../lib/Theme"
 import { CustomTThemeColorTypes, ThemeProvider } from "./context"
@@ -38,7 +38,10 @@ const computed = (key: CustomTThemeColorTypes, value: string, luminance: number)
 		}
 	}
 }
-
+message.config({
+	duration: 0.9,
+	top: 10,
+})
 const initTheme: TTheme<CustomTThemeColorTypes> = {
 	"menu-background": "#000000",
 	"submenu-background": "#333333",
@@ -51,7 +54,7 @@ const theme = new Theme<CustomTThemeColorTypes>(initTheme, computed, customDThem
 window["theme"] = theme
 
 ReactDOM.render(
-	<ConfigProvider prefixCls="antd-cssvars">
+	<ConfigProvider>
 		<ThemeProvider value={theme}>
 			<App />
 		</ThemeProvider>

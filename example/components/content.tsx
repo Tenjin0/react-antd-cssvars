@@ -14,6 +14,7 @@ import {
 	Slider,
 	Steps,
 	Collapse,
+	message,
 } from "antd"
 
 import { AudioOutlined } from "@ant-design/icons"
@@ -22,6 +23,7 @@ import { Button, TimelineItem, ColorPicker } from "../../lib/index"
 import ThemeContext from "../context"
 
 import PageHeader from "./pageHeader"
+import { hex } from "../../lib/Theme"
 
 const { Search } = Input
 const { Option } = Select
@@ -138,6 +140,7 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 	const onPick = (value: hex) => {
 		navigator.clipboard.writeText(value).then(() => {
 			message.info({
+				style: { left: "100px" },
 				content: "Copy to clipboard: " + value,
 			})
 		})
@@ -157,7 +160,7 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 						type="primary"
 						defaultColor={theme.get("primary-color")}
 						onChangeColor={onPrimaryChange}
-						tintsAndShades={true}
+						onPick={onPick}
 					>
 						Primary Color
 					</ColorPicker>
