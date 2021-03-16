@@ -32,9 +32,9 @@ const computed = (key: CustomTThemeColorTypes, value: string, luminance: number)
 			theme.set("submenu-background", Theme.shade(value, 20))
 		}
 		if (Theme.isdark(value)) {
-			theme.set("menu-text-color", theme.get("text-color-inv"))
+			theme.set("menu-text-color", theme.get("text-color-inv"), false, 0.65)
 		} else {
-			theme.set("menu-text-color", theme.get("text-color"))
+			theme.set("menu-text-color", theme.get("text-color"), false, 0.65)
 		}
 	}
 }

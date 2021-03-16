@@ -37,7 +37,6 @@ Add a theme provider to change dynamically the colors.
 
 ## [Demo page](https://tenjin0.github.io/react-antd-cssvars/example/)
 
-
 ## Styles
 
 ### Less
