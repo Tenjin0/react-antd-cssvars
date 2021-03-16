@@ -1,6 +1,7 @@
 import React, { useContext, useState, useCallback } from "react"
 
 import {
+	Spin,
 	Alert,
 	Table,
 	TablePaginationConfig,
@@ -16,6 +17,7 @@ import {
 	Steps,
 	Collapse,
 	message,
+	Result,
 	RadioChangeEvent,
 } from "antd"
 
@@ -193,6 +195,9 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 
 	return (
 		<React.Fragment>
+			<div style={{ display: "flex", justifyContent: "center", marginBottom: "1em" }}>
+				<Spin />
+			</div>
 			<PageHeader>
 				<div
 					style={{
@@ -409,6 +414,12 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 					<Alert message="Warning Text" type="warning" />
 					<Alert message="Error Text" type="error" />
 				</div>
+			</div>
+			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
+				<Result status="success" title="Success" />
+				<Result status="info" title="Info" />
+				<Result status="error" title="Error" />
+				<Result status="warning" title="Warning" />
 			</div>
 		</React.Fragment>
 	)

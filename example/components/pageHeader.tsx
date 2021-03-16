@@ -71,7 +71,11 @@ const PageHeaderComponent: React.FunctionComponent<{}> = (props) => {
 		<PageHeader
 			title="Choose a color"
 			className="site-page-header"
-			subTitle="click on the button below ( this example use some customization )"
+			subTitle={
+				<a href="https://github.com/Tenjin0/react-antd-cssvars/tree/develop/lib/customize/1">
+					click on the button below ( this example use some customization )
+				</a>
+			}
 			ghost={false}
 			tags={[
 				<Tag key="tag-1" color="primary">
