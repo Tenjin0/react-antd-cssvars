@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 
-import { Layout } from "antd"
+import { Layout, message } from "antd"
 
 import Menu from "./menu"
 import Content from "./content"
@@ -11,6 +11,11 @@ export interface IMyComponentState {
 	collapse: boolean
 	menuTheme: TMenuTheme
 }
+
+message.config({
+	duration: 0.9,
+	top: 10,
+})
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 const MyComponent: React.FunctionComponent<{}> = () => {

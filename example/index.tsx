@@ -27,9 +27,9 @@ const computed = (key: CustomTThemeColorTypes, value: string, luminance: number)
 	}
 	if (key === "menu-background") {
 		if (luminance < 0.015) {
-			theme.set("submenu-background", Theme.tint(value, 20))
+			theme.set("submenu-background", Theme.tint(value, 20), false)
 		} else {
-			theme.set("submenu-background", Theme.shade(value, 20))
+			theme.set("submenu-background", Theme.shade(value, 20), false)
 		}
 		if (Theme.isdark(value)) {
 			theme.set("menu-text-color", theme.get("text-color-inv"), false, 0.65)
@@ -38,14 +38,10 @@ const computed = (key: CustomTThemeColorTypes, value: string, luminance: number)
 		}
 	}
 }
-message.config({
-	duration: 0.9,
-	top: 10,
-})
+
 const initTheme: TTheme<CustomTThemeColorTypes> = {
 	"menu-background": "#000000",
 	"submenu-background": "#333333",
-	"menu-text-color": "#fff",
 	debug: "#333333",
 }
 

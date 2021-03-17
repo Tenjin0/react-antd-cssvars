@@ -1,5 +1,4 @@
-import Values from "values.js"
-import tinycolor from "tinycolor2"
+import tinycolor from "@ctrl/tinycolor"
 
 // --background-contrast: @default-antd-background-contrast;
 export declare const DThemeColorTypes: [
@@ -80,7 +79,13 @@ export class Theme<T extends string> {
 	constructor(theme?: TTheme<T>, computed?: TThemeComputed<T>, themeColorKeys?: T[]) {
 		this.theme = {}
 		this.default = {}
+
+		if (computed) {
+			this.computed = computed
+		}
+
 		this.themeColorKeys = themeColorKeys ? themeColorKeys : ([...Theme.ThemeColorKeys] as T[])
+
 		for (let i = 0; i < this.themeColorKeys.length; i++) {
 			const themecolorKey = this.themeColorKeys[i] as T
 			const cssvar = this.keyToProperty(themecolorKey)
@@ -94,10 +99,6 @@ export class Theme<T extends string> {
 				this.default[themecolorKey] = color
 			}
 		}
-
-		if (computed) {
-			this.computed = computed
-		}
 	}
 
 	private keyToProperty(key: T) {
@@ -105,16 +106,17 @@ export class Theme<T extends string> {
 	}
 
 	set(key: T, value: hex, computed = false, alpha?: number): void {
-		this.theme[key] = value
-
 		const tiny = tinycolor(value)
 		if (alpha !== undefined) {
 			tiny.setAlpha(alpha)
 		}
+		alpha = tiny.getAlpha()
+
+		this.theme[key] = alpha !== 1 ? tiny.toHex8String() : tiny.toHexString()
 		const cssvar = this.keyToProperty(key)
-		document.body.style.setProperty(cssvar, alpha !== undefined ? tiny.toRgbString() : value)
+		document.body.style.setProperty(cssvar, this.theme[key])
 		if (computed && this.computed) {
-			this.computed(key, value, tiny.getLuminance(), tiny.getAlpha())
+			this.computed(key, this.theme[key], tiny.getLuminance(), tiny.getAlpha())
 		}
 	}
 
@@ -140,18 +142,27 @@ export class Theme<T extends string> {
 		this.set(key2, tmp)
 	}
 
+	static getLuminance(color: hex): number {
+		return tinycolor(color).getLuminance()
+	}
+
+	static getAlpha(color: hex): number {
+		return tinycolor(color).getAlpha()
+	}
 	static tint(hex: hex, weigth: number): hex {
-		const color = new Values(hex)
-		return "#" + color.tint(weigth).hex
+		return tinycolor(hex).tint(weigth).toHexString()
 	}
 
 	static shade(hex: hex, weigth: number): hex {
-		const color = new Values(hex)
-		return "#" + color.shade(weigth).hex
+		return tinycolor(hex).shade(weigth).toHexString()
 	}
 
 	static isdark(hex: hex): boolean {
 		return tinycolor(hex).isDark()
+	}
+
+	static mix(color1: hex, color2: hex, percent = 50): hex {
+		return tinycolor(color1).mix(color2, percent).toHex()
 	}
 }
 

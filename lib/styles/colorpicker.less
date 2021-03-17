@@ -8,10 +8,17 @@
 		display: flex;
 		position: absolute;
 		z-index: 10;
-		top: 0px;
-    left: 0px;
+		top: -30px;
+		&:not(.right) {
+			left: 0px;
+		}
+		&.right {
+			right: 0px;
+		}
 		& > button.color-picker-btn-close {
-			position: relative;
+			position: absolute;
+			right: 0px;
+			bottom: 0px;
 			color: @antd-text-color;
 		}
 	}

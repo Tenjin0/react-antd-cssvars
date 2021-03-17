@@ -2,6 +2,7 @@ import React from "react"
 import { message, Tooltip } from "antd"
 
 import Values from "values.js"
+
 import { hex } from "../../Theme"
 
 export interface IColorPicker {
