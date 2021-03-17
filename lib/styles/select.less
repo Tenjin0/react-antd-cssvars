@@ -1,5 +1,3 @@
-@import './variables.less';
-
 @select-prefix: ~"@{ant-prefix}-select";
 
 .@{select-prefix}:not(.@{select-prefix}-disabled):hover .@{select-prefix}-selector {
@@ -8,4 +6,13 @@
 
 .@{select-prefix}-focused:not(.@{select-prefix}-disabled).@{select-prefix}:not(.@{select-prefix}-customize-input) .@{select-prefix}-selector {
 	border-color: @antd-primary-color;
+}
+
+.@{select-prefix}-item-option-active:not(.@{select-prefix}-item-option-disabled) {
+	background-color: @antd-background-hover;
+}
+
+.@{select-prefix}-item-option-selected:not(.@{select-prefix}-item-option-disabled) {
+	color: @antd-text-color;
+	background-color: @antd-background-selected;
 }

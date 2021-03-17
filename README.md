@@ -1,11 +1,17 @@
 # react-antd-cssvars
 
 [![Build Status](https://travis-ci.org/Tenjin0/react-antd-cssvars.svg?branch=master)](https://travis-ci.org/Tenjin0/react-antd-cssvars)
+## Usage 
 
-Modify antd less files to replace colors by cssvar.
-Add a theme provider to change dynamically the colors.
+Provide a way to dynamically change the color of ant design components.  
 
-## Done
+1. import the less file of this library to replace all ant design colors by the associated the custom property
+2. create a Theme to modify the values with javacript
+
+
+Note: Support hex8.
+
+### Done
 
 * Button:  add secondary, success, warning type
 * CheckBox
@@ -27,7 +33,7 @@ Add a theme provider to change dynamically the colors.
 * Tag: add primary, secondary and danger color
 * Timeline: add primary, secondary, success and danger color (Item need to import the one from the package)
 
-## Not Done Yet
+### Not Done Yet
 
 * Alert ( issue with the background)
 * Statistic
@@ -35,11 +41,12 @@ Add a theme provider to change dynamically the colors.
 * Popconfirm
 * Others xD
 
-## [Demo page](https://tenjin0.github.io/react-antd-cssvars/example/)
+### [Demo page](https://tenjin0.github.io/react-antd-cssvars/example/)
+<br/>
 
-## Styles
+## A. Styles
 
-### Less
+### I. Less
 
 ```less
 @import "~antd/dist/antd.less";
@@ -47,10 +54,12 @@ Add a theme provider to change dynamically the colors.
 
 ```
 
-### Default [list value](https://github.com/Tenjin0/react-antd-cssvars/blob/develop/lib/styles/default.less)
+### II. Default [list here](https://github.com/Tenjin0/react-antd-cssvars/blob/develop/lib/styles/default.less)
 
 You can redifine the default color value
 ```less
+
+// in your less file
 @import "~antd/dist/antd.less";
 @import "~react-antd-cssvars/dist/style.less";
 
@@ -59,18 +68,25 @@ You can redifine the default color value
 
 ```
 
+### III. Custom properties [list here](https://github.com/Tenjin0/react-antd-cssvars/blob/develop/lib/styles/index.less)
+<br/>
+<br/>
 
-## Theme [See example source](https://github.com/Tenjin0/react-antd-cssvars/blob/develop/example/index.tsx)
+## B. Theme [See example source](https://github.com/Tenjin0/react-antd-cssvars/blob/develop/example/index.tsx)
 
-### Create
+<br/>
+
+### I. Create
 	
 ```typescript
+// in your typescript file
 import { Theme, TThemeColorTypes } from "react-antd-cssvars"
 
 const theme = new Theme<TThemeColorTypes>()
 ```
+<br/>
 
-### Init theme
+### II. Init theme
 
 You can initialize the theme with the first parameter of the contructor.
 
@@ -85,8 +101,9 @@ const initTheme: TTheme<TThemeColorTypes> = {
 
 const theme = new Theme<TThemeColorTypes>(initTheme)
 ```
+<br/>
 
-### Compute color
+### III. Compute color
 
 You can compute color from others color change by using the second parameter.
 
@@ -122,7 +139,9 @@ const computed = (key: TThemeColorTypes, value: string, luminance: number) => {
 
 const theme = new Theme<TThemeColorTypes>(null, computed)
 ```
-### Customize cssvars
+<br/>
+
+### IV. Customize cssvars
 
 If you want to manage more cssvars. (Do not forget to define and initialize it in your less/css file)
 
@@ -138,34 +157,52 @@ customDThemeColorTypes.push("debug")
 
 const theme = new Theme<CustomTThemeColorTypes>(initTheme, null, customDThemeColorTypes)
 ```
+<br/>
 
-### Functions
+### V. Functions [See documentation](https://tenjin0.github.io/react-antd-cssvars/classes/theme_class.theme.html)
 
-[See documentation](https://tenjin0.github.io/react-antd-cssvars/classes/theme_class.theme.html)
+<br/>
+<br/>
 
-## Custom Component
+## C. Custom Component
+<br/>
 
-### Button: 
+### I. Button: 
 
 1.  add secondary, success, warning type
 2.  add uppercase props
 
-### Tag: 
+<br/>
+
+### II. Tag: 
 
 1.  add primary, secondary and danger color
 
-### Timeline:
+
+<br/>
+
+### III. Timeline:
 
 1. add primary, secondary, success and danger color (Item need to import the one from the package)
 
-### ColorPicker: 
+<br/>
 
-add new component ColorPicker
-### Status: 
 
-add new component Status Derived from Badge
+### IV. ColorPicker: 
 
-## Requirements
+* add new component ColorPicker
+
+<br/>
+
+### V. Status: 
+
+* add new component Status Derived from Badge
+
+
+<br/>
+<br/>
+
+## D. Requirements
 
 * "@types/react": ">=16.0.0"
 * "antd": "^4.13.0"

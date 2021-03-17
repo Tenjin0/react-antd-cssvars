@@ -15,6 +15,16 @@
   }
 }
 
+.@{pagination-prefix}-item-active {
+	&:focus,
+	&:hover {
+		border-color: @antd-primary-color-hover;
+		& a {
+			color: @antd-primary-color-hover;
+		}
+	}
+}
+
 .@{pagination-prefix}-item:not(.@{pagination-prefix}-item-active) {
 	&:focus,
   &:hover {

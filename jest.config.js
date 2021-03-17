@@ -1,6 +1,6 @@
 module.exports = {
   preset: 'ts-jest',
-	roots: [ '<rootDir>/src'],
+	roots: [ '<rootDir>/lib'],
 	transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },

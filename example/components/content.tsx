@@ -223,6 +223,7 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 					</ColorPicker>
 					<ColorPicker
 						type="menu"
+						side="right"
 						defaultColor={theme.get("menu-background")}
 						onChangeColor={onMenuChange}
 					>
@@ -247,6 +248,7 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 					<ColorPicker
 						type="primary"
 						danger={true}
+						side="right"
 						defaultColor={theme.get("danger-color")}
 						onChangeColor={onMenuChange}
 					>
@@ -342,7 +344,7 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 			<br />
 			<br />
 			<div>
-				<Input placeholder="Basic usage" style={{ marginBottom: "15px" }} />
+				<Input size="large" placeholder="Basic usage" style={{ marginBottom: "15px" }} />
 				<Search
 					placeholder="input search text"
 					enterButton="Search"

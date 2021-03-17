@@ -11,12 +11,25 @@
 }
 
 .@{pagination-prefix}-item-active {
+	&:focus,
+	&:hover {
+		border-color: @antd-primary-color-hover;
+		& a {
+			color: @antd-primary-color-hover;
+		}
+	}
+}
+.@{pagination-prefix}-item-active {
 	background-color: @antd-primary-color;
   & a {
     color: @antd-text-color-inv;
-		&:hover {
+
+  }
+	&:focus,
+	&:hover {
+		color: @antd-text-color-inv;
+		& a {
 			color: @antd-text-color-inv;
 		}
-  }
+	}
 }
-

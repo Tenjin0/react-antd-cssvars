@@ -37,6 +37,6 @@ describe("Test Component", () => {
 
 		const testComponent = getByTestId("button-component")
 
-		expect(testComponent).toHaveClass("ant-btn-secondary")
+		expect(testComponent).toHaveClass("ant-btn btn-secondary")
 	})
 })
