@@ -45,7 +45,6 @@ message.config({
 const initTheme: TTheme<CustomTThemeColorTypes> = {
 	"menu-background": "#000000",
 	"submenu-background": "#333333",
-	"menu-text-color": "#fff",
 	debug: "#333333",
 }
 
