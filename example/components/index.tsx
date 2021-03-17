@@ -4,7 +4,6 @@ import { Layout, message } from "antd"
 
 import Menu from "./menu"
 import Content from "./content"
-import collapse from "antd/lib/collapse"
 export type TMenuTheme = "light" | "dark"
 
 export interface IMyComponentState {

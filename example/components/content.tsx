@@ -183,13 +183,13 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 		})
 	}, [])
 
-	const onSwitchChange = useCallback((checked: boolean, event: MouseEvent) => {
+	const onSwitchChange = useCallback((checked: boolean) => {
 		props.dispatch({
 			collapse: !checked,
 		})
 	}, [])
 
-	const onSelectChange = useCallback((selectedRowKeys: Key[], selectedRows: IData[]) => {
+	const onSelectChange = useCallback((selectedRowKeys: Key[]) => {
 		setMyComponentState({ ...myComponentState, selectedRowKeys })
 	}, [])
 
