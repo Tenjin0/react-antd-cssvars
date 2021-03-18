@@ -5,8 +5,8 @@
 
 Provide a way to dynamically change the color of ant design components.  
 
-1. import the less file of this library to replace all ant design colors by the associated the custom property
-2. create a Theme to modify the values with javacript
+1. [import the less file of this library to replace all ant design colors by the associated the custom property](#i-less)
+2. [create a Theme to modify the values with javacript](#i-create)
 
 
 Note: Support hex8.
