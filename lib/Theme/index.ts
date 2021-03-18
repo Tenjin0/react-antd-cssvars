@@ -23,6 +23,7 @@ export declare const DThemeColorTypes: [
 	"menu-background",
 	"submenu-background",
 	"menu-text-color",
+	"box-shadow-color",
 ]
 
 export declare type TThemeColorTypes = typeof DThemeColorTypes[number]
@@ -49,6 +50,7 @@ export const ThemeColorKeys: TThemeColorTypes[] = [
 	"menu-background",
 	"submenu-background",
 	"menu-text-color",
+	"box-shadow-color",
 ]
 
 export type hex = string

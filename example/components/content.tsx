@@ -176,18 +176,17 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 		})
 	}, [])
 
-	// eslint-disable-next-line @typescript-eslint/no-empty-function
-	const onRadioChange = useCallback((e: RadioChangeEvent) => {
+	const onRadioChange = (e: RadioChangeEvent) => {
 		props.dispatch({
 			menuTheme: e.target.value,
 		})
-	}, [])
+	}
 
-	const onSwitchChange = useCallback((checked: boolean, event: MouseEvent) => {
+	const onSwitchChange = (checked: boolean) => {
 		props.dispatch({
 			collapse: !checked,
 		})
-	}, [])
+	}
 
 	const onSelectChange = useCallback((selectedRowKeys: Key[], selectedRows: IData[]) => {
 		setMyComponentState({ ...myComponentState, selectedRowKeys })

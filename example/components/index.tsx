@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 
 import { Layout, message } from "antd"
 
@@ -45,6 +45,7 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 	const dispatch = (values: Partial<IMyComponentState>) => {
 		setLayoutState({ ...layoutState, ...values })
 	}
+
 	return (
 		<div id="layout">
 			<Layout id="layout-menu" onMouseLeave={onMouseLeave} onMouseOver={onMouseOver}>
