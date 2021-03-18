@@ -1,5 +1,5 @@
 import React from "react"
-import { message, Tooltip } from "antd"
+import { Tooltip } from "antd"
 
 import Values from "values.js"
 

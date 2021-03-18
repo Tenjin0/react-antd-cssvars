@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-import { ConfigProvider, message } from "antd"
+import { ConfigProvider } from "antd"
 
 import { Theme, TThemeColorTypes, TTheme, ThemeColorKeys } from "../lib/Theme"
 import { CustomTThemeColorTypes, ThemeProvider } from "./context"

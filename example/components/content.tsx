@@ -225,7 +225,7 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 		})
 	}
 
-	const onSelectChange = useCallback((selectedRowKeys: Key[], selectedRows: IData[]) => {
+	const onSelectChange = useCallback((selectedRowKeys: Key[]) => {
 		setMyComponentState({ ...myComponentState, selectedRowKeys })
 	}, [])
 
