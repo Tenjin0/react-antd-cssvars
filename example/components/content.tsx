@@ -3,6 +3,7 @@ import React, { useContext, useState, useCallback } from "react"
 import {
 	Spin,
 	Alert,
+	Dropdown,
 	Table,
 	TablePaginationConfig,
 	Checkbox,
@@ -17,11 +18,12 @@ import {
 	Steps,
 	Collapse,
 	message,
+	Menu,
 	Result,
 	RadioChangeEvent,
 } from "antd"
 
-import { AudioOutlined } from "@ant-design/icons"
+import { AudioOutlined, DownOutlined } from "@ant-design/icons"
 
 import { Button, TimelineItem, ColorPicker } from "../../lib/index"
 import ThemeContext from "../context"
@@ -84,6 +86,30 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 		{
 			title: "Name",
 			dataIndex: "name",
+			filters: [
+				{
+					text: "Joe",
+					value: "Joe",
+				},
+				{
+					text: "Jim",
+					value: "Jim",
+				},
+				{
+					text: "Submenu",
+					value: "Submenu",
+					children: [
+						{
+							text: "Green",
+							value: "Green",
+						},
+						{
+							text: "Black",
+							value: "Black",
+						},
+					],
+				},
+			],
 		},
 		{
 			title: "Chinese Score",
@@ -102,6 +128,17 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 		{
 			title: "English Score",
 			dataIndex: "english",
+			filters: [
+				{
+					text: "London",
+					value: "London",
+				},
+				{
+					text: "New York",
+					value: "New York",
+				},
+			],
+			filterMultiple: false,
 			sorter: {
 				compare: (a, b) => a.english - b.english,
 			},
@@ -176,22 +213,42 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 		})
 	}, [])
 
-	// eslint-disable-next-line @typescript-eslint/no-empty-function
-	const onRadioChange = useCallback((e: RadioChangeEvent) => {
+	const onRadioChange = (e: RadioChangeEvent) => {
 		props.dispatch({
 			menuTheme: e.target.value,
 		})
-	}, [])
+	}
 
-	const onSwitchChange = useCallback((checked: boolean) => {
+	const onSwitchChange = (checked: boolean) => {
 		props.dispatch({
 			collapse: !checked,
 		})
-	}, [])
+	}
 
 	const onSelectChange = useCallback((selectedRowKeys: Key[]) => {
 		setMyComponentState({ ...myComponentState, selectedRowKeys })
 	}, [])
+
+	const menu = (
+		<Menu>
+			<Menu.Item>
+				<a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+					1st menu item
+				</a>
+			</Menu.Item>
+			<Menu.Item icon={<DownOutlined />} disabled>
+				<a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+					2nd menu item
+				</a>
+			</Menu.Item>
+			<Menu.Item disabled>
+				<a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+					3rd menu item
+				</a>
+			</Menu.Item>
+			<Menu.Item danger>a danger item</Menu.Item>
+		</Menu>
+	)
 
 	return (
 		<React.Fragment>
@@ -323,7 +380,7 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 						marginRight: "15px",
 					}}
 				>
-					<TimelineItem>example default</TimelineItem>
+					<TimelineItem color="primary">example primary</TimelineItem>
 					<TimelineItem color="secondary">example secondary</TimelineItem>
 					<TimelineItem color="success">example success</TimelineItem>
 					<TimelineItem color="warning">example warning</TimelineItem>
@@ -352,13 +409,19 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 					suffix={suffix}
 				/>
 			</div>
-			<div>
-				<br />
-				<br />
+			<br />
+			<br />
+			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
 				<Select defaultValue="lucy" style={{ width: 120 }}>
 					<Option value="jack">Jack</Option>
 					<Option value="Yiminghe">yiminghe</Option>
 				</Select>
+
+				<Dropdown overlay={menu}>
+					<a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
+						Hover me <DownOutlined />
+					</a>
+				</Dropdown>
 			</div>
 			<br />
 			<br />

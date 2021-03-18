@@ -72,7 +72,7 @@
 
 .@{table-prefix}-tbody {
 	& > tr.@{table-prefix}-row:hover > td {
-		background:@antd-background-hover;
+		background: @antd-background-hover;
 	}
 
 	& > tr > td.@{table-prefix}-column-sort {
@@ -82,4 +82,14 @@
 
 .@{checkbox-prefix}-indeterminate .@{checkbox-prefix}-inner:after {
 	background-color: @antd-primary-color;
+}
+
+
+.@{table-prefix}-filter-trigger.active {
+	color: @antd-primary-color;
+}
+
+
+.@{table-prefix}-filter-trigger-container-open, .@{table-prefix}-filter-trigger-container:hover, .@{table-prefix}-thead th.@{table-prefix}-column-has-sorters:hover .@{table-prefix}-filter-trigger-container:hover {
+	background: @antd-background-hover;
 }

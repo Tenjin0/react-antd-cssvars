@@ -4,9 +4,15 @@
 
 .@{switch-prefix} {
 	background-color: @antd-disable-color;
+	color: @antd-text-color;
 
 	&.@{switch-prefix}-checked {
 		background-color: @antd-primary-color;
+		&:focus {
+			box-shadow: 0 0 0 2px @antd-box-shadow-color;
+		}
 	}
 }
+
+
 

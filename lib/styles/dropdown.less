@@ -1,0 +1,31 @@
+@dropdown-prefix: ~"@{ant-prefix}-dropdown";
+
+.@{dropdown-prefix}-menu-item:not(.@{dropdown-prefix}-menu-item-selected), .@{dropdown-prefix}-menu-submenu-title {
+	color: @antd-text-color;
+
+}
+.@{dropdown-prefix}-menu-item.@{dropdown-prefix}-menu-item-danger {
+	color: @antd-danger-color;
+	&:hover {
+		background-color: @antd-danger-color;
+		color: @antd-text-color-inv;
+	}
+}
+
+.@{dropdown-prefix}-menu-item-disabled:hover, .@{dropdown-prefix}-menu-submenu-title-disabled:hover {
+	color: @antd-disable-color;
+}
+
+
+.@{dropdown-prefix}-menu-item-selected, .@{dropdown-prefix}-menu-submenu-title-selected, .@{dropdown-prefix}-menu-item-selected > a, .@{dropdown-prefix}-menu-submenu-title-selected > a {
+	color: @antd-primary-color;
+	background-color: @antd-background-selected;
+}
+
+.@{dropdown-prefix}-menu-item:hover, .@{dropdown-prefix}-menu-submenu-title:hover {
+	background-color:  @antd-background-hover;
+}
+
+.@{dropdown-prefix}-menu-submenu-selected .@{dropdown-prefix}-menu-submenu-title {
+	color: @antd-primary-color;
+}

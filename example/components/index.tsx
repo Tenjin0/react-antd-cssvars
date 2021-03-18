@@ -4,8 +4,8 @@ import { Layout, message } from "antd"
 
 import Menu from "./menu"
 import Content from "./content"
-export type TMenuTheme = "light" | "dark"
 
+export type TMenuTheme = "light" | "dark"
 export interface IMyComponentState {
 	collapse: boolean
 	menuTheme: TMenuTheme
@@ -44,6 +44,7 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 	const dispatch = (values: Partial<IMyComponentState>) => {
 		setLayoutState({ ...layoutState, ...values })
 	}
+
 	return (
 		<div id="layout">
 			<Layout id="layout-menu" onMouseLeave={onMouseLeave} onMouseOver={onMouseOver}>

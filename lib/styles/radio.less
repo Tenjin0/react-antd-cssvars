@@ -1,5 +1,3 @@
-@import './variables.less';
-
 @radio-prefix: ~"@{ant-prefix}-radio";
 
 .@{radio-prefix}-wrapper:hover .@{radio-prefix}, .@{radio-prefix}:hover .@{radio-prefix}-inner, .@{radio-prefix}-input:focus + .@{radio-prefix}-inner {
@@ -17,4 +15,8 @@
 			background-color: @antd-primary-color;
 		}
 	}
+}
+
+.@{radio-prefix}-wrapper {
+	color: @antd-text-color;
 }
