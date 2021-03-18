@@ -25,7 +25,7 @@ import {
 
 import { AudioOutlined, DownOutlined } from "@ant-design/icons"
 
-import { Button, TimelineItem, ColorPicker } from "../../lib/index"
+import { Button, TimelineItem, ColorPicker, Status } from "../../lib/index"
 import ThemeContext from "../context"
 
 import PageHeader from "./pageHeader"
@@ -416,12 +416,14 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 					<Option value="jack">Jack</Option>
 					<Option value="Yiminghe">yiminghe</Option>
 				</Select>
-
 				<Dropdown overlay={menu}>
 					<a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
 						Hover me <DownOutlined />
 					</a>
 				</Dropdown>
+				<Status size="large" color="primary">
+					status
+				</Status>
 			</div>
 			<br />
 			<br />

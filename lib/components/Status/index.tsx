@@ -34,13 +34,9 @@ const StatusComponent: React.FC<IStatusProps> = (props) => {
 	}
 
 	const status = convertStatus()
-	const className = classNames(convertClassNames)
+	const className = classNames(convertClassNames())
 
-	return (
-		<Badge className={className} status={status}>
-			{props.children}
-		</Badge>
-	)
+	return <Badge className={className} status={status} text={props.children} />
 }
 
 export default StatusComponent
