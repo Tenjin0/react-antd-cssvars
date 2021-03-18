@@ -16,6 +16,7 @@ Note: Support hex8.
 * Button:  add secondary, success, warning type
 * CheckBox
 * Collapse
+* Dropdown
 * Input
 * Menu
 * Message
