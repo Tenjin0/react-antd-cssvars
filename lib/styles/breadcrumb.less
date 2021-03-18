@@ -2,7 +2,11 @@
 
 @breadcrumb-prefix: ~"@{ant-prefix}-breadcrumb";
 
-.@{breadcrumb-prefix} a:hover {
-	color: @antd-primary-color-hover;
+.@{breadcrumb-prefix} a {
+	color: @antd-disable-color;
+	&:hover {
+		color: @antd-primary-color-hover;
+	}
 }
+
 

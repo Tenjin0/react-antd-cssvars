@@ -36,6 +36,7 @@ Note: Support hex8.
 ### Not Done Yet
 
 * Alert ( issue with the background)
+* Dropdown
 * Statistic
 * BackTop
 * Popconfirm
