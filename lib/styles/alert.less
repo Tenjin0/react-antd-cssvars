@@ -1,17 +1,30 @@
 @alert-prefix: ~"@{ant-prefix}-alert";
 
+
+.@{alert-prefix} {
+	color: @antd-text-color;
+}
+
+.@{alert-prefix}-message {
+	color: @antd-text-color;
+}
+
 .@{alert-prefix}-success {
 	border: 1px solid @antd-success-color;
+	background-color:  @antd-success-color-background;
 }
 
 .@{alert-prefix}-info {
 	border: 1px solid @antd-primary-color;
+	background-color:  @antd-primary-color-background;
 }
 
 .@{alert-prefix}-warning {
 	border: 1px solid @antd-warning-color;
+	background-color:  @antd-warning-color-background;
 }
 
 .@{alert-prefix}-error {
 	border: 1px solid @antd-danger-color;
+	background-color:  @antd-danger-color-background;
 }

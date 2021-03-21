@@ -2,27 +2,36 @@
 
 @input-prefix: ~"@{ant-prefix}-input";
 
-.@{input-prefix}:hover {
-	border-color: @antd-primary-color;
-}
-.@{input-prefix}-affix-wrapper:hover {
-	border-color: @antd-primary-color;
+.@{input-prefix} {
+  color: @antd-text-color;
+  background-color: @antd-text-color-inv;
+  border: 1px solid @antd-border-color;
 
+  &:hover {
+    border-color: @antd-primary-color;
+  }
+}
+
+.@{input-prefix}-affix-wrapper:hover {
+  border-color: @antd-primary-color;
 }
 
 .@{input-prefix}-focused,
 .@{input-prefix}:focus {
-	border-color: @antd-primary-color-hover;
-	box-shadow: 0 0 0 2px @antd-box-shadow-color;
+  border-color: @antd-primary-color-hover;
+  box-shadow: 0 0 0 2px @antd-box-shadow-color;
 }
+
 .@{input-prefix}-affix-wrapper :hover {
-	border-color: @antd-primary-color-hover;
+  border-color: @antd-primary-color-hover;
 }
 
-.@{input-prefix}-affix-wrapper:focus, .@{input-prefix}-affix-wrapper-focused {
-	box-shadow: 0 0 0 2px @antd-box-shadow-color;
+.@{input-prefix}-affix-wrapper:focus,
+.@{input-prefix}-affix-wrapper-focused {
+  box-shadow: 0 0 0 2px @antd-box-shadow-color;
 }
 
-.@{input-prefix}-search .@{input-prefix}:hover, .@{input-prefix}-search .@{input-prefix}:focus {
-	border-color: @antd-primary-color-hover;
+.@{input-prefix}-search .@{input-prefix}:hover,
+.@{input-prefix}-search .@{input-prefix}:focus {
+  border-color: @antd-primary-color-hover;
 }

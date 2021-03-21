@@ -1,0 +1,17 @@
+@form-prefix: ~"@{ant-prefix}-form";
+
+
+.@{form-prefix} {
+	color: @antd-text-color;
+}
+
+
+.@{form-prefix}-item-label > label {
+	color: @antd-text-color;
+}
+
+
+.@{form-prefix}-item-label > label.@{form-prefix}-item-required:not(.@{form-prefix}-item-required-mark-optional)::before {
+	color: @antd-danger-color;
+
+}

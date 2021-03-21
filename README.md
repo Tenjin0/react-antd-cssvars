@@ -13,9 +13,13 @@ Note: Support hex8.
 
 ### Done
 
+* Alert: add secondary color
+* Badge
 * Button:  add secondary, success, warning type
+* Card
 * CheckBox
 * Collapse
+* Descriptions
 * Dropdown
 * Input
 * Menu
@@ -35,13 +39,32 @@ Note: Support hex8.
 * Timeline: add primary, secondary, success and danger color (Item need to import the one from the package)
 
 ### Not Done Yet
-
-* Alert ( issue with the background)
-* Dropdown
+* Autocomplete
+* Cascader
+* Calendar
+* Caroussel
+* Comment
+* Datepicker
+* Divider
+* InputNumber
+* Form
+* List
+* Mentions
+* Rate
+* Popover
+* Timepicker
+* Tooltip
+* Transfert
+* Tree
+* TreeSelect
 * Statistic
+
+* Modal
+* Notification
+* PopConfirm
+* Skeleton
+
 * BackTop
-* Popconfirm
-* Others xD
 
 ### [Demo page](https://tenjin0.github.io/react-antd-cssvars/example/)
 <br/>
@@ -161,7 +184,7 @@ const theme = new Theme<CustomTThemeColorTypes>(initTheme, null, customDThemeCol
 ```
 <br/>
 
-### V. Functions [See documentation](https://tenjin0.github.io/react-antd-cssvars/classes/theme_class.theme.html)
+### V. Functions [See documentation](https://tenjin0.github.io/react-antd-cssvars/classes/theme.theme-1.html)
 
 <br/>
 <br/>

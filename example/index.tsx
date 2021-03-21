@@ -43,6 +43,8 @@ const initTheme: TTheme<CustomTThemeColorTypes> = {
 	"menu-background": "#000000",
 	"submenu-background": "#333333",
 	debug: "#333333",
+	"text-color": "#eb2f96a6",
+	"primary-color": "#eb2f96",
 }
 
 const theme = new Theme<CustomTThemeColorTypes>(initTheme, computed, customDThemeColorTypes)

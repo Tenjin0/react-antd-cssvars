@@ -1,5 +1,9 @@
 @select-prefix: ~"@{ant-prefix}-select";
 
+.@{select-prefix} {
+	color: @antd-text-color;
+}
+
 .@{select-prefix}:not(.@{select-prefix}-disabled):hover .@{select-prefix}-selector {
 	border-color: @antd-primary-color;
 }
@@ -16,4 +20,10 @@
 .@{select-prefix}-item-option-selected:not(.@{select-prefix}-item-option-disabled) {
 	color: @antd-text-color;
 	background-color: @antd-background-selected;
+}
+
+
+.@{select-prefix}:not(.@{select-prefix}-customize-input) .@{select-prefix}-selector {
+	background-color: @antd-text-color-inv;
+	border: 1px solid @antd-border-color;
 }

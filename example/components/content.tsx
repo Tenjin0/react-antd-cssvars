@@ -3,10 +3,17 @@ import React, { useContext, useState, useCallback } from "react"
 import {
 	Spin,
 	Alert,
+	Badge,
+	Cascader,
+	Comment,
+	Descriptions,
 	Dropdown,
 	Table,
 	TablePaginationConfig,
+	Card,
+	Avatar,
 	Checkbox,
+	Form,
 	Radio,
 	Input,
 	Select,
@@ -19,11 +26,18 @@ import {
 	Collapse,
 	message,
 	Menu,
+	Mentions,
 	Result,
 	RadioChangeEvent,
 } from "antd"
 
-import { AudioOutlined, DownOutlined } from "@ant-design/icons"
+import {
+	AudioOutlined,
+	DownOutlined,
+	EditOutlined,
+	EllipsisOutlined,
+	SettingOutlined,
+} from "@ant-design/icons"
 
 import { Button, TimelineItem, ColorPicker, Status } from "../../lib/index"
 import ThemeContext from "../context"
@@ -38,6 +52,7 @@ const { Option } = Select
 const { TabPane } = Tabs
 const { Panel } = Collapse
 const { Step } = Steps
+const { Meta } = Card
 
 export interface MyComponentProps {
 	dispatch: (values: Partial<IMyComponentState>) => void
@@ -81,6 +96,41 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 			}}
 		/>
 	)
+
+	const options = [
+		{
+			value: "zhejiang",
+			label: "Zhejiang",
+			children: [
+				{
+					value: "hangzhou",
+					label: "Hangzhou",
+					children: [
+						{
+							value: "xihu",
+							label: "West Lake",
+						},
+					],
+				},
+			],
+		},
+		{
+			value: "jiangsu",
+			label: "Jiangsu",
+			children: [
+				{
+					value: "nanjing",
+					label: "Nanjing",
+					children: [
+						{
+							value: "zhonghuamen",
+							label: "Zhong Hua Men",
+						},
+					],
+				},
+			],
+		},
+	]
 
 	const columns = [
 		{
@@ -259,7 +309,7 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 				<div
 					style={{
 						display: "flex",
-						justifyContent: "space-evenly",
+						justifyContent: "space-between",
 						marginBottom: "15px",
 					}}
 				>
@@ -287,7 +337,7 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 						Menu Color
 					</ColorPicker>
 				</div>
-				<div style={{ display: "flex", justifyContent: "space-evenly" }}>
+				<div style={{ display: "flex", justifyContent: "space-between" }}>
 					<ColorPicker
 						type="success"
 						defaultColor={theme.get("success-color")}
@@ -411,19 +461,31 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 			</div>
 			<br />
 			<br />
-			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
-				<Select defaultValue="lucy" style={{ width: 120 }}>
-					<Option value="jack">Jack</Option>
-					<Option value="Yiminghe">yiminghe</Option>
-				</Select>
-				<Dropdown overlay={menu}>
-					<a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
-						Hover me <DownOutlined />
-					</a>
-				</Dropdown>
-				<Status size="large" color="primary">
-					status
-				</Status>
+			<div style={{ display: "flex", justifyContent: "space-between" }}>
+				<div>
+					<Mentions defaultValue="@afc163">
+						<Mentions.Option value="afc163">afc163</Mentions.Option>
+						<Mentions.Option value="zombieJ">zombieJ</Mentions.Option>
+						<Mentions.Option value="yesmeck">yesmeck</Mentions.Option>
+					</Mentions>
+				</div>
+				<div>
+					<Cascader options={options} placeholder="Please select" />
+				</div>
+				<div>
+					<Select defaultValue="lucy" style={{ width: 120 }}>
+						<Option value="jack">Jack</Option>
+						<Option value="Yiminghe">yiminghe</Option>
+					</Select>
+				</div>
+
+				<div>
+					<Dropdown overlay={menu}>
+						<a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
+							Hover me <DownOutlined />
+						</a>
+					</Dropdown>
+				</div>
 			</div>
 			<br />
 			<br />
@@ -465,6 +527,44 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 			<br />
 			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
 				<div>
+					<Card
+						style={{ width: 300 }}
+						title="card example"
+						actions={[
+							<SettingOutlined key="setting" />,
+							<EditOutlined key="edit" />,
+							<EllipsisOutlined key="ellipsis" />,
+						]}
+					>
+						<Meta
+							avatar={
+								<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+							}
+							title="Card title"
+							description="This is the description"
+						/>
+					</Card>
+				</div>
+				<div>
+					<Badge status="success" text="Success" />
+					<br />
+					<Badge status="error" text="Error" />
+					<br />
+					<Badge status="default" text="Default" />
+					<br />
+					<Badge status="processing" text="Processing" />
+					<br />
+					<Badge status="warning" text="Warning" />
+					<br />
+					<Status size="large" color="secondary">
+						status
+					</Status>
+				</div>
+			</div>
+			<br />
+			<br />
+			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
+				<div>
 					<Progress percent={30} size="small" />
 					<Progress percent={50} size="small" status="active" />
 					<Progress percent={70} size="small" status="exception" />
@@ -488,6 +588,64 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 				<Result status="error" title="Error" />
 				<Result status="warning" title="Warning" />
 			</div>
+			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
+				<Descriptions title="User Info">
+					<Descriptions.Item label="UserName">Zhou Maomao</Descriptions.Item>
+					<Descriptions.Item label="Telephone">1810000000</Descriptions.Item>
+					<Descriptions.Item label="Live">Hangzhou, Zhejiang</Descriptions.Item>
+					<Descriptions.Item label="Remark">empty</Descriptions.Item>
+				</Descriptions>
+			</div>
+			<div style={{ display: "flex", justifyContent: "space-evenly" }}></div>
+			<Comment
+				author={<a>Han Solo</a>}
+				avatar={
+					<Avatar
+						src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+						alt="Han Solo"
+					/>
+				}
+				content={
+					<p>
+						We supply a series of design principles, practical patterns and high quality
+						design resources (Sketch and Axure), to help people create their product
+						prototypes beautifully and efficiently.
+					</p>
+				}
+				datetime={<span>2021-03-21 20:46:05</span>}
+			/>
+
+			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
+				<Form name="basic" initialValues={{ remember: true }}>
+					<Form.Item
+						label="Username"
+						name="username"
+						rules={[{ required: true, message: "Please input your username!" }]}
+					>
+						<Input />
+					</Form.Item>
+
+					<Form.Item
+						label="Password"
+						name="password"
+						rules={[{ required: true, message: "Please input your password!" }]}
+					>
+						<Input.Password />
+					</Form.Item>
+
+					<Form.Item name="remember" valuePropName="checked">
+						<Checkbox>Remember me</Checkbox>
+					</Form.Item>
+
+					<Form.Item>
+						<Button type="primary" htmlType="submit">
+							Submit
+						</Button>
+					</Form.Item>
+				</Form>
+			</div>
+			<div style={{ display: "flex", justifyContent: "space-evenly" }}></div>
+			<div style={{ display: "flex", justifyContent: "space-evenly" }}></div>
 		</React.Fragment>
 	)
 }

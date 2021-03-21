@@ -2,6 +2,10 @@
 
 @steps-prefix: ~"@{ant-prefix}-steps";
 
+.@{steps-prefix} {
+	color: @antd-text-color;
+}
+
 .@{steps-prefix}-item-process > .@{steps-prefix}-item-container > .@{steps-prefix}-item-icon {
 	background: @antd-primary-color;
 	border-color: @antd-primary-color;
@@ -10,9 +14,29 @@
 .@{steps-prefix}-item-finish > .@{steps-prefix}-item-container > .@{steps-prefix}-item-content > .@{steps-prefix}-item-title::after {
 	background-color: @antd-primary-color;
 }
+
 .@{steps-prefix}-item-finish .@{steps-prefix}-item-icon {
+	background-color: @antd-text-color-inv;
 	& > .@{steps-prefix}-icon {
 		color: @antd-primary-color;
 	}
 	border-color: @antd-primary-color;
+}
+
+.@{steps-prefix}-item-wait > .@{steps-prefix}-item-container > .@{steps-prefix}-item-content > .@{steps-prefix}-item-title {
+	color: @antd-description-color;
+}
+
+.@{steps-prefix}-item-wait .@{steps-prefix}-item-icon {
+	background-color: @antd-text-color-inv;
+	border-color: @antd-border-color;
+}
+
+.@{steps-prefix}-item-process > .@{steps-prefix}-item-container > .@{steps-prefix}-item-content > .@{steps-prefix}-item-title {
+	color: @antd-text-color;
+}
+
+
+.@{steps-prefix}-item-finish > .@{steps-prefix}-item-container > .@{steps-prefix}-item-content > .@{steps-prefix}-item-title {
+	color: @antd-text-color;
 }
