@@ -17,11 +17,16 @@ Note: Support hex8.
 * Badge
 * Button:  add secondary, success, warning type
 * Card
+* Cascader
+
 * CheckBox
 * Collapse
+* Comment
 * Descriptions
 * Dropdown
+* Form
 * Input
+* Mentions
 * Menu
 * Message
 * PageHeader
@@ -40,16 +45,12 @@ Note: Support hex8.
 
 ### Not Done Yet
 * Autocomplete
-* Cascader
 * Calendar
 * Caroussel
-* Comment
 * Datepicker
 * Divider
 * InputNumber
-* Form
 * List
-* Mentions
 * Rate
 * Popover
 * Timepicker
