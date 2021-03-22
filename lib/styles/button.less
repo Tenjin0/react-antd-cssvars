@@ -10,8 +10,10 @@
 
   &:not([disabled]) {
     color: @antd-primary-color;
-		border-color: @antd-primary-color;
-    &:hover {
+    border-color: @antd-primary-color;
+
+    &:hover,
+    &:focus {
       color: @antd-primary-color-hover;
       border-color: @antd-primary-color-hover;
     }
@@ -27,7 +29,8 @@
     background: @antd-primary-color;
     border-color: @antd-primary-color;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background: @antd-primary-color-hover;
       border-color: @antd-primary-color-hover;
     }
@@ -38,7 +41,8 @@
     background: @antd-danger-color;
     border-color: @antd-danger-color;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background: @antd-danger-color-hover;
       border-color: @antd-danger-color-hover;
     }
@@ -49,58 +53,66 @@
     border-color: @antd-secondary-color;
     background: @antd-secondary-color;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background: @antd-secondary-color-hover;
       border-color: @antd-secondary-color-hover;
     }
   }
 
-	&.@{button-prefix}.btn-success:not([disabled]) {
+  &.@{button-prefix}.btn-success:not([disabled]) {
     color: @antd-text-color-inv;
     border-color: @antd-success-color;
     background: @antd-success-color;
   }
 
-	&.@{button-prefix}.btn-warning:not([disabled]) {
+  &.@{button-prefix}.btn-warning:not([disabled]) {
     color: @antd-text-color-inv;
     border-color: @antd-warning-color;
     background: @antd-warning-color;
   }
 
-	&.@{button-prefix}.btn-menu:not([disabled]) {
+  &.@{button-prefix}.btn-menu:not([disabled]) {
     color: @antd-menu-text-color;
     border-color: @antd-menu-background;
     background: @antd-menu-background;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background: @antd-submenu-background;
       border-color: @antd-submenu-background;
     }
   }
 
   &.@{button-prefix}-link {
-		border-color: transparent;
-		&:not([disabled]) {
-			color: @antd-primary-color;
+    border-color: transparent;
 
-			&:hover {
-				color: @antd-primary-color-hover;
-				border-color: transparent;
-			}
-		}
-	}
+    &:not([disabled]) {
+      color: @antd-primary-color;
+
+      &:hover,
+      &:focus {
+
+        color: @antd-primary-color-hover;
+        border-color: transparent;
+      }
+    }
+  }
 
   &.@{button-prefix}-text {
-		border-color: transparent;
-		&:not([disabled]) {
-			color: @antd-primary-color;
-			&:hover {
-				color: @antd-primary-color-hover;
-				border-color: transparent;
-			}
-		}
-	}
+    border-color: transparent;
 
+    &:not([disabled]) {
+      color: @antd-primary-color;
+
+      &:hover,
+      &:focus {
+
+        color: @antd-primary-color-hover;
+        border-color: transparent;
+      }
+    }
+  }
 
   &.@{button-prefix}.@{button-prefix}-xs {
     height: 34px;

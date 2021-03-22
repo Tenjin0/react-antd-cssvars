@@ -5,8 +5,11 @@ import {
 	Alert,
 	Badge,
 	Cascader,
+	Calendar,
 	Comment,
+	DatePicker,
 	Descriptions,
+	Divider,
 	Dropdown,
 	Table,
 	TablePaginationConfig,
@@ -17,7 +20,10 @@ import {
 	Radio,
 	Input,
 	Select,
+	List,
+	Space,
 	Timeline,
+	TimePicker,
 	Tabs,
 	Progress,
 	Switch,
@@ -72,6 +78,67 @@ export interface IData {
 	math: number
 	english: number
 }
+
+function getListData(value) {
+	let listData
+	switch (value.date()) {
+		case 8:
+			listData = [
+				{ type: "warning", content: "This is warning event." },
+				{ type: "success", content: "This is usual event." },
+			]
+			break
+		case 10:
+			listData = [
+				{ type: "warning", content: "This is warning event." },
+				{ type: "success", content: "This is usual event." },
+				{ type: "error", content: "This is error event." },
+			]
+			break
+		case 15:
+			listData = [
+				{ type: "warning", content: "This is warning event" },
+				{ type: "success", content: "This is very long usual event。。...." },
+				{ type: "error", content: "This is error event 1." },
+				{ type: "error", content: "This is error event 2." },
+				{ type: "error", content: "This is error event 3." },
+				{ type: "error", content: "This is error event 4." },
+			]
+			break
+		default:
+	}
+	return listData || []
+}
+
+function dateCellRender(value) {
+	const listData = getListData(value)
+	return (
+		<ul className="events">
+			{listData.map((item) => (
+				<li key={item.content}>
+					<Badge status={item.type} text={item.content} />
+				</li>
+			))}
+		</ul>
+	)
+}
+
+function getMonthData(value) {
+	if (value.month() === 8) {
+		return 1394
+	}
+}
+
+function monthCellRender(value) {
+	const num = getMonthData(value)
+	return num ? (
+		<div className="notes-month">
+			<section>{num}</section>
+			<span>Backlog number</span>
+		</div>
+	) : null
+}
+
 // eslint-disable-next-line @typescript-eslint/ban-types
 const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 	const theme = useContext(ThemeContext)
@@ -195,6 +262,20 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 		},
 	]
 
+	const dataList = [
+		{
+			title: "Ant Design Title 1",
+		},
+		{
+			title: "Ant Design Title 2",
+		},
+		{
+			title: "Ant Design Title 3",
+		},
+		{
+			title: "Ant Design Title 4",
+		},
+	]
 	const data: IData[] = [
 		{
 			key: "1",
@@ -226,6 +307,12 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 		},
 	]
 
+	const dateFormat = "YYYY/MM/DD"
+	const monthFormat = "YYYY/MM"
+
+	const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"]
+
+	const customFormat = (value) => `custom format: ${value.format(dateFormat)}`
 	const text = `
 	A dog is a type of domesticated animal.
 	Known for its loyalty and faithfulness,
@@ -249,6 +336,9 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 	}, [])
 	const onWarningChange = useCallback((color: string) => {
 		theme.set("warning-color", color, false)
+	}, [])
+	const onDangerChange = useCallback((color: string) => {
+		theme.set("danger-color", color, false)
 	}, [])
 
 	const onMenuChange = useCallback((color: string) => {
@@ -337,6 +427,7 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 						Menu Color
 					</ColorPicker>
 				</div>
+				<Divider />
 				<div style={{ display: "flex", justifyContent: "space-between" }}>
 					<ColorPicker
 						type="success"
@@ -357,11 +448,12 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 						danger={true}
 						side="right"
 						defaultColor={theme.get("danger-color")}
-						onChangeColor={onMenuChange}
+						onChangeColor={onDangerChange}
 					>
 						Danger Color
 					</ColorPicker>
 				</div>
+
 				<br />
 				<br />
 			</PageHeader>
@@ -644,8 +736,49 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 					</Form.Item>
 				</Form>
 			</div>
-			<div style={{ display: "flex", justifyContent: "space-evenly" }}></div>
-			<div style={{ display: "flex", justifyContent: "space-evenly" }}></div>
+			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
+				<Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />,
+			</div>
+			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
+				<div>
+					<Space direction="vertical" size={12}>
+						<DatePicker format={dateFormat} />
+						<DatePicker format={dateFormatList} />
+						<DatePicker format={monthFormat} picker="month" />
+						<DatePicker.RangePicker format={dateFormat} />
+						<DatePicker format={customFormat} />
+					</Space>
+				</div>
+				<div>
+					<TimePicker.RangePicker />
+				</div>
+				<div>
+					<TimePicker
+						renderExtraFooter={() => (
+							<Button size="small" type="primary">
+								Ok
+							</Button>
+						)}
+					/>
+				</div>
+			</div>
+			<div>
+				<List
+					itemLayout="horizontal"
+					dataSource={dataList}
+					renderItem={(item) => (
+						<List.Item>
+							<List.Item.Meta
+								avatar={
+									<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+								}
+								title={<a href="https://ant.design">{item.title}</a>}
+								description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+							/>
+						</List.Item>
+					)}
+				/>
+			</div>
 		</React.Fragment>
 	)
 }

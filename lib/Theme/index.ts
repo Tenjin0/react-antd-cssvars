@@ -123,13 +123,15 @@ export class Theme<T extends string> {
 	}
 
 	set(key: T, value: hex, computed = false, alpha?: number): void {
-		const tiny = tinycolor(value)
+		let tiny = tinycolor(value, { format: "hex" })
 		if (alpha !== undefined) {
-			tiny.setAlpha(alpha)
+			if (alpha > 1) {
+				alpha = Number.parseFloat((alpha / 100).toFixed(2))
+			}
+			tiny = tiny.setAlpha(alpha)
 		}
 		alpha = tiny.getAlpha()
-
-		this.theme[key] = alpha !== 1 ? tiny.toHex8String() : tiny.toHexString()
+		this.theme[key] = alpha !== 1 && alpha !== 0 ? tiny.toHex8String() : tiny.toHexString()
 		const cssvar = this.keyToProperty(key)
 		document.body.style.setProperty(cssvar, this.theme[key])
 		if (computed && this.computed) {

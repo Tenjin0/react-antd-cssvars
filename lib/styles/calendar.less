@@ -1,0 +1,35 @@
+@calendar-prefix: ~"@{ant-prefix}-picker-calendar";
+@picker-prefix: ~"@{ant-prefix}-picker";
+
+.@{calendar-prefix} {
+	color: @antd-text-color;
+	background-color: @antd-text-color-inv;
+}
+.@{calendar-prefix}-full .@{picker-prefix}-panel .@{calendar-prefix}-date-content,
+.@{picker-prefix}-cell-in-view,
+.@{picker-prefix}-content th {
+	color: @antd-text-color;
+}
+.@{calendar-prefix}-full .@{picker-prefix}-panel .@{calendar-prefix}-date-today {
+	border-color: @antd-primary-color !important;
+}
+
+.@{calendar-prefix}-full .@{picker-prefix}-panel .@{calendar-prefix}-date {
+	border-top: 1px solid @antd-border-color;
+}
+
+.@{picker-prefix}-cell:hover:not(.@{picker-prefix}-cell-in-view) .@{picker-prefix}-cell-inner, .@{picker-prefix}-cell:hover:not(.@{picker-prefix}-cell-selected):not(.@{picker-prefix}-cell-range-start):not(.@{picker-prefix}-cell-range-end):not(.@{picker-prefix}-cell-range-hover-start):not(.@{picker-prefix}-cell-range-hover-end) .@{picker-prefix}-cell-inner {
+	background: @antd-background-hover;
+}
+
+.@{picker-prefix}-cell-in-view.@{picker-prefix}-cell-selected .@{picker-prefix}-cell-inner, .@{picker-prefix}-cell-in-view.@{picker-prefix}-cell-range-start .@{picker-prefix}-cell-inner, .@{picker-prefix}-cell-in-view.@{picker-prefix}-cell-range-end .@{picker-prefix}-cell-inner {
+	color: @antd-text-color-inv;
+}
+
+.@{calendar-prefix}-full .@{picker-prefix}-panel .@{picker-prefix}-cell-selected .@{calendar-prefix}-date, .@{calendar-prefix}-full .@{picker-prefix}-panel .@{picker-prefix}-cell-selected:hover .@{calendar-prefix}-date, .@{calendar-prefix}-full .@{picker-prefix}-panel .@{picker-prefix}-cell-selected .@{calendar-prefix}-date-today, .@{calendar-prefix}-full .@{picker-prefix}-panel .@{picker-prefix}-cell-selected:hover .@{calendar-prefix}-date-today {
+	background: @antd-background-selected;
+}
+
+.@{calendar-prefix}-full .@{picker-prefix}-panel .@{picker-prefix}-cell-selected .@{calendar-prefix}-date .@{calendar-prefix}-date-value, .@{calendar-prefix}-full .@{picker-prefix}-panel .@{picker-prefix}-cell-selected:hover .@{calendar-prefix}-date .@{calendar-prefix}-date-value, .@{calendar-prefix}-full .@{picker-prefix}-panel .@{picker-prefix}-cell-selected .@{calendar-prefix}-date-today .@{calendar-prefix}-date-value, .@{calendar-prefix}-full .@{picker-prefix}-panel .@{picker-prefix}-cell-selected:hover .@{calendar-prefix}-date-today .@{calendar-prefix}-date-value {
+	color: @antd-primary-color;
+}
