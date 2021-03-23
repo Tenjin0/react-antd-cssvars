@@ -1,0 +1,25 @@
+
+@transfert-prefix: ~"@{ant-prefix}-transfer";
+
+
+.@{transfert-prefix} {
+	color: @antd-text-color;
+}
+
+.@{transfert-prefix}-list {
+	border: 1px solid @antd-border-color;
+}
+
+.@{transfert-prefix}-list-header {
+	color: @antd-text-color;
+	background: @antd-text-color-inv;
+	border-bottom: 1px solid @antd-border-color;
+}
+
+.@{transfert-prefix}-list-content-item-checked {
+	background-color: @antd-background-selected;
+}
+.@{transfert-prefix}-list-content-item:not(.@{transfert-prefix}-list-content-item-disabled):hover,
+.@{transfert-prefix}-list-content-item:not(.@{transfert-prefix}-list-content-item-disabled).@{transfert-prefix}-list-content-item-checked:hover {
+	background-color:  @antd-background-hover;
+}

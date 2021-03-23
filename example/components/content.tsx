@@ -7,6 +7,7 @@ import {
 	Cascader,
 	Calendar,
 	Comment,
+	Carousel,
 	DatePicker,
 	Descriptions,
 	Divider,
@@ -19,15 +20,19 @@ import {
 	Form,
 	Radio,
 	Input,
+	InputNumber,
 	Select,
 	List,
+	Rate,
 	Space,
 	Timeline,
 	TimePicker,
+	TreeSelect,
 	Tabs,
 	Progress,
 	Switch,
 	Slider,
+	Transfer,
 	Steps,
 	Collapse,
 	message,
@@ -35,6 +40,7 @@ import {
 	Mentions,
 	Result,
 	RadioChangeEvent,
+	AutoComplete,
 } from "antd"
 
 import {
@@ -59,6 +65,7 @@ const { TabPane } = Tabs
 const { Panel } = Collapse
 const { Step } = Steps
 const { Meta } = Card
+const { TreeNode } = TreeSelect
 
 export interface MyComponentProps {
 	dispatch: (values: Partial<IMyComponentState>) => void
@@ -139,6 +146,17 @@ function monthCellRender(value) {
 	) : null
 }
 
+const mockData = []
+for (let i = 0; i < 20; i++) {
+	mockData.push({
+		key: i.toString(),
+		title: `content${i + 1}`,
+		description: `description of content${i + 1}`,
+	})
+}
+
+const initialTargetKeys = mockData.filter((item) => +item.key > 10).map((item) => item.key)
+
 // eslint-disable-next-line @typescript-eslint/ban-types
 const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 	const theme = useContext(ThemeContext)
@@ -147,6 +165,16 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 		uppercase: true,
 		selectedRowKeys: [],
 	})
+
+	const [targetKeys, setTargetKeys] = useState(initialTargetKeys)
+	const [selectedKeys, setSelectedKeys] = useState([])
+	const onChange = (nextTargetKeys, direction, moveKeys) => {
+		setTargetKeys(nextTargetKeys)
+	}
+
+	const onTransfertSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
+		setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys])
+	}
 
 	const onCheckBoxChange = useCallback((e: any) => {
 		setMyComponentState({
@@ -688,6 +716,8 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 					<Descriptions.Item label="Remark">empty</Descriptions.Item>
 				</Descriptions>
 			</div>
+			<br />
+			<br />
 			<div style={{ display: "flex", justifyContent: "space-evenly" }}></div>
 			<Comment
 				author={<a>Han Solo</a>}
@@ -706,7 +736,8 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 				}
 				datetime={<span>2021-03-21 20:46:05</span>}
 			/>
-
+			<br />
+			<br />
 			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
 				<Form name="basic" initialValues={{ remember: true }}>
 					<Form.Item
@@ -736,9 +767,13 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 					</Form.Item>
 				</Form>
 			</div>
+			<br />
+			<br />
 			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
 				<Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />,
 			</div>
+			<br />
+			<br />
 			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
 				<div>
 					<Space direction="vertical" size={12}>
@@ -762,6 +797,8 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 					/>
 				</div>
 			</div>
+			<br />
+			<br />
 			<div>
 				<List
 					itemLayout="horizontal"
@@ -778,6 +815,71 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 						</List.Item>
 					)}
 				/>
+			</div>
+			<br />
+			<br />
+			<div>
+				<Carousel
+					style={{
+						height: "160px",
+						lineHeight: "160px",
+						textAlign: "center",
+					}}
+				>
+					<div>
+						<h3>1</h3>
+					</div>
+					<div>
+						<h3>2</h3>
+					</div>
+					<div>
+						<h3>3</h3>
+					</div>
+					<div>
+						<h3>4</h3>
+					</div>
+				</Carousel>
+			</div>
+			<br />
+			<br />
+			<div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
+				<AutoComplete
+					options={[{ value: "a" }, { value: "aa" }, { value: "aaa" }]}
+					placeholder="enter a"
+				/>
+				<InputNumber min={1} max={10} defaultValue={3} />
+				<Rate style={{ background: "#fff", padding: "5px" }} />
+			</div>
+			<br />
+			<br />
+			<div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
+				<Transfer
+					dataSource={mockData}
+					titles={["Source", "Target"]}
+					targetKeys={targetKeys}
+					selectedKeys={selectedKeys}
+					onChange={onChange}
+					onSelectChange={onTransfertSelectChange}
+					render={(item) => item.title}
+				/>
+				<TreeSelect
+					showSearch
+					style={{ marginLeft: "1em", width: "100%" }}
+					dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
+					placeholder="Please select"
+					allowClear
+					treeDefaultExpandAll
+				>
+					<TreeNode value="parent 1" title="parent 1">
+						<TreeNode value="parent 1-0" title="parent 1-0">
+							<TreeNode value="leaf1" title="leaf1" />
+							<TreeNode value="leaf2" title="leaf2" />
+						</TreeNode>
+						<TreeNode value="parent 1-1" title="parent 1-1">
+							<TreeNode value="leaf3" title="leaf3" />
+						</TreeNode>
+					</TreeNode>
+				</TreeSelect>
 			</div>
 		</React.Fragment>
 	)

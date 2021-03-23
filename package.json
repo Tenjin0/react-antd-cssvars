@@ -10,7 +10,12 @@
 	"keywords": [
 		"react",
 		"antd",
-		"cssvars"
+		"ant design",
+		"cssvars",
+		"custom property",
+		"custom variable",
+		"less",
+		"theme"
 	],
 	"dir": "dist",
 	"main": "dist/index.cjs.js",

@@ -1,6 +1,5 @@
 # react-antd-cssvars
 
-[![Build Status](https://travis-ci.org/Tenjin0/react-antd-cssvars.svg?branch=master)](https://travis-ci.org/Tenjin0/react-antd-cssvars)
 ## Usage 
 
 Provide a way to dynamically change the color of ant design components.  
@@ -12,12 +11,13 @@ Provide a way to dynamically change the color of ant design components.
 Note: Support hex8.
 
 ### Done
-
 * Alert: add secondary color
+* Autocomplete
 * Badge
 * Button:  add secondary, success, warning type
 * Calendar
 * Card
+* Caroussel
 * Cascader
 * CheckBox
 * Collapse
@@ -28,6 +28,7 @@ Note: Support hex8.
 * Dropdown
 * Form
 * Input
+* InputNumber
 * List
 * Mentions
 * Menu
@@ -35,6 +36,7 @@ Note: Support hex8.
 * PageHeader
 * Progress
 * Radio
+* Rate: default color set to primary
 * Result
 * Select
 * Slider
@@ -46,18 +48,15 @@ Note: Support hex8.
 * Tag: add primary, secondary and danger color
 * Timeline: add primary, secondary, success and danger color (Item need to import the one from the package)
 * Timepicker
+* Transfert
+* TreeSelect
+
 
 ### Not Done Yet
 
-* Autocomplete
-* Caroussel
-* InputNumber
-* Rate
 * Popover
 * Tooltip
-* Transfert
 * Tree
-* TreeSelect
 * Statistic
 
 * Modal
