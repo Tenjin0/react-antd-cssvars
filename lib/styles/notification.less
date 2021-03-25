@@ -1,0 +1,36 @@
+@notification-prefix: ~"@{ant-prefix}-notification";
+
+.@{notification-prefix}-notice-message,
+.@{notification-prefix} {
+	color: @antd-text-color;
+}
+
+.@{notification-prefix}-hook-holder, .@{notification-prefix}-notice {
+	color: @antd-text-color;
+	background: @antd-text-color-inv;
+}
+
+.anticon.ant-notification-notice-icon-info {
+	color: @antd-primary-color;
+}
+
+.anticon.ant-notification-notice-icon-success {
+	color: @antd-success-color;
+}
+
+.anticon.ant-notification-notice-icon-warning {
+	color: @antd-warning-color;
+}
+
+
+.anticon.ant-notification-notice-icon-error {
+	color: @antd-danger-color;
+}
+
+.@{notification-prefix}-notice-close {
+	color: @antd-description-color;
+	&:hover {
+		color: @antd-text-color;
+	}
+
+}

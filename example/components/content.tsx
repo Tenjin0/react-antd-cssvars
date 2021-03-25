@@ -28,19 +28,28 @@ import {
 	Timeline,
 	TimePicker,
 	TreeSelect,
+	Tree,
 	Tabs,
 	Progress,
+	Popconfirm,
 	Switch,
 	Slider,
+	Statistic,
+	Popover,
 	Transfer,
+	Tooltip,
 	Steps,
 	Collapse,
 	message,
+	Modal,
 	Menu,
 	Mentions,
 	Result,
 	RadioChangeEvent,
 	AutoComplete,
+	Row,
+	Col,
+	notification,
 } from "antd"
 
 import {
@@ -76,6 +85,7 @@ export interface MyComponentProps {
 export interface MyComponentState {
 	uppercase: boolean
 	selectedRowKeys: Key[]
+	visible: boolean
 }
 
 export interface IData {
@@ -155,16 +165,216 @@ for (let i = 0; i < 20; i++) {
 	})
 }
 
+const treeData = [
+	{
+		title: "parent 1",
+		key: "0-0",
+		children: [
+			{
+				title: "parent 1-0",
+				key: "0-0-0",
+				disabled: true,
+				children: [
+					{
+						title: "leaf",
+						key: "0-0-0-0",
+						disableCheckbox: true,
+					},
+					{
+						title: "leaf",
+						key: "0-0-0-1",
+					},
+				],
+			},
+			{
+				title: "parent 1-1",
+				key: "0-0-1",
+				children: [{ title: "sss", key: "0-0-1-0" }],
+			},
+		],
+	},
+]
+
+const options = [
+	{
+		value: "zhejiang",
+		label: "Zhejiang",
+		children: [
+			{
+				value: "hangzhou",
+				label: "Hangzhou",
+				children: [
+					{
+						value: "xihu",
+						label: "West Lake",
+					},
+				],
+			},
+		],
+	},
+	{
+		value: "jiangsu",
+		label: "Jiangsu",
+		children: [
+			{
+				value: "nanjing",
+				label: "Nanjing",
+				children: [
+					{
+						value: "zhonghuamen",
+						label: "Zhong Hua Men",
+					},
+				],
+			},
+		],
+	},
+]
+
+const columns = [
+	{
+		title: "Name",
+		dataIndex: "name",
+		filters: [
+			{
+				text: "Joe",
+				value: "Joe",
+			},
+			{
+				text: "Jim",
+				value: "Jim",
+			},
+			{
+				text: "Submenu",
+				value: "Submenu",
+				children: [
+					{
+						text: "Green",
+						value: "Green",
+					},
+					{
+						text: "Black",
+						value: "Black",
+					},
+				],
+			},
+		],
+	},
+	{
+		title: "Chinese Score",
+		dataIndex: "chinese",
+		sorter: {
+			compare: (a, b) => a.chinese - b.chinese,
+		},
+	},
+	{
+		title: "Math Score",
+		dataIndex: "math",
+		sorter: {
+			compare: (a, b) => a.math - b.math,
+		},
+	},
+	{
+		title: "English Score",
+		dataIndex: "english",
+		filters: [
+			{
+				text: "London",
+				value: "London",
+			},
+			{
+				text: "New York",
+				value: "New York",
+			},
+		],
+		filterMultiple: false,
+		sorter: {
+			compare: (a, b) => a.english - b.english,
+		},
+	},
+]
+
+const dataList = [
+	{
+		title: "Ant Design Title 1",
+	},
+	{
+		title: "Ant Design Title 2",
+	},
+	{
+		title: "Ant Design Title 3",
+	},
+	{
+		title: "Ant Design Title 4",
+	},
+]
+
+const data: IData[] = [
+	{
+		key: "1",
+		name: "John Brown",
+		chinese: 98,
+		math: 60,
+		english: 70,
+	},
+	{
+		key: "2",
+		name: "Jim Green",
+		chinese: 98,
+		math: 66,
+		english: 89,
+	},
+	{
+		key: "3",
+		name: "Joe Black",
+		chinese: 98,
+		math: 90,
+		english: 70,
+	},
+	{
+		key: "4",
+		name: "Jim Red",
+		chinese: 88,
+		math: 99,
+		english: 89,
+	},
+]
+
+const dateFormat = "YYYY/MM/DD"
+const monthFormat = "YYYY/MM"
+
+const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"]
+
+const customFormat = (value) => `custom format: ${value.format(dateFormat)}`
+const text = `
+A dog is a type of domesticated animal.
+Known for its loyalty and faithfulness,
+it can be found as a welcome guest in many households across the world.
+`
+
 const initialTargetKeys = mockData.filter((item) => +item.key > 10).map((item) => item.key)
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 	const theme = useContext(ThemeContext)
 
-	const [myComponentState, setMyComponentState] = useState<MyComponentState>({
+	const [state, setState] = useState<MyComponentState>({
 		uppercase: true,
 		selectedRowKeys: [],
+		visible: false,
 	})
+	const [isModalVisible, setIsModalVisible] = useState(false)
+
+	const showModal = () => {
+		setIsModalVisible(true)
+	}
+
+	const handleOk = () => {
+		setIsModalVisible(false)
+	}
+
+	const handleCancel = () => {
+		setIsModalVisible(false)
+	}
 
 	const [targetKeys, setTargetKeys] = useState(initialTargetKeys)
 	const [selectedKeys, setSelectedKeys] = useState([])
@@ -176,9 +386,12 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 		setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys])
 	}
 
+	const handleVisibleChange = (visible = false) => {
+		setState({ ...state, visible })
+	}
 	const onCheckBoxChange = useCallback((e: any) => {
-		setMyComponentState({
-			...myComponentState,
+		setState({
+			...state,
 			uppercase: e.target.checked as boolean,
 		})
 	}, [])
@@ -192,160 +405,6 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 		/>
 	)
 
-	const options = [
-		{
-			value: "zhejiang",
-			label: "Zhejiang",
-			children: [
-				{
-					value: "hangzhou",
-					label: "Hangzhou",
-					children: [
-						{
-							value: "xihu",
-							label: "West Lake",
-						},
-					],
-				},
-			],
-		},
-		{
-			value: "jiangsu",
-			label: "Jiangsu",
-			children: [
-				{
-					value: "nanjing",
-					label: "Nanjing",
-					children: [
-						{
-							value: "zhonghuamen",
-							label: "Zhong Hua Men",
-						},
-					],
-				},
-			],
-		},
-	]
-
-	const columns = [
-		{
-			title: "Name",
-			dataIndex: "name",
-			filters: [
-				{
-					text: "Joe",
-					value: "Joe",
-				},
-				{
-					text: "Jim",
-					value: "Jim",
-				},
-				{
-					text: "Submenu",
-					value: "Submenu",
-					children: [
-						{
-							text: "Green",
-							value: "Green",
-						},
-						{
-							text: "Black",
-							value: "Black",
-						},
-					],
-				},
-			],
-		},
-		{
-			title: "Chinese Score",
-			dataIndex: "chinese",
-			sorter: {
-				compare: (a, b) => a.chinese - b.chinese,
-			},
-		},
-		{
-			title: "Math Score",
-			dataIndex: "math",
-			sorter: {
-				compare: (a, b) => a.math - b.math,
-			},
-		},
-		{
-			title: "English Score",
-			dataIndex: "english",
-			filters: [
-				{
-					text: "London",
-					value: "London",
-				},
-				{
-					text: "New York",
-					value: "New York",
-				},
-			],
-			filterMultiple: false,
-			sorter: {
-				compare: (a, b) => a.english - b.english,
-			},
-		},
-	]
-
-	const dataList = [
-		{
-			title: "Ant Design Title 1",
-		},
-		{
-			title: "Ant Design Title 2",
-		},
-		{
-			title: "Ant Design Title 3",
-		},
-		{
-			title: "Ant Design Title 4",
-		},
-	]
-	const data: IData[] = [
-		{
-			key: "1",
-			name: "John Brown",
-			chinese: 98,
-			math: 60,
-			english: 70,
-		},
-		{
-			key: "2",
-			name: "Jim Green",
-			chinese: 98,
-			math: 66,
-			english: 89,
-		},
-		{
-			key: "3",
-			name: "Joe Black",
-			chinese: 98,
-			math: 90,
-			english: 70,
-		},
-		{
-			key: "4",
-			name: "Jim Red",
-			chinese: 88,
-			math: 99,
-			english: 89,
-		},
-	]
-
-	const dateFormat = "YYYY/MM/DD"
-	const monthFormat = "YYYY/MM"
-
-	const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"]
-
-	const customFormat = (value) => `custom format: ${value.format(dateFormat)}`
-	const text = `
-	A dog is a type of domesticated animal.
-	Known for its loyalty and faithfulness,
-	it can be found as a welcome guest in many households across the world.
-	`
 	const pagination: TablePaginationConfig = {
 		total: data.length,
 		pageSize: 2,
@@ -394,8 +453,17 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 	}
 
 	const onSelectChange = useCallback((selectedRowKeys: Key[]) => {
-		setMyComponentState({ ...myComponentState, selectedRowKeys })
+		setState({ ...state, selectedRowKeys })
 	}, [])
+
+	const openNotificationWithIcon = (type) => {
+		notification[type]({
+			duration: 0,
+			message: "Notification Title",
+			description:
+				"This is the content of the notification. This is the content of the notification. This is the content of the notification.",
+		})
+	}
 
 	const menu = (
 		<Menu>
@@ -488,14 +556,14 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 			<br />
 			<br />
 			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
-				<Button uppercase={myComponentState.uppercase}>Default Button</Button>
-				<Button uppercase={myComponentState.uppercase} type="dashed">
+				<Button uppercase={state.uppercase}>Default Button</Button>
+				<Button uppercase={state.uppercase} type="dashed">
 					Dashed Button
 				</Button>
-				<Button uppercase={myComponentState.uppercase} type="text">
+				<Button uppercase={state.uppercase} type="text">
 					Text Button
 				</Button>
-				<Button uppercase={myComponentState.uppercase} type="link">
+				<Button uppercase={state.uppercase} type="link">
 					Link Button
 				</Button>
 			</div>
@@ -503,7 +571,7 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 			<br />
 			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
 				<div>
-					<Checkbox checked={myComponentState.uppercase} onChange={onCheckBoxChange}>
+					<Checkbox checked={state.uppercase} onChange={onCheckBoxChange}>
 						Button uppercase
 					</Checkbox>
 				</div>
@@ -526,7 +594,7 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 			<br />
 			<Table<IData>
 				rowSelection={{
-					selectedRowKeys: myComponentState.selectedRowKeys,
+					selectedRowKeys: state.selectedRowKeys,
 					onChange: onSelectChange,
 				}}
 				columns={columns}
@@ -535,7 +603,27 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 			/>
 			<br />
 			<br />
-
+			<div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+				<span>Notification:</span>
+				<Button type="success" onClick={() => openNotificationWithIcon("success")}>
+					Success
+				</Button>
+				<Button type="primary" onClick={() => openNotificationWithIcon("info")}>
+					Info
+				</Button>
+				<Button type="warning" onClick={() => openNotificationWithIcon("warning")}>
+					Warning
+				</Button>
+				<Button
+					type="primary"
+					danger={true}
+					onClick={() => openNotificationWithIcon("error")}
+				>
+					Error
+				</Button>
+			</div>
+			<br />
+			<br />
 			<div
 				style={{
 					display: "flex",
@@ -702,6 +790,25 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 					<Alert message="Error Text" type="error" />
 				</div>
 			</div>
+			<br />
+			<br />
+			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
+				<Popover
+					content="Hover me"
+					title="Title"
+					trigger="click"
+					visible={state.visible}
+					onVisibleChange={handleVisibleChange}
+				>
+					Popover
+				</Popover>
+				<Tooltip title="prompt text">Tooltip</Tooltip>
+				<Popconfirm title="Are you sure to delete this task?" okText="Yes" cancelText="No">
+					Popconfirm
+				</Popconfirm>
+			</div>
+			<br />
+			<br />
 			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
 				<Result status="success" title="Success" />
 				<Result status="info" title="Info" />
@@ -759,13 +866,24 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 					<Form.Item name="remember" valuePropName="checked">
 						<Checkbox>Remember me</Checkbox>
 					</Form.Item>
-
 					<Form.Item>
 						<Button type="primary" htmlType="submit">
 							Submit
 						</Button>
 					</Form.Item>
 				</Form>
+
+				<Row gutter={16}>
+					<Col span={12}>
+						<Statistic title="Active Users" value={112893} />
+					</Col>
+					<Col span={12}>
+						<Statistic title="Account Balance (CNY)" value={112893} precision={2} />
+					</Col>
+					<Col span={12}>
+						<Statistic title="Active Users" value={112893} loading />
+					</Col>
+				</Row>
 			</div>
 			<br />
 			<br />
@@ -774,7 +892,12 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 			</div>
 			<br />
 			<br />
-			<div style={{ display: "flex", justifyContent: "space-evenly" }}>
+			<div
+				style={{
+					display: "flex",
+					justifyContent: "space-evenly",
+				}}
+			>
 				<div>
 					<Space direction="vertical" size={12}>
 						<DatePicker format={dateFormat} />
@@ -784,17 +907,40 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 						<DatePicker format={customFormat} />
 					</Space>
 				</div>
-				<div>
-					<TimePicker.RangePicker />
-				</div>
-				<div>
-					<TimePicker
-						renderExtraFooter={() => (
-							<Button size="small" type="primary">
-								Ok
-							</Button>
-						)}
-					/>
+				<div
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						justifyContent: "space-evenly",
+					}}
+				>
+					<div>
+						<TimePicker.RangePicker />
+					</div>
+					<div>
+						<TimePicker
+							renderExtraFooter={() => (
+								<Button size="small" type="primary">
+									Ok
+								</Button>
+							)}
+						/>
+					</div>
+					<div>
+						<Button type="primary" onClick={showModal}>
+							Open Modal
+						</Button>
+						<Modal
+							title="Basic Modal"
+							visible={isModalVisible}
+							onOk={handleOk}
+							onCancel={handleCancel}
+						>
+							<p>Some contents...</p>
+							<p>Some contents...</p>
+							<p>Some contents...</p>
+						</Modal>
+					</div>
 				</div>
 			</div>
 			<br />
@@ -852,6 +998,41 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 			</div>
 			<br />
 			<br />
+			<div>
+				<Row gutter={24}>
+					<Col xs={12}>
+						<Tree
+							checkable
+							defaultExpandedKeys={["0-0-0", "0-0-1"]}
+							defaultSelectedKeys={["0-0-0", "0-0-1"]}
+							defaultCheckedKeys={["0-0-0", "0-0-1"]}
+							treeData={treeData}
+						/>
+					</Col>
+					<Col xs={12}>
+						<TreeSelect
+							showSearch
+							style={{ marginLeft: "1em", width: "100%" }}
+							dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
+							placeholder="Please select"
+							allowClear
+							treeDefaultExpandAll
+						>
+							<TreeNode value="parent 1" title="parent 1">
+								<TreeNode value="parent 1-0" title="parent 1-0">
+									<TreeNode value="leaf1" title="leaf1" />
+									<TreeNode value="leaf2" title="leaf2" />
+								</TreeNode>
+								<TreeNode value="parent 1-1" title="parent 1-1">
+									<TreeNode value="leaf3" title="leaf3" />
+								</TreeNode>
+							</TreeNode>
+						</TreeSelect>
+					</Col>
+				</Row>
+			</div>
+			<br />
+			<br />
 			<div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
 				<Transfer
 					dataSource={mockData}
@@ -862,24 +1043,6 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 					onSelectChange={onTransfertSelectChange}
 					render={(item) => item.title}
 				/>
-				<TreeSelect
-					showSearch
-					style={{ marginLeft: "1em", width: "100%" }}
-					dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
-					placeholder="Please select"
-					allowClear
-					treeDefaultExpandAll
-				>
-					<TreeNode value="parent 1" title="parent 1">
-						<TreeNode value="parent 1-0" title="parent 1-0">
-							<TreeNode value="leaf1" title="leaf1" />
-							<TreeNode value="leaf2" title="leaf2" />
-						</TreeNode>
-						<TreeNode value="parent 1-1" title="parent 1-1">
-							<TreeNode value="leaf3" title="leaf3" />
-						</TreeNode>
-					</TreeNode>
-				</TreeSelect>
 			</div>
 		</React.Fragment>
 	)

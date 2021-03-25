@@ -1,5 +1,22 @@
 @dropdown-prefix: ~"@{ant-prefix}-dropdown";
 
+
+.@{dropdown-prefix} {
+	color: @antd-text-color;
+}
+
+.@{dropdown-prefix}-menu {
+	background-color: @antd-text-color-inv;
+}
+
+.@{dropdown-prefix}-menu-item > a, .@{dropdown-prefix}-menu-submenu-title > a {
+	color: @antd-text-color;
+}
+.@{dropdown-prefix}-menu-item-disabled > a, .@{dropdown-prefix}-menu-submenu-title-disabled > a,
+.@{dropdown-prefix}-menu-item-disabled, .@{dropdown-prefix}-menu-submenu-title-disabled {
+	color: @antd-disable-color;
+}
+
 .@{dropdown-prefix}-menu-item:not(.@{dropdown-prefix}-menu-item-selected), .@{dropdown-prefix}-menu-submenu-title {
 	color: @antd-text-color;
 

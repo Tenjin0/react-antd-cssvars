@@ -33,7 +33,10 @@ Note: Support hex8.
 * Mentions
 * Menu
 * Message
+* Notification
+* Modal
 * PageHeader
+* Popover
 * Progress
 * Radio
 * Rate: default color set to primary
@@ -41,6 +44,7 @@ Note: Support hex8.
 * Select
 * Slider
 * Spin
+* Statistic
 * Steps
 * Switch
 * Table
@@ -48,19 +52,13 @@ Note: Support hex8.
 * Tag: add primary, secondary and danger color
 * Timeline: add primary, secondary, success and danger color (Item need to import the one from the package)
 * Timepicker
+* Tooltip
 * Transfert
+* Tree
 * TreeSelect
 
 
 ### Not Done Yet
-
-* Popover
-* Tooltip
-* Tree
-* Statistic
-
-* Modal
-* Notification
 * PopConfirm
 * Skeleton
 

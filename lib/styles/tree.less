@@ -1,0 +1,27 @@
+@tree-prefix: ~"@{ant-prefix}-tree";
+
+.@{tree-prefix} {
+	color: @antd-text-color;
+}
+
+.@{tree-prefix}-checkbox-checked .@{tree-prefix}-checkbox-inner {
+	background-color: @antd-primary-color;
+	border-color: @antd-primary-color;
+}
+
+.@{tree-prefix}-checkbox-disabled .@{tree-prefix}-checkbox-inner {
+	background-color: @antd-disable-background;
+	border-color: @antd-border-color;
+}
+
+.@{tree-prefix} .@{tree-prefix}-node-content-wrapper.@{tree-prefix}-node-selected {
+	background-color: @antd-background-selected;
+}
+
+.@{tree-prefix} .@{tree-prefix}-node-content-wrapper:hover {
+	background-color: @antd-background-hover;
+}
+
+.@{tree-prefix} .@{tree-prefix}-treenode-disabled .@{tree-prefix}-node-content-wrapper {
+	color: @antd-disable-color;
+}
