@@ -13,6 +13,7 @@ Note: Support hex8.
 ### Done
 * Alert: add secondary color
 * Autocomplete
+* BackTop
 * Badge
 * Button:  add secondary, success, warning type
 * Calendar
@@ -36,6 +37,7 @@ Note: Support hex8.
 * Notification
 * Modal
 * PageHeader
+* PopConfirm
 * Popover
 * Progress
 * Radio
@@ -59,10 +61,7 @@ Note: Support hex8.
 
 
 ### Not Done Yet
-* PopConfirm
 * Skeleton
-
-* BackTop
 
 ### [Demo page](https://tenjin0.github.io/react-antd-cssvars/example/)
 <br/>
@@ -111,7 +110,8 @@ const theme = new Theme<TThemeColorTypes>()
 
 ### II. Init theme
 
-You can initialize the theme with the first parameter of the contructor.
+You can initialize the theme with the first parameter of the contructor.  
+note: it will trigger the compute function
 
 ```typescript
 import { Theme, TThemeColorTypes, TTheme } from "react-antd-cssvars"
@@ -172,7 +172,6 @@ const theme = new Theme<TThemeColorTypes>(null, computed)
 
 If you want to manage more cssvars. (Do not forget to define and initialize it in your less/css file)
 
-
 ```typescript
 import { Theme, TThemeColorTypes, TTheme, DThemeColorTypes } from "react-antd-cssvars"
 type CustomTThemeColorTypes = CustomTThemeColorTypes | "debug"
@@ -224,7 +223,6 @@ const theme = new Theme<CustomTThemeColorTypes>(initTheme, null, customDThemeCol
 ### V. Status: 
 
 * add new component Status Derived from Badge
-
 
 <br/>
 <br/>

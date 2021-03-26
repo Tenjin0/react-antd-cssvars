@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-import { ConfigProvider } from "antd"
+import { BackTop, ConfigProvider } from "antd"
 
 import { Theme, TThemeColorTypes, TTheme, ThemeColorKeys } from "../lib/Theme"
 import { CustomTThemeColorTypes, ThemeProvider } from "./context"
@@ -47,21 +47,16 @@ const initTheme: TTheme<CustomTThemeColorTypes> = {
 	"menu-background": "#000000",
 	"submenu-background": "#333333",
 	debug: "#333333",
-	"primary-color": "#eb2f96",
-	"success-color": "#b8e986",
-	"warning-color": "#8b572a",
-	"danger-color": "#9b9b9b",
 }
 
 const theme = new Theme<CustomTThemeColorTypes>(initTheme, computed, customDThemeColorTypes)
-theme.set("primary-color", "#eb2f96", true)
-theme.set("text-color", "#eb2f96", false, 85)
 window["theme"] = theme
 
 ReactDOM.render(
 	<ConfigProvider>
 		<ThemeProvider value={theme}>
 			<App />
+			<BackTop />
 		</ThemeProvider>
 	</ConfigProvider>,
 	document.getElementById("root"),

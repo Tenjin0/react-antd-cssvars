@@ -50,6 +50,7 @@ import {
 	Row,
 	Col,
 	notification,
+	BackTop,
 } from "antd"
 
 import {
@@ -485,6 +486,8 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 			<Menu.Item danger>a danger item</Menu.Item>
 		</Menu>
 	)
+
+	const getTarget = () => document.getElementById("layout-content")
 
 	return (
 		<React.Fragment>

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 
-import { Layout, message } from "antd"
+import { Layout, message, BackTop } from "antd"
 
 import Menu from "./menu"
 import Content from "./content"
@@ -29,6 +29,8 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 		}
 	}, [])
 
+	const ref = React.createRef()
+
 	const onMouseOver = () => {
 		if (!localStorage.getItem("open")) {
 			setLayoutState({ ...layoutState, collapse: false })
@@ -45,6 +47,8 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 		setLayoutState({ ...layoutState, ...values })
 	}
 
+	const getTarget = useCallback(() => document.getElementById("layout-content"), [])
+
 	return (
 		<div id="layout">
 			<Layout id="layout-menu" onMouseLeave={onMouseLeave} onMouseOver={onMouseOver}>
@@ -57,6 +61,7 @@ const MyComponent: React.FunctionComponent<{}> = () => {
 					dispatch={dispatch}
 				/>
 			</Layout>
+			<BackTop target={getTarget} />
 		</div>
 	)
 }
