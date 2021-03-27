@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-import { BackTop, ConfigProvider } from "antd"
+import { ConfigProvider } from "antd"
 
 import { Theme, TThemeColorTypes, TTheme, ThemeColorKeys } from "../lib/Theme"
 import { CustomTThemeColorTypes, ThemeProvider } from "./context"
@@ -56,7 +56,6 @@ ReactDOM.render(
 	<ConfigProvider>
 		<ThemeProvider value={theme}>
 			<App />
-			<BackTop />
 		</ThemeProvider>
 	</ConfigProvider>,
 	document.getElementById("root"),

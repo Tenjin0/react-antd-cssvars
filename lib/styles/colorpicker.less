@@ -1,10 +1,15 @@
 .color-picker-chooser {
 	position: relative;
 	display: flex;
+	background-color: #fff;
 
 	.color-picker-container {
 		display: flex;
+		flex-direction: column;
 		position: absolute;
+		border-radius: 4px;
+		background-color: #fff;
+		box-shadow: rgb(0 0 0 / 15%) 0px 0px 0px 1px, rgb(0 0 0 / 15%) 0px 8px 16px;
 		z-index: 10;
 		top: -30px;
 		&:not(.right) {
@@ -17,20 +22,40 @@
 			position: absolute;
 			right: 0px;
 			bottom: 0px;
-			color: @antd-text-color;
+			color: @antd-description-color;
+			&:hover {
+				color:@antd-text-color;
+			}
+		}
+
+		.colorpicker-palette {
+			box-shadow: none !important;
+			border-radius: 0px !important;
 		}
 	}
 
 	.tints-shades {
-		margin-left: 15px;
+		background-color: #fff;
+		border-top: 1px solid rgb(238, 238, 238);
+		border-radius: 0px;
+		padding: 7px;
+		margin-bottom: 20px;
+		width: 100%;
 		.tints, .shades {
 			display: flex;
+			justify-content: space-between;
+			&:first-child {
+				margin-bottom: 8px;
+			}
 			& > div {
+				box-shadow: rgb(0 0 0 / 15%) 0px 0px 0px 1px inset;
+				border-radius: 3px;
 				cursor: pointer;
+
 				box-sizing: content-box;
 				border: 1px solid white;
-				width: 1.0em;
-				height: 1.0em;
+				width: 1.1em;
+				height: 1.1em;
 			}
 		}
 	}

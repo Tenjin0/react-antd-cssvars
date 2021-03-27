@@ -178,6 +178,10 @@ export class Theme<T extends string> {
 		return tinycolor(hex).shade(weigth).toHexString()
 	}
 
+	static complement(hex: hex): hex {
+		return tinycolor(hex).complement().toHexString()
+	}
+
 	static isdark(hex: hex): boolean {
 		return tinycolor(hex).isDark()
 	}
@@ -186,5 +190,3 @@ export class Theme<T extends string> {
 		return tinycolor(color1).mix(color2, percent).toHex()
 	}
 }
-
-// document.documentElement.style.setProperty("--primary-color", "#23b696");

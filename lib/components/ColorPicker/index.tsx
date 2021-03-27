@@ -4,6 +4,8 @@ import { CloseOutlined } from "@ant-design/icons"
 
 import classNames from "classnames"
 
+import tinycolor from "@ctrl/tinycolor"
+
 import Button, { IButtonProps } from "../Button"
 
 import TintsAndShades from "./TintsAndShades"
@@ -20,6 +22,7 @@ interface IColorPickerState {
 	open: boolean
 	color: string | null
 }
+
 const ColorPickerChooser: React.FunctionComponent<IColorPicker> = (props) => {
 	const [colorPickerState, setColorPickerState] = useState<IColorPickerState>({
 		open: false,
@@ -31,21 +34,47 @@ const ColorPickerChooser: React.FunctionComponent<IColorPicker> = (props) => {
 	}
 
 	const innerOnChangeColor = (color: ColorResult) => {
-		if (colorPickerState.color !== color.hex) {
+		const value = tinycolor(color.hex)
+		value.setAlpha(color.rgb.a)
+		const sValue = color.rgb.a !== 1 ? value.toHex8String() : value.toHexString()
+		if (colorPickerState.color !== sValue) {
 			setColorPickerState({
 				...colorPickerState,
-				color: color.hex,
-				open: !colorPickerState.open,
+				color: sValue,
 			})
 			if (props.onChangeColor) {
-				props.onChangeColor(color.hex)
+				props.onChangeColor(sValue)
 			}
 		}
 	}
 
+	const onClick = (value: hex) => {
+		if (props.onPick) {
+			props.onPick && props.onPick(value)
+		} else {
+			setColorPickerState({
+				...colorPickerState,
+				color: value,
+			})
+		}
+	}
 	const onClose = () => {
 		setColorPickerState({ ...colorPickerState, open: !colorPickerState.open })
 	}
+
+	// const handleChange = (color, event) => {
+	// 	const value = tinycolor(color.hex)
+	// 	value.setAlpha(color.rgb.a)
+	// 	console.log(value.toHex8String())
+	// 	setColorPickerState({
+	// 		...colorPickerState,
+	// 		color: value.toHex8String(),
+	// 	})
+
+	// 	if (props.onChangeColor) {
+	// 		props.onChangeColor(color.hex)
+	// 	}
+	// }
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { defaultColor, onChangeColor, onPick, ...othersProps } = props
 
@@ -64,7 +93,9 @@ const ColorPickerChooser: React.FunctionComponent<IColorPicker> = (props) => {
 			{colorPickerState.open && colorPickerState.color && (
 				<div className={containerCls}>
 					<SketchPicker
+						className="colorpicker-palette"
 						color={colorPickerState.color}
+						// onChange={handleChange}
 						onChangeComplete={innerOnChangeColor}
 					/>
 					<Button
@@ -76,9 +107,9 @@ const ColorPickerChooser: React.FunctionComponent<IColorPicker> = (props) => {
 					>
 						<CloseOutlined />
 					</Button>
+					<TintsAndShades color={colorPickerState.color} onPick={onClick} />
 				</div>
 			)}
-			{onPick && <TintsAndShades color={colorPickerState.color} onPick={onPick} />}
 		</div>
 	)
 }
