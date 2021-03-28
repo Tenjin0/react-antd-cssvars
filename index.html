@@ -61,7 +61,8 @@
 				<a href="#react-antd-cssvars" id="react-antd-cssvars" style="color: inherit; text-decoration: none;">
 					<h1>react-antd-cssvars</h1>
 				</a>
-				<p><a href="https://travis-ci.org/Tenjin0/react-antd-cssvars"><img src="https://travis-ci.org/Tenjin0/react-antd-cssvars.svg?branch=master" alt="Build Status"></a></p>
+				<p><a href="https://www.npmjs.com/package/react-antd-cssvars"><img src="https://badgen.net/npm/v/react-antd-cssvars" alt="npm"></a>
+				<a href="https://circleci.com/gh/Tenjin0/react-antd-cssvars"><img src="https://circleci.com/gh/Tenjin0/react-antd-cssvars.svg?style=shield" alt="CircleCI"></a></p>
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h2>Usage</h2>
 				</a>
@@ -75,37 +76,59 @@
 					<h3>Done</h3>
 				</a>
 				<ul>
+					<li>Alert: add secondary color</li>
+					<li>Autocomplete</li>
+					<li>BackTop</li>
+					<li>Badge</li>
 					<li>Button:  add secondary, success, warning type</li>
+					<li>Calendar</li>
+					<li>Card</li>
+					<li>Caroussel</li>
+					<li>Cascader</li>
 					<li>CheckBox</li>
 					<li>Collapse</li>
+					<li>Comment</li>
+					<li>Datepicker</li>
+					<li>Divider</li>
+					<li>Descriptions</li>
 					<li>Dropdown</li>
+					<li>Form</li>
 					<li>Input</li>
+					<li>InputNumber</li>
+					<li>List</li>
+					<li>Mentions</li>
 					<li>Menu</li>
 					<li>Message</li>
+					<li>Notification</li>
+					<li>Modal</li>
 					<li>PageHeader</li>
+					<li>PopConfirm</li>
+					<li>Popover</li>
 					<li>Progress</li>
 					<li>Radio</li>
+					<li>Rate: default color set to primary</li>
 					<li>Result</li>
 					<li>Select</li>
 					<li>Slider</li>
 					<li>Spin</li>
+					<li>Statistic</li>
 					<li>Steps</li>
 					<li>Switch</li>
 					<li>Table</li>
 					<li>Tabs</li>
 					<li>Tag: add primary, secondary and danger color</li>
 					<li>Timeline: add primary, secondary, success and danger color (Item need to import the one from the package)</li>
+					<li>Timepicker</li>
+					<li>Tooltip</li>
+					<li>Transfert</li>
+					<li>Tree</li>
+					<li>TreeSelect</li>
 				</ul>
 				<a href="#not-done-yet" id="not-done-yet" style="color: inherit; text-decoration: none;">
 					<h3>Not Done Yet</h3>
 				</a>
 				<ul>
-					<li>Alert ( issue with the background)</li>
-					<li>Dropdown</li>
-					<li>Statistic</li>
-					<li>BackTop</li>
-					<li>Popconfirm</li>
-					<li>Others xD</li>
+					<li>Skeleton</li>
 				</ul>
 				<a href="#demo-page" id="demo-page" style="color: inherit; text-decoration: none;">
 					<h3><a href="https://tenjin0.github.io/react-antd-cssvars/example/">Demo page</a></h3>
@@ -155,7 +178,7 @@
 				<a href="#ii-init-theme" id="ii-init-theme" style="color: inherit; text-decoration: none;">
 					<h3>II. Init theme</h3>
 				</a>
-				<p>You can initialize the theme with the first parameter of the contructor.</p>
+				<p>You can initialize the theme with the first parameter of the contructor.<br>note: it will trigger the compute function</p>
 				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Theme</span><span style="color: #000000">, </span><span style="color: #001080">TThemeColorTypes</span><span style="color: #000000">, </span><span style="color: #001080">TTheme</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;react-antd-cssvars&quot;</span>
 
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">initTheme</span><span style="color: #000000">: </span><span style="color: #267F99">TTheme</span><span style="color: #000000">&lt;</span><span style="color: #267F99">TThemeColorTypes</span><span style="color: #000000">&gt; = {</span>
@@ -182,20 +205,24 @@
 <span style="color: #000000">        </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;table-head-background-hover&quot;</span><span style="color: #000000">, </span><span style="color: #001080">Theme</span><span style="color: #000000">.</span><span style="color: #795E26">tint</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">, </span><span style="color: #098658">75</span><span style="color: #000000">))</span>
 <span style="color: #000000">        </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;table-head-background-selected&quot;</span><span style="color: #000000">, </span><span style="color: #001080">Theme</span><span style="color: #000000">.</span><span style="color: #795E26">tint</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">, </span><span style="color: #098658">15</span><span style="color: #000000">))</span>
 <span style="color: #000000">        </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;table-head-background-selected-hover&quot;</span><span style="color: #000000">, </span><span style="color: #001080">value</span><span style="color: #000000">)</span>
+<span style="color: #000000">        </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;box-shadow-color&quot;</span><span style="color: #000000">, </span><span style="color: #001080">value</span><span style="color: #000000">, </span><span style="color: #0000FF">false</span><span style="color: #000000">, </span><span style="color: #098658">20</span><span style="color: #000000">)</span>
 <span style="color: #000000">    }</span>
 <span style="color: #000000">    </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">has</span><span style="color: #000000">(</span><span style="color: #A31515">`</span><span style="color: #0000FF">${</span><span style="color: #001080">key</span><span style="color: #0000FF">}</span><span style="color: #A31515">-hover`</span><span style="color: #000000"> </span><span style="color: #AF00DB">as</span><span style="color: #000000"> </span><span style="color: #267F99">TThemeColorTypes</span><span style="color: #000000">)) {</span>
-<span style="color: #000000">        </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">`</span><span style="color: #0000FF">${</span><span style="color: #001080">key</span><span style="color: #0000FF">}</span><span style="color: #A31515">-hover`</span><span style="color: #000000"> </span><span style="color: #AF00DB">as</span><span style="color: #000000"> </span><span style="color: #267F99">TThemeColorTypes</span><span style="color: #000000">, </span><span style="color: #001080">Theme</span><span style="color: #000000">.</span><span style="color: #795E26">tint</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">, </span><span style="color: #098658">17.5</span><span style="color: #000000">))</span>
+<span style="color: #000000">        </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">`</span><span style="color: #0000FF">${</span><span style="color: #001080">key</span><span style="color: #0000FF">}</span><span style="color: #A31515">-hover`</span><span style="color: #000000"> </span><span style="color: #AF00DB">as</span><span style="color: #000000"> </span><span style="color: #267F99">TThemeColorTypes</span><span style="color: #000000">, </span><span style="color: #001080">Theme</span><span style="color: #000000">.</span><span style="color: #795E26">tint</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">, </span><span style="color: #098658">17.5</span><span style="color: #000000">), </span><span style="color: #0000FF">false</span><span style="color: #000000">)</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">has</span><span style="color: #000000">(</span><span style="color: #A31515">`</span><span style="color: #0000FF">${</span><span style="color: #001080">key</span><span style="color: #0000FF">}</span><span style="color: #A31515">-background`</span><span style="color: #000000"> </span><span style="color: #AF00DB">as</span><span style="color: #000000"> </span><span style="color: #267F99">TThemeColorTypes</span><span style="color: #000000">)) {</span>
+<span style="color: #000000">        </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">`</span><span style="color: #0000FF">${</span><span style="color: #001080">key</span><span style="color: #0000FF">}</span><span style="color: #A31515">-background`</span><span style="color: #000000"> </span><span style="color: #AF00DB">as</span><span style="color: #000000"> </span><span style="color: #267F99">TThemeColorTypes</span><span style="color: #000000">, </span><span style="color: #001080">Theme</span><span style="color: #000000">.</span><span style="color: #795E26">tint</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">, </span><span style="color: #098658">75</span><span style="color: #000000">), </span><span style="color: #0000FF">false</span><span style="color: #000000">)</span>
 <span style="color: #000000">    }</span>
 <span style="color: #000000">    </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">key</span><span style="color: #000000"> === </span><span style="color: #A31515">&quot;menu-background&quot;</span><span style="color: #000000">) {</span>
 <span style="color: #000000">        </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">luminance</span><span style="color: #000000"> &lt; </span><span style="color: #098658">0.015</span><span style="color: #000000">) {</span>
-<span style="color: #000000">            </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;submenu-background&quot;</span><span style="color: #000000">, </span><span style="color: #001080">Theme</span><span style="color: #000000">.</span><span style="color: #795E26">tint</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">, </span><span style="color: #098658">20</span><span style="color: #000000">))</span>
+<span style="color: #000000">            </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;submenu-background&quot;</span><span style="color: #000000">, </span><span style="color: #001080">Theme</span><span style="color: #000000">.</span><span style="color: #795E26">tint</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">, </span><span style="color: #098658">20</span><span style="color: #000000">), </span><span style="color: #0000FF">false</span><span style="color: #000000">)</span>
 <span style="color: #000000">        } </span><span style="color: #AF00DB">else</span><span style="color: #000000"> {</span>
-<span style="color: #000000">            </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;submenu-background&quot;</span><span style="color: #000000">, </span><span style="color: #001080">Theme</span><span style="color: #000000">.</span><span style="color: #795E26">shade</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">, </span><span style="color: #098658">20</span><span style="color: #000000">))</span>
+<span style="color: #000000">            </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;submenu-background&quot;</span><span style="color: #000000">, </span><span style="color: #001080">Theme</span><span style="color: #000000">.</span><span style="color: #795E26">shade</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">, </span><span style="color: #098658">20</span><span style="color: #000000">), </span><span style="color: #0000FF">false</span><span style="color: #000000">)</span>
 <span style="color: #000000">        }</span>
 <span style="color: #000000">        </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">Theme</span><span style="color: #000000">.</span><span style="color: #795E26">isdark</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">)) {</span>
-<span style="color: #000000">            </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;menu-text-color&quot;</span><span style="color: #000000">, </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;text-color-inv&quot;</span><span style="color: #000000">))</span>
+<span style="color: #000000">            </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;menu-text-color&quot;</span><span style="color: #000000">, </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;text-color-inv&quot;</span><span style="color: #000000">), </span><span style="color: #0000FF">false</span><span style="color: #000000">, </span><span style="color: #098658">0.65</span><span style="color: #000000">)</span>
 <span style="color: #000000">        } </span><span style="color: #AF00DB">else</span><span style="color: #000000"> {</span>
-<span style="color: #000000">            </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;menu-text-color&quot;</span><span style="color: #000000">, </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;text-color&quot;</span><span style="color: #000000">))</span>
+<span style="color: #000000">            </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;menu-text-color&quot;</span><span style="color: #000000">, </span><span style="color: #001080">theme</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;text-color&quot;</span><span style="color: #000000">), </span><span style="color: #0000FF">false</span><span style="color: #000000">, </span><span style="color: #098658">0.65</span><span style="color: #000000">)</span>
 <span style="color: #000000">        }</span>
 <span style="color: #000000">    }</span>
 <span style="color: #000000">}</span>
@@ -219,7 +246,7 @@
 </code></pre>
 				<br/>
 				<a href="#v-functions-see-documentation" id="v-functions-see-documentation" style="color: inherit; text-decoration: none;">
-					<h3>V. Functions <a href="https://tenjin0.github.io/react-antd-cssvars/classes/theme_class.theme.html">See documentation</a></h3>
+					<h3>V. Functions <a href="https://tenjin0.github.io/react-antd-cssvars/classes/theme.theme-1.html">See documentation</a></h3>
 				</a>
 				<br/>
 				<br/>
