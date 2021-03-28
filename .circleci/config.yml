@@ -28,5 +28,13 @@ jobs:
             - .
 workflows:
   only_test:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              ignore: 
+                - gh-pages
     jobs:
       - test
+        
