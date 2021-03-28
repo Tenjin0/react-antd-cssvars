@@ -1,1 +1,19 @@
 @collapse-prefix: ~"@{ant-prefix}-collapse";
+
+.@{collapse-prefix} {
+	color: @antd-text-color;
+	background-color: @antd-table-head-background;
+	border: 1px solid @antd-border-color;
+
+	& > .@{collapse-prefix}-item > .@{collapse-prefix}-header {
+		color: @antd-text-color;
+	}
+}
+
+.@{collapse-prefix} > .@{collapse-prefix}-item {
+	border-bottom: 1px solid @antd-border-color;
+}
+
+.@{collapse-prefix}-content {
+	color: @antd-text-color;
+}

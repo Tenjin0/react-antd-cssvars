@@ -9,7 +9,7 @@ describe("Test Component", () => {
 
 	beforeEach(() => {
 		props = {
-			defaultColor: "#FFFFF",
+			defaultColor: "#FFFFFFCC",
 			type: "primary",
 		}
 	})
@@ -27,5 +27,9 @@ describe("Test Component", () => {
 		const buttonComponent = screen.getByRole("button")
 		fireEvent.click(buttonComponent)
 		expect(testComponent.childElementCount).toEqual(2)
+
+		const container = testComponent.children[1]
+		expect(container).toHaveClass("color-picker-container")
+		expect(container.childElementCount).toEqual(3)
 	})
 })

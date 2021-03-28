@@ -1,9 +1,14 @@
-@import './variables.less';
-
 @breadcrumb-prefix: ~"@{ant-prefix}-breadcrumb";
 
+.@{breadcrumb-prefix} {
+	& > span:last-child {
+		color: @antd-text-color;
+	}
+	color: @antd-text-color;
+}
+
 .@{breadcrumb-prefix} a {
-	color: @antd-disable-color;
+	color: @antd-description-color;
 	&:hover {
 		color: @antd-primary-color-hover;
 	}

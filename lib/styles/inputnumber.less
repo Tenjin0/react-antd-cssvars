@@ -1,0 +1,35 @@
+@inputnumber-prefix: ~"@{ant-prefix}-input-number";
+
+.@{inputnumber-prefix} {
+  color: @antd-text-color;
+  background-color: @antd-text-color-inv;
+  border: 1px solid @antd-border-color;
+
+  &:hover {
+    border-color: @antd-primary-color;
+  }
+}
+
+.@{inputnumber-prefix}-affix-wrapper:hover {
+  border-color: @antd-primary-color;
+}
+
+.@{inputnumber-prefix}-focused,
+.@{inputnumber-prefix}:focus {
+  border-color: @antd-primary-color-hover;
+  box-shadow: 0 0 0 2px @antd-box-shadow-color;
+}
+
+.@{inputnumber-prefix}-affix-wrapper :hover {
+  border-color: @antd-primary-color-hover;
+}
+
+.@{inputnumber-prefix}-affix-wrapper:focus,
+.@{inputnumber-prefix}-affix-wrapper-focused {
+  box-shadow: 0 0 0 2px @antd-box-shadow-color;
+}
+
+.@{inputnumber-prefix}-search .@{inputnumber-prefix}:hover,
+.@{inputnumber-prefix}-search .@{inputnumber-prefix}:focus {
+  border-color: @antd-primary-color-hover;
+}

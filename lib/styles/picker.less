@@ -1,0 +1,49 @@
+@picker-prefix: ~"@{ant-prefix}-picker";
+
+
+.ant-picker {
+	color: @antd-text-color;
+}
+.ant-picker-focused {
+	box-shadow: 0 0 0 2px @antd-box-shadow-color;
+}
+
+.ant-picker:hover, .ant-picker-focused {
+	border-color: @antd-primary-color-hover;
+}
+
+.ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner::before {
+	border: 1px solid @antd-primary-color;
+}
+
+.ant-picker-header-view button:hover {
+	color:  @antd-primary-color;
+}
+
+
+.ant-picker-today-btn {
+	color:  @antd-primary-color;
+	&:hover {
+		color: @antd-primary-color-hover;
+	}
+}
+.ant-picker-panel .ant-picker-footer {
+	border-top: 1px solid @antd-border-color;
+}
+
+
+.ant-picker-header {
+	color: @antd-text-color;
+	border-bottom: 1px solid @antd-border-color;
+}
+
+.ant-picker-header > button {
+	color: @antd-description-color;
+	&:hover {
+		color:@antd-text-color;
+	}
+}
+
+.ant-picker-range .ant-picker-active-bar {
+	background: @antd-primary-color;
+}

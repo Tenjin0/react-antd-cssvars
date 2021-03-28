@@ -1,26 +1,37 @@
 @badge-prefix: ~"@{ant-prefix}-badge";
 
-
+.@{badge-prefix}-status-text,
 .@{badge-prefix} {
 	color: @antd-text-color;
 }
 .@{badge-prefix}.@{badge-prefix}-status {
 	&.status-color-primary {
-		.ant-badge-status-dot {
+		.@{badge-prefix}-status-dot {
 			background-color: @antd-primary-color;
 		}
 	}
 
 	&.status-color-secondary {
-		.ant-badge-status-dot {
+		.@{badge-prefix}-status-dot {
 			background-color: @antd-secondary-color;
 		}
 	}
 
 	&.status-size-large {
-		.ant-badge-status-dot {
+		.@{badge-prefix}-status-dot {
 			width: 10px;
 			height: 10px;
 		}
 	}
+}
+
+.@{badge-prefix}-status-warning {
+	background-color: @antd-warning-color;
+}
+
+.@{badge-prefix}-status-success {
+	background-color: @antd-success-color;
+}
+.@{badge-prefix}-status-error {
+	background-color: @antd-danger-color;
 }

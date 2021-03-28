@@ -1,0 +1,9 @@
+@cascader-prefix: ~"@{ant-prefix}-cascader";
+
+.@{cascader-prefix}-picker {
+	color: @antd-text-color;
+}
+
+.@{cascader-prefix}-picker-label:hover + .@{cascader-prefix}-input:not(.@{cascader-prefix}-picker-disabled .@{cascader-prefix}-picker-label:hover + .@{cascader-prefix}-input){
+	border-color: @antd-primary-color-hover;
+}

@@ -21,9 +21,13 @@ const computed = (key: CustomTThemeColorTypes, value: string, luminance: number)
 		theme.set("table-head-background-hover", Theme.tint(value, 75))
 		theme.set("table-head-background-selected", Theme.tint(value, 15))
 		theme.set("table-head-background-selected-hover", value)
+		theme.set("box-shadow-color", value, false, 20)
 	}
 	if (theme.has(`${key}-hover` as TThemeColorTypes)) {
-		theme.set(`${key}-hover` as TThemeColorTypes, Theme.tint(value, 17.5))
+		theme.set(`${key}-hover` as TThemeColorTypes, Theme.tint(value, 17.5), false)
+	}
+	if (theme.has(`${key}-background` as TThemeColorTypes)) {
+		theme.set(`${key}-background` as TThemeColorTypes, Theme.tint(value, 75), false)
 	}
 	if (key === "menu-background") {
 		if (luminance < 0.015) {
@@ -46,7 +50,6 @@ const initTheme: TTheme<CustomTThemeColorTypes> = {
 }
 
 const theme = new Theme<CustomTThemeColorTypes>(initTheme, computed, customDThemeColorTypes)
-
 window["theme"] = theme
 
 ReactDOM.render(

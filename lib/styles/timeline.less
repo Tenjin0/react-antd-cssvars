@@ -3,8 +3,15 @@
 @timeline-prefix: ~"@{ant-prefix}-timeline";
 
 
+.@{timeline-prefix} {
+	color: @antd-text-color;
+}
 .@{timeline-prefix}-item.@{timeline-prefix}-item-pending > .@{timeline-prefix}-item-head {
 	color: @antd-primary-color;
+}
+
+.@{timeline-prefix}-item-tail {
+	border-left: 2px solid @antd-border-color;
 }
 
 .item-head-primary > .@{timeline-prefix}-item-head {

@@ -1,0 +1,24 @@
+@list-prefix: ~"@{ant-prefix}-list";
+
+.@{list-prefix}-item-meta-content,
+.@{list-prefix}-item-meta-title > a,
+.@{list-prefix}-item,
+.@{list-prefix} {
+	color: @antd-text-color;
+}
+.@{list-prefix}-bordered {
+	border: 1px solid @antd-border-color;
+	border-radius: 2px;
+}
+
+.@{list-prefix}-split .@{list-prefix}-header {
+	border-bottom: 1px solid  @antd-border-color;
+}
+
+.@{list-prefix}-item-meta-title > a:hover {
+	color: @antd-primary-color-hover;
+}
+
+.@{list-prefix}-item-meta-description {
+	color: @antd-description-color;
+}

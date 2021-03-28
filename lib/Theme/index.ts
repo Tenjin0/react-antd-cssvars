@@ -5,14 +5,22 @@ export declare const DThemeColorTypes: [
 	"primary-color",
 	"secondary-color",
 	"danger-color",
+	"success-color",
+	"warning-color",
+	"description-color",
+	"disable-color",
+	"border-color",
 	"primary-color-hover",
 	"secondary-color-hover",
 	"danger-color-hover",
-	"success-color",
-	"warning-color",
-	"disable-color",
+	"primary-color-background",
+	"secondary-color-background",
+	"danger-color-background",
+	"success-color-background",
+	"warning-color-background",
 	"text-color",
 	"text-color-inv",
+	"disable-background",
 	"background-hover",
 	"background-selected",
 	"table-head-text-color",
@@ -32,14 +40,23 @@ export const ThemeColorKeys: TThemeColorTypes[] = [
 	"primary-color",
 	"secondary-color",
 	"danger-color",
+	"success-color",
+	"warning-color",
+	"primary-color-background",
+	"secondary-color-background",
+	"danger-color-background",
+	"success-color-background",
+	"warning-color-background",
 	"primary-color-hover",
 	"secondary-color-hover",
 	"danger-color-hover",
 	"success-color",
 	"warning-color",
+	"border-color",
 	"disable-color",
 	"text-color",
 	"text-color-inv",
+	"disable-background",
 	"background-hover",
 	"background-selected",
 	"table-head-text-color",
@@ -108,13 +125,15 @@ export class Theme<T extends string> {
 	}
 
 	set(key: T, value: hex, computed = false, alpha?: number): void {
-		const tiny = tinycolor(value)
+		let tiny = tinycolor(value, { format: "hex" })
 		if (alpha !== undefined) {
-			tiny.setAlpha(alpha)
+			if (alpha > 1) {
+				alpha = Number.parseFloat((alpha / 100).toFixed(2))
+			}
+			tiny = tiny.setAlpha(alpha)
 		}
 		alpha = tiny.getAlpha()
-
-		this.theme[key] = alpha !== 1 ? tiny.toHex8String() : tiny.toHexString()
+		this.theme[key] = alpha !== 1 && alpha !== 0 ? tiny.toHex8String() : tiny.toHexString()
 		const cssvar = this.keyToProperty(key)
 		document.body.style.setProperty(cssvar, this.theme[key])
 		if (computed && this.computed) {
@@ -159,6 +178,10 @@ export class Theme<T extends string> {
 		return tinycolor(hex).shade(weigth).toHexString()
 	}
 
+	static complement(hex: hex): hex {
+		return tinycolor(hex).complement().toHexString()
+	}
+
 	static isdark(hex: hex): boolean {
 		return tinycolor(hex).isDark()
 	}
@@ -167,5 +190,3 @@ export class Theme<T extends string> {
 		return tinycolor(color1).mix(color2, percent).toHex()
 	}
 }
-
-// document.documentElement.style.setProperty("--primary-color", "#23b696");

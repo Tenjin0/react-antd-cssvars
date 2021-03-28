@@ -1,6 +1,7 @@
 # react-antd-cssvars
 
-[![Build Status](https://travis-ci.org/Tenjin0/react-antd-cssvars.svg?branch=master)](https://travis-ci.org/Tenjin0/react-antd-cssvars)
+[![npm](https://badgen.net/npm/v/react-antd-cssvars)](https://www.npmjs.com/package/react-antd-cssvars)
+[![CircleCI](https://circleci.com/gh/Tenjin0/react-antd-cssvars.svg?style=shield)](https://circleci.com/gh/Tenjin0/react-antd-cssvars)
 ## Usage 
 
 Provide a way to dynamically change the color of ant design components.  
@@ -12,36 +13,57 @@ Provide a way to dynamically change the color of ant design components.
 Note: Support hex8.
 
 ### Done
-
+* Alert: add secondary color
+* Autocomplete
+* BackTop
+* Badge
 * Button:  add secondary, success, warning type
+* Calendar
+* Card
+* Caroussel
+* Cascader
 * CheckBox
 * Collapse
+* Comment
+* Datepicker
+* Divider
+* Descriptions
 * Dropdown
+* Form
 * Input
+* InputNumber
+* List
+* Mentions
 * Menu
 * Message
+* Notification
+* Modal
 * PageHeader
+* PopConfirm
+* Popover
 * Progress
 * Radio
+* Rate: default color set to primary
 * Result
 * Select
 * Slider
 * Spin
+* Statistic
 * Steps
 * Switch
 * Table
 * Tabs
 * Tag: add primary, secondary and danger color
 * Timeline: add primary, secondary, success and danger color (Item need to import the one from the package)
+* Timepicker
+* Tooltip
+* Transfert
+* Tree
+* TreeSelect
+
 
 ### Not Done Yet
-
-* Alert ( issue with the background)
-* Dropdown
-* Statistic
-* BackTop
-* Popconfirm
-* Others xD
+* Skeleton
 
 ### [Demo page](https://tenjin0.github.io/react-antd-cssvars/example/)
 <br/>
@@ -90,7 +112,8 @@ const theme = new Theme<TThemeColorTypes>()
 
 ### II. Init theme
 
-You can initialize the theme with the first parameter of the contructor.
+You can initialize the theme with the first parameter of the contructor.  
+note: it will trigger the compute function
 
 ```typescript
 import { Theme, TThemeColorTypes, TTheme } from "react-antd-cssvars"
@@ -121,20 +144,24 @@ const computed = (key: TThemeColorTypes, value: string, luminance: number) => {
 		theme.set("table-head-background-hover", Theme.tint(value, 75))
 		theme.set("table-head-background-selected", Theme.tint(value, 15))
 		theme.set("table-head-background-selected-hover", value)
+		theme.set("box-shadow-color", value, false, 20)
 	}
 	if (theme.has(`${key}-hover` as TThemeColorTypes)) {
-		theme.set(`${key}-hover` as TThemeColorTypes, Theme.tint(value, 17.5))
+		theme.set(`${key}-hover` as TThemeColorTypes, Theme.tint(value, 17.5), false)
+	}
+	if (theme.has(`${key}-background` as TThemeColorTypes)) {
+		theme.set(`${key}-background` as TThemeColorTypes, Theme.tint(value, 75), false)
 	}
 	if (key === "menu-background") {
 		if (luminance < 0.015) {
-			theme.set("submenu-background", Theme.tint(value, 20))
+			theme.set("submenu-background", Theme.tint(value, 20), false)
 		} else {
-			theme.set("submenu-background", Theme.shade(value, 20))
+			theme.set("submenu-background", Theme.shade(value, 20), false)
 		}
 		if (Theme.isdark(value)) {
-			theme.set("menu-text-color", theme.get("text-color-inv"))
+			theme.set("menu-text-color", theme.get("text-color-inv"), false, 0.65)
 		} else {
-			theme.set("menu-text-color", theme.get("text-color"))
+			theme.set("menu-text-color", theme.get("text-color"), false, 0.65)
 		}
 	}
 }
@@ -146,7 +173,6 @@ const theme = new Theme<TThemeColorTypes>(null, computed)
 ### IV. Customize cssvars
 
 If you want to manage more cssvars. (Do not forget to define and initialize it in your less/css file)
-
 
 ```typescript
 import { Theme, TThemeColorTypes, TTheme, DThemeColorTypes } from "react-antd-cssvars"
@@ -161,7 +187,7 @@ const theme = new Theme<CustomTThemeColorTypes>(initTheme, null, customDThemeCol
 ```
 <br/>
 
-### V. Functions [See documentation](https://tenjin0.github.io/react-antd-cssvars/classes/theme_class.theme.html)
+### V. Functions [See documentation](https://tenjin0.github.io/react-antd-cssvars/classes/theme.theme-1.html)
 
 <br/>
 <br/>
@@ -199,7 +225,6 @@ const theme = new Theme<CustomTThemeColorTypes>(initTheme, null, customDThemeCol
 ### V. Status: 
 
 * add new component Status Derived from Badge
-
 
 <br/>
 <br/>

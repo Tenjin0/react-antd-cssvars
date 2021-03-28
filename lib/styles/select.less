@@ -1,5 +1,9 @@
 @select-prefix: ~"@{ant-prefix}-select";
 
+.@{select-prefix} {
+	color: @antd-text-color;
+}
+
 .@{select-prefix}:not(.@{select-prefix}-disabled):hover .@{select-prefix}-selector {
 	border-color: @antd-primary-color;
 }
@@ -17,3 +21,24 @@
 	color: @antd-text-color;
 	background-color: @antd-background-selected;
 }
+
+
+.@{select-prefix}:not(.@{select-prefix}-customize-input) .@{select-prefix}-selector {
+	background-color: @antd-text-color-inv;
+	border: 1px solid @antd-border-color;
+}
+
+.@{select-prefix}-dropdown {
+	color: @antd-text-color;
+}
+.@{select-prefix}-arrow,
+.@{select-prefix}-selection-placeholder {
+	color: @antd-description-color;
+}
+
+.rc-virtual-list-holder-inner {
+	.@{select-prefix}-item {
+		color: @antd-text-color;
+	}
+}
+

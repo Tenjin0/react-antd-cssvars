@@ -1,0 +1,11 @@
+@mentions-prefix: ~"@{ant-prefix}-mentions";
+
+.@{mentions-prefix} {
+	color: @antd-text-color;
+	background-color: @antd-table-head-background;
+	border: 1px solid @antd-border-color;
+	&:hover, .@{mentions-prefix}:focus, .@{mentions-prefix}-focused  {
+		border-color: @antd-primary-color-hover;
+	}
+}
+

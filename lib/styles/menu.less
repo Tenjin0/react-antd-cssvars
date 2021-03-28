@@ -45,7 +45,7 @@
 }
 
 .@{menu-prefix}-dark {
-	& .@{menu-prefix}-inline.ant-menu-sub {
+	& .@{menu-prefix}-inline.@{menu-prefix}-sub {
 		background: @antd-submenu-background;
 	}
 
@@ -53,3 +53,12 @@
 		background:@antd-menu-color;
 	}
 }
+
+.@{menu-prefix}-dark .@{menu-prefix}-item, .@{menu-prefix}-dark .@{menu-prefix}-item-group-title, .@{menu-prefix}-dark .@{menu-prefix}-item > a, .@{menu-prefix}-dark .@{menu-prefix}-item > span > a {
+	color: @antd-menu-text-color;
+}
+
+.@{menu-prefix}.@{menu-prefix}-dark, .@{menu-prefix}-dark .@{menu-prefix}-sub, .@{menu-prefix}.@{menu-prefix}-dark .@{menu-prefix}-sub {
+	color: @antd-menu-text-color;
+}
+

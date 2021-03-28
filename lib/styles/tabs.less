@@ -3,8 +3,13 @@
 @tabs-prefix: ~"@{ant-prefix}-tabs";
 
 
-.@{tabs-prefix}-tab:hover {
-	color: @antd-primary-color-hover;
+.@{tabs-prefix} {
+	color: @antd-text-color;
+}
+.@{tabs-prefix}-tab {
+	&:hover {
+		color: @antd-primary-color-hover;
+	}
 }
 
 .@{tabs-prefix}-tab.@{tabs-prefix}-tab-active .@{tabs-prefix}-tab-btn {

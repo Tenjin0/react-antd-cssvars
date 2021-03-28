@@ -3,19 +3,20 @@
 @pagination-prefix: ~"@{ant-prefix}-pagination";
 @table-prefix: ~"@{ant-prefix}-table";
 
+.@{pagination-prefix}-item {
+	background-color: @antd-text-color-inv;
+	border: 1px solid @antd-border-color;
+	& a  {
+		color: @antd-text-color;
+	}
+}
+
 .@{pagination-prefix}-item-active {
   border-color: @antd-primary-color;
 
   & a {
     color: @antd-primary-color;
   }
-
-	&:focus a {
-		color: @antd-text-color-inv;
-  }
-}
-
-.@{pagination-prefix}-item-active {
 	&:focus,
 	&:hover {
 		border-color: @antd-primary-color-hover;
@@ -23,8 +24,21 @@
 			color: @antd-primary-color-hover;
 		}
 	}
+
+	&:focus a {
+		color: @antd-text-color-inv;
+  }
 }
 
+.ant-pagination-prev button, .ant-pagination-next button {
+	color: @antd-text-color;
+}
+
+.ant-pagination-prev .ant-pagination-item-link, .ant-pagination-next .ant-pagination-item-link {
+
+	background-color: @antd-text-color-inv;
+	border: 1px solid #d9d9d9;
+}
 .@{pagination-prefix}-item:not(.@{pagination-prefix}-item-active) {
 	&:focus,
   &:hover {
@@ -45,6 +59,14 @@
     color: @antd-primary-color;
   }
 
+}
+.@{pagination-prefix},
+.@{table-prefix} {
+	color: @antd-text-color;
+}
+
+.@{table-prefix}-tbody > tr > td {
+	border-bottom: 1px solid @antd-border-color;
 }
 
 .@{table-prefix}-column-sorter-up.active, .@{table-prefix}-column-sorter-down.active {
@@ -85,8 +107,11 @@
 }
 
 
-.@{table-prefix}-filter-trigger.active {
-	color: @antd-primary-color;
+.@{table-prefix}-filter-trigger {
+	color: @antd-disable-color;
+	&.active {
+		color: @antd-primary-color;
+	}
 }
 
 
@@ -95,5 +120,10 @@
 }
 
 .@{table-prefix}-filter-trigger-container-open .@{table-prefix}-filter-trigger, .@{table-prefix}-filter-trigger:hover {
-	color: @antd-text-color;
+	color: @antd-description-color;
 }
+
+.@{table-prefix}-tbody > tr.@{table-prefix}-row-selected > td {
+	background: @antd-background-selected;
+}
+
