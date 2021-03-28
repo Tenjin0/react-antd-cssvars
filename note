@@ -9,5 +9,5 @@ https://github.com/padok-team/github-actions-tutorial
 remplacer webpack par rollup ? et tenter de rajouter storybook
 
 travis ? circle ci ? git hub action ? (cf : @ctrl/tinycolor)
-
+enlever value.js
 une branche antd-v3 ?
