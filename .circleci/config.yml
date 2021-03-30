@@ -29,4 +29,10 @@ jobs:
 workflows:
   only_test:
     jobs:
-      - test
+      - test:
+        filters:
+          branches:
+            ignore:
+              - gh-pages
+
+        

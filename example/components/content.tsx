@@ -50,7 +50,6 @@ import {
 	Row,
 	Col,
 	notification,
-	BackTop,
 } from "antd"
 
 import {
@@ -379,7 +378,7 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 
 	const [targetKeys, setTargetKeys] = useState(initialTargetKeys)
 	const [selectedKeys, setSelectedKeys] = useState([])
-	const onChange = (nextTargetKeys, direction, moveKeys) => {
+	const onChange = (nextTargetKeys) => {
 		setTargetKeys(nextTargetKeys)
 	}
 
@@ -487,8 +486,6 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 		</Menu>
 	)
 
-	const getTarget = () => document.getElementById("layout-content")
-
 	return (
 		<React.Fragment>
 			<div style={{ display: "flex", justifyContent: "center", marginBottom: "1em" }}>
@@ -552,7 +549,6 @@ const MyComponent: React.FunctionComponent<MyComponentProps> = (props) => {
 						Danger Color
 					</ColorPicker>
 				</div>
-
 				<br />
 				<br />
 			</PageHeader>
