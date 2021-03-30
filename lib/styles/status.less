@@ -35,3 +35,10 @@
 .@{badge-prefix}-status-error {
 	background-color: @antd-danger-color;
 }
+
+.@{badge-prefix}-status-processing {
+	background-color: @antd-primary-color;
+	&::after {
+		border: 1px solid @antd-primary-color;
+	}
+}
