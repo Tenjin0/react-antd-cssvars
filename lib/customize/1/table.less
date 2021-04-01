@@ -19,6 +19,7 @@
 		}
 	}
 }
+
 .@{pagination-prefix}-item-active {
 	background-color: @antd-primary-color;
   & a {
@@ -31,5 +32,31 @@
 		& a {
 			color: @antd-text-color-inv;
 		}
+	}
+}
+
+
+.@{table-prefix}-thead th.@{table-prefix}-column-sort .@{table-prefix}-filter-trigger-container {
+	color: @antd-text-color-inv;
+	& .@{table-prefix}-filter-trigger {
+		color: i@antd-text-color-inv;
+	}
+	& .@{table-prefix}-filter-trigger.active {
+		color: @antd-text-color;
+		&:hover {
+			background-color: @antd-table-head-background-selected-hover;
+		}
+	}
+}
+
+.@{table-prefix}-filter-trigger-container-open, .@{table-prefix}-filter-trigger-container:hover, .@{table-prefix}-thead th.@{table-prefix}-column-has-sorters:hover .@{table-prefix}-filter-trigger-container:hover,
+.@{table-prefix}-thead th.@{table-prefix}-column-has-sorters:hover .@{table-prefix}-filter-trigger-container {
+	background: @antd-table-head-background-hover;
+	& .@{table-prefix}-filter-trigger {
+		background: @antd-table-head-background-hover;
+		color: @antd-description-color;
+	}
+	& .@{table-prefix}-filter-trigger.active {
+		background: @antd-table-head-background-selected;
 	}
 }
