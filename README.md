@@ -93,6 +93,15 @@ You can redifine the default color value
 ```
 
 ### III. Custom properties [list here](https://github.com/Tenjin0/react-antd-cssvars/blob/develop/lib/styles/index.less)
+
+```less
+@default-debug-background: #333333;
+root {
+	--debug-background : @default-debug-background;
+}
+// to use as a variable in your less files
+@debug-background: var(--debug-background);
+```
 <br/>
 <br/>
 
@@ -175,13 +184,15 @@ const theme = new Theme<TThemeColorTypes>(null, computed)
 If you want to manage more cssvars. (Do not forget to define and initialize it in your less/css file)
 
 ```typescript
-import { Theme, TThemeColorTypes, TTheme, DThemeColorTypes } from "react-antd-cssvars"
-type CustomTThemeColorTypes = CustomTThemeColorTypes | "debug"
+import { Theme, TThemeColorTypes, TTheme, DThemeColorTypes, ThemeColorKeys } from "react-antd-cssvars"
+type CustomTThemeColorTypes = TThemeColorTypes | "debug"
 const customDThemeColorTypes: CustomTThemeColorTypes[] = [...ThemeColorKeys]
 customDThemeColorTypes.push("debug")
-	const initTheme: TTheme<CustomTThemeColorTypes> = {
-		"debug": "#333333",
-	}
+
+// optional if you have define it in your less/css file
+const initTheme: TTheme<CustomTThemeColorTypes> = {
+	"debug": "#333333",
+}
 
 const theme = new Theme<CustomTThemeColorTypes>(initTheme, null, customDThemeColorTypes)
 ```
