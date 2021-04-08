@@ -38,10 +38,10 @@
 		"test:watch": "npx jest --watch",
 		"preversion": "npm run ci",
 		"postversion": "git push && git push --tags",
-		"prepublishOnly": "npm run build",
+		"prepare": "npm run build",
 		"docs": "rimraf docs && typedoc --out docs lib",
 		"gh-pages": "npm run docs && npm run example:build && gh-pages -d docs",
-		"ci": "npm run lint && npm run test && npm run build"
+		"ci": "npm run lint && npm run test"
 	},
 	"author": "",
 	"license": "ISC",
