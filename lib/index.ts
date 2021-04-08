@@ -5,4 +5,10 @@ export { default as ColorPicker } from "./components/ColorPicker"
 export { default as TimelineItem } from "./components/TimelineItem"
 
 export { Theme } from "./Theme"
-export type { TThemeColorTypes, TThemeComputed, DThemeColorTypes, TTheme } from "./Theme"
+export type {
+	TThemeColorTypes,
+	TThemeComputed,
+	DThemeColorTypes,
+	TTheme,
+	ThemeColorKeys,
+} from "./Theme"
