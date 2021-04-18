@@ -1,6 +1,5 @@
 # react-antd-cssvars
 
-[![npm](https://badgen.net/npm/v/react-antd-cssvars)](https://www.npmjs.com/package/react-antd-cssvars)
 [![CircleCI](https://circleci.com/gh/Tenjin0/react-antd-cssvars.svg?style=shield)](https://circleci.com/gh/Tenjin0/react-antd-cssvars)
 ## Usage 
 
